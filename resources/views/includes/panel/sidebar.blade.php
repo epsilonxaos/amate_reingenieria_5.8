@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse" id="sidenav-collapse-main">
 			<!-- Nav items -->
 			<ul class="navbar-nav">
-				{{-- <li class="nav-item">
+				<li class="nav-item">
 					<a class="nav-link {{request() -> is('admin/noticias*') ? 'active' : ''}}" href="#navbar-noticias" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/noticias*') ? 'true' : 'false'}}" aria-controls="navbar-tables">
 						<i class="ni ni-book-bookmark text-default"></i>
 						<span class="nav-link-text">Noticias</span>
@@ -20,7 +20,7 @@
 					<div class="collapse {{request() -> is('admin/noticias*') ? 'show' : ''}}" id="navbar-noticias">
 						<ul class="nav nav-sm flex-column">
 							<li class="nav-item">
-								<a class="nav-link {{request() -> is('admin/noticias/categorias*') ? 'active' : ''}}" href="{{route('panel.noticias.categorias.index')}}">
+								<a class="nav-link {{request() -> is('admin/categorias/blog*') ? 'active' : ''}}" href="{{route('panel.categorias.index', ['seccion' => 'blog'])}}">
 									<i class="ni ni-tag text-default"></i>
 									<span class="nav-link-text">Categorías</span>
 								</a>
@@ -33,15 +33,15 @@
 							</li>
 						</ul>
 					</div>
-				</li> --}}
-				@can(PermissionKey::Noticias['permissions']['index']['name'])
+				</li>
+				{{-- @can(PermissionKey::Noticias['permissions']['index']['name'])
 					<li class="nav-item">
 						<a class="nav-link {{request() -> is('admin/noticias*') ? 'active' : ''}}" href="{{route('panel.noticias.index')}}">
 							<i class="ni ni-bullet-list-67 text-default"></i>
 							<span class="nav-link-text">Noticias</span>
 						</a>
 					</li>
-				@endcan
+				@endcan --}}
 				@can(PermissionKey::Admin['permissions']['index']['name'])
 					<li class="nav-item">
 						<a class="nav-link {{request() -> is('admin/cuentas/usuarios*') ? 'active' : '' }}" href="{{ route('panel.admins.index') }}">

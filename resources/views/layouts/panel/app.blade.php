@@ -90,6 +90,19 @@
     <script src="{{asset('panel/sweetalert/sweetalert.min.js')}}"></script>
     @stack('js')
     <script>
+
+        alertify.set('notifier','position', 'top-right');
+
+        $('.dropify').dropify();
+
+        function limitText(limitField, limitNum) {
+            if (limitField.value.length > limitNum) {
+                limitField.value = limitField.value.substring(0, limitNum);
+            } else {
+                document.querySelector('.limitText').innerHTML = limitNum - limitField.value.length;
+            }
+        }
+
         function deleteSubmitForm(id){
             swal({
                 title: "¿Finalizar eliminación?",
