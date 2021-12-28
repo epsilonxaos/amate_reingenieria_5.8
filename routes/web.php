@@ -64,14 +64,7 @@ Route::prefix('/admin')->group(function(){
     });
 
     //Portafolio
-    Route::prefix('/portafolio') -> middleware('auth:admin') -> group(function(){
-        Route::prefix('/categorias') -> group(function () {
-            Route::get('/', 'PortafolioCategoriasController@index') -> name('panel.portafolio.categorias.index');
-            Route::put('/add', 'PortafolioCategoriasController@store') -> name('panel.portafolio.categorias.store');
-            Route::post('/update', 'PortafolioCategoriasController@update') -> name('panel.portafolio.categorias.update');
-            Route::delete('/destroy/{id}', 'PortafolioCategoriasController@destroy') -> name('panel.portafolio.categorias.destroy');
-        });
-
+    Route::prefix('/portafolio') -> middleware('auth:admin') -> group(function () {
         Route::get('/', 'PortafolioController@index') -> name('panel.portafolio.index');
         Route::get('/create', 'PortafolioController@create') -> name('panel.portafolio.create');
         Route::put('/create/store', 'PortafolioController@store') -> name('panel.portafolio.store');
@@ -79,19 +72,14 @@ Route::prefix('/admin')->group(function(){
         Route::post('/edit/{id}/update', 'PortafolioController@update') -> name('panel.portafolio.update');
         Route::delete('/destroy/{id}', 'PortafolioController@destroy') -> name('panel.portafolio.destroy');
         Route::post('/change/status', 'PortafolioController@changeStatus') -> name('panel.portafolio.status');
-        Route::post('/ordenamiento/galeria', 'PortafolioController@ordenamiento') -> name('panel.portafolio.ordenamiento');
-        Route::post('/destroy/galeria', 'PortafolioController@destroyImageGallery') -> name('panel.portafolio.destroy.galeria');
-    });
 
-    //Servicios
-    Route::prefix('/servicios') -> middleware('auth:admin') -> group(function(){
-        Route::get('/', 'ServicesController@index') -> name('panel.servicios.index');
-        Route::get('/create', 'ServicesController@create') -> name('panel.servicios.create');
-        Route::put('/create/store', 'ServicesController@store') -> name('panel.servicios.store');
-        Route::get('/edit/{id}', 'ServicesController@edit') -> name('panel.servicios.edit');
-        Route::post('/edit/{id}/update', 'ServicesController@update') -> name('panel.servicios.update');
-        Route::delete('/destroy/{id}', 'ServicesController@destroy') -> name('panel.servicios.destroy');
-        Route::post('/change/status', 'ServicesController@changeStatus') -> name('panel.servicios.status');
+        // Galeria
+        Route::prefix('/galeria') -> middleware('auth:admin') -> group(function(){
+            Route::get('/{accion}/{id}', 'PortafolioController@createGaleria') -> name('panel.portafolio.galeria.acciones');
+            Route::post('/add', 'PortafolioController@storeGaleria') -> name('panel.portafolio.galeria.store');
+            Route::post('/ordenamiento', 'PortafolioController@ordenamiento') -> name('panel.portafolio.galeria.ordenamiento');
+            Route::post('/destroy', 'PortafolioController@destroyImageGallery') -> name('panel.portafolio.galeria.destroy');
+        });
     });
 
     //Categorias
@@ -107,13 +95,6 @@ Route::prefix('/admin')->group(function(){
 
     //Noticias
     Route::prefix('/noticias') -> middleware('auth:admin') -> group(function(){
-        Route::prefix('/categorias') -> group(function () {
-            Route::get('/', 'NoticiasCategoriasController@index') -> name('panel.noticias.categorias.index');
-            Route::put('/add', 'NoticiasCategoriasController@store') -> name('panel.noticias.categorias.store');
-            Route::post('/update', 'NoticiasCategoriasController@update') -> name('panel.noticias.categorias.update');
-            Route::delete('/destroy/{id}', 'NoticiasCategoriasController@destroy') -> name('panel.noticias.categorias.destroy');
-        });
-
         Route::get('/', 'NoticiasController@index') -> name('panel.noticias.index');
         Route::get('/create', 'NoticiasController@create') -> name('panel.noticias.create');
         Route::put('/create/store', 'NoticiasController@store') -> name('panel.noticias.store');
@@ -124,8 +105,8 @@ Route::prefix('/admin')->group(function(){
     });
 
     // Website
-    Route::prefix('/website') -> middleware('auth:admin') -> group(function(){
-        Route::get('/', 'WebsiteController@index') -> name('panel.website.index');
-        Route::post('/edit/update', 'WebsiteController@update') -> name('panel.website.update');
-    });
+    // Route::prefix('/website') -> middleware('auth:admin') -> group(function(){
+    //     Route::get('/', 'WebsiteController@index') -> name('panel.website.index');
+    //     Route::post('/edit/update', 'WebsiteController@update') -> name('panel.website.update');
+    // });
 });

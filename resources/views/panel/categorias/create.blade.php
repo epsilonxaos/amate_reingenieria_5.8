@@ -39,7 +39,7 @@
                                     <div class="col-12 col-sm-12 mb-4">
                                         <div class="form-group">
                                             <label for="title">Titulo <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="title" value="{{old('title')}}">
+                                            <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
                                             @if($errors -> has('title'))
                                                 <small class="text-danger pt-1">{{ $errors -> first('title') }}</small>
                                             @endif

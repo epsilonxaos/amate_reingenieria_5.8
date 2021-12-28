@@ -30,6 +30,67 @@
             font-size: 12px;
         }
     </style>
+    <style>
+        .chtg {
+            position: relative;
+            z-index: 1;
+        }
+        .chtg input[type=checkbox],
+        .chtg input[type=radio] {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        }
+
+        .chtg label {
+            position: relative;
+            margin-right: 1em;
+            padding-left: 2em;
+            padding-right: 1em;
+            line-height: 2;
+            cursor: pointer;
+            color: #525f7f;
+            font-size: 14px;
+        }
+        .chtg label:before {
+        box-sizing: border-box;
+        content: " ";
+        position: absolute;
+        top: 0.3em;
+        left: 0;
+        display: block;
+        width: 1.4em;
+        height: 1.4em;
+        border: 1px solid #adb6ca;
+        border-radius: 0.25em;
+        z-index: -1;
+        }
+
+        .chtg input[type=radio] + label::before {
+        border-radius: 1em;
+        }
+
+        /* Checked */
+        .chtg input[type=checkbox]:checked + label,
+        .chtg input[type=radio]:checked + label {
+        padding-left: 1em;
+        color: #fff;
+        }
+        .chtg input[type=checkbox]:checked + label:before,
+        .chtg input[type=radio]:checked + label:before {
+        top: 0;
+        width: 100%;
+        height: 2em;
+        background: #172b4d;
+        border-color: #172b4d;
+        }
+
+        /* Transition */
+        .chtg label,
+        .chtg label::before {
+        transition: 0.25s all ease;
+        }
+    </style>
     {{-- <link rel="stylesheet" href="{{asset('css/panel.css')}}"> --}}
     <style>
         .alertify-notifier.ajs-right .ajs-message.ajs-visible {
@@ -67,6 +128,21 @@
 
         .options-flotting .item.delete {
             background-color: crimson;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+
+        .dropzone {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .dropzone .dz-message {
+            margin: 0px;
+            border-color: transparent;
+            width: 100%;
         }
     </style>
     @stack('link')
