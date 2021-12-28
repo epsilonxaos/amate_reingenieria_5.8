@@ -27,20 +27,31 @@
                                 <div class="row">
                                     <div class="col-12 mb-4">
                                         <label for="portada">Portada <span class="text-danger">*</span></label>
-                                        <input type="file" name="portada" class="dropify" data-height="300" data-max-file-size="2M"  data-allowed-file-extensions="jpg jpeg png" />
+                                        <input type="file" name="portada" required class="dropify" data-height="300" data-max-file-size="2M"  data-allowed-file-extensions="jpg jpeg png" />
                                         <small>Las medidas recomendadas son 670 x 396 px, solo se aceptan .jpg, .jpeg y .png con un maximo de peso de 2MB.</small>
                                         @if($errors -> has('portada'))
                                             <br>
                                             <small class="text-danger pt-1">{{ $errors -> first('portada') }}</small>
                                         @endif
                                     </div>
-                                    <div class="col-12 col-sm-12 mb-4">
+                                    <div class="col-12 col-sm-6 mb-4">
                                         <div class="form-group">
                                             <label for="titulo">Titulo <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}">
+                                            <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" required>
                                             @if($errors -> has('titulo'))
                                                 <small class="text-danger pt-1">{{ $errors -> first('titulo') }}</small>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 mb-4">
+                                        <div class="form-group">
+                                            <label for="categoria_id">Categoria <span class="text-danger">*</span></label>
+                                            <select class="form-control" name="categorias_id" id="categoria_id" required>
+                                                <option value="">Selecciona una opción</option>
+                                                @foreach ($categorias as $item)
+                                                    <option value="{{$item -> id}}">{{$item -> title}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 mb-4">

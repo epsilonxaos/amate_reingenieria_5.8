@@ -18,7 +18,7 @@ class NoticiasController extends Controller
      */
     public function index()
     {
-        $all = Noticias::select('noticias.*', 'categorias.titulo as categoriaTitulo')
+        $data = Noticias::select('noticias.*', 'categorias.title as categoriaTitulo')
             -> join('categorias', 'noticias.categorias_id', '=', 'categorias.id')
             -> get();
 
@@ -26,12 +26,12 @@ class NoticiasController extends Controller
             'title' => 'Noticias',
             'breadcrumb' => [
                 [
-                    'title' => 'Todos',
+                    'title' => 'Listado',
                     'route' => 'panel.noticias.index',
                     'active' => true
                 ]
             ],
-            'lista' => $all
+            'lista' => $data
         ]);
     }
 
@@ -42,13 +42,11 @@ class NoticiasController extends Controller
      */
     public function create()
     {
-        $categorias = Categorias::where('modulo', 'noticias') -> get();
-
         return view('panel.noticias.create', [
             'title' => 'Noticias',
             'breadcrumb' => [
                 [
-                    'title' => 'Todos',
+                    'title' => 'Listado noticias',
                     'route' => 'panel.noticias.index',
                     'active' => false
                 ],
@@ -58,7 +56,7 @@ class NoticiasController extends Controller
                     'active' => true
                 ]
             ],
-            'categorias' => $categorias
+            'categorias' => Categorias::where([['seccion', '=', 'blog'], ['status', '=', 1]]) -> orderBy('title', 'desc') -> get()
         ]);
     }
 
@@ -105,19 +103,16 @@ class NoticiasController extends Controller
      */
     public function edit(Int $id)
     {
-        $item = Noticias::find($id);
-        $categorias = Categorias::where('modulo', 'noticias') -> get();
-
         return view('panel.noticias.edit', [
             'title' => 'Noticias',
             'breadcrumb' => [
                 [
-                    'title' => 'Todos',
+                    'title' => 'Listado categorias',
                     'route' => 'panel.noticias.index',
                     'active' => false
                 ],
                 [
-                    'title' => 'Actualizar noticia',
+                    'title' => 'Editar noticia',
                     'route' => 'panel.noticias.edit',
                     'params' => [
                         "id" => $id
@@ -125,8 +120,8 @@ class NoticiasController extends Controller
                     'active' => true
                 ]
                 ],
-                'noticia' => $item,
-                'categorias' => $categorias
+                'noticia' =>  Noticias::find($id),
+                'categorias' => Categorias::where([['seccion', '=', 'blog'], ['status', '=', 1]]) -> orderBy('title', 'desc') -> get()
         ]);
     }
 

@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="row align-items-center">
-                                <div class="col-12 col-sm-6"><h3>Editar categoria - {{$data -> title}}</h3></div>
+                                <div class="col-12 col-sm-6"><h3>Editar categoria - <span class="text-primary">{{$data -> title}}</span></h3></div>
                                 <div class="col-12 col-sm-6 text-center text-sm-right">
                                     <button type="submit" class="btn btn-primary pt-2 pb-2"><i class="fas fa-save mr-2"></i> Guardar</button>
                                     {{-- @can(PermissionKey::Noticias['permissions']['create']['name'])

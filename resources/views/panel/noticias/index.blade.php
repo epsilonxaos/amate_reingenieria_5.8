@@ -58,10 +58,10 @@
                                                 {{ $row -> titulo }}
                                             </td>
                                             <td>
-                                                {{ $row -> nombre_categoria }}
+                                                {{ $row -> categoriaTitulo }}
                                             </td>
                                             <td class="text-center">
-                                                {{ \App\FormatFecha::fechaEsp($row -> created_at) }}
+                                                {{ \App\Helpers::dateSpanishComplete($row -> created_at) }}
                                             </td>
                                             <td>
                                                 @can(PermissionKey::Noticias['permissions']['status']['name'])

@@ -29,13 +29,24 @@
                                         <input type="file" name="portada" class="dropify" data-height="300" data-max-file-size="2M"  data-allowed-file-extensions="jpg jpeg png" data-default-file="{{asset($noticia -> portada)}}" />
                                         <small>Las medidas recomendadas son 670 x 396 px, solo se aceptan .jpg, .jpeg y .png con un maximo de peso de 2MB.</small>
                                     </div>
-                                    <div class="col-12 col-sm-12 mb-4">
+                                    <div class="col-12 col-sm-6 mb-4">
                                         <div class="form-group">
                                             <label for="titulo">Titulo <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control" name="titulo" value="{{old('titulo') == '' ? $noticia -> titulo : old('titulo')}}">
                                             @if($errors -> has('titulo'))
                                                 <small class="text-danger pt-1">{{ $errors -> first('titulo') }}</small>
                                             @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 mb-4">
+                                        <div class="form-group">
+                                            <label for="categoria_id">Categoria <span class="text-danger">*</span></label>
+                                            <select class="form-control" name="categorias_id" id="categoria_id" required>
+                                                <option value="">Selecciona una opción</option>
+                                                @foreach ($categorias as $item)
+                                                    <option {{$noticia -> categorias_id === $item -> id ? 'selected' : ''}} value="{{$item -> id}}">{{$item -> title}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12 mb-4">

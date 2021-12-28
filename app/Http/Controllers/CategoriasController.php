@@ -17,7 +17,7 @@ class CategoriasController extends Controller
             "title" => "Categorias - ". Str::title($seccion),
             "breadcrumb" => [
                 [
-                    'title' => 'Todos',
+                    'title' => 'Listado',
                     'route' => 'panel.categorias.index',
                     'active' => true,
                     'params' => [
