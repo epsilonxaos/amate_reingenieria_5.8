@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PortafolioController extends Controller
 {
-    protected $directorio = "public/productos";
-    protected $directorioGalerias = "public/productos/galeria";
+    protected $directorio = "public/portafolio";
+    protected $directorioGalerias = "public/portafolio/galeria";
 
     /**
      * Display a listing of the resource.

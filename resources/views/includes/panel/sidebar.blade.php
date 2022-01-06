@@ -14,7 +14,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link {{request() -> is('admin/noticias*') ? 'active' : ''}}" href="#navbar-noticias" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/noticias*') ? 'true' : 'false'}}" aria-controls="navbar-tables">
-						<i class="ni ni-book-bookmark text-default"></i>
+						<i class="ni ni-books text-default"></i>
 						<span class="nav-link-text">Noticias</span>
 					</a>
 					<div class="collapse {{request() -> is('admin/noticias*') ? 'show' : ''}}" id="navbar-noticias">
@@ -36,7 +36,7 @@
 				</li>
                 <li class="nav-item">
 					<a class="nav-link {{request() -> is('admin/portafolio*') ? 'active' : ''}}" href="#navbar-portafolio" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/portafolio*') ? 'true' : 'false'}}" aria-controls="navbar-tables">
-						<i class="ni ni-book-bookmark text-default"></i>
+						<i class="ni ni-briefcase-24 text-default"></i>
 						<span class="nav-link-text">Portafolio</span>
 					</a>
 					<div class="collapse {{request() -> is('admin/portafolio*') ? 'show' : ''}}" id="navbar-portafolio">
