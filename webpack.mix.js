@@ -11,6 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
+ mix.sass('resources/sass/app.scss', 'public/css/').version();
+ mix.js('resources/js/app.js', 'public/js/').version();
+
  mix.js('resources/js/panel/scripts/index.js', 'public/panel/js/main.js').version();
  mix.copy('resources/vendor/nucleo', 'public/panel/vendor/nucleo')
  .copy('node_modules/@fortawesome/fontawesome-free', 'public/panel/vendor/@fortawesome/fontawesome-free')

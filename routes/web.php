@@ -12,9 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AppController@index') -> name('app.index');
 
 
 // Route::get('/', 'AdminController@unauthenticated')->name('panel.admins.unauthenticated');
@@ -102,6 +100,10 @@ Route::prefix('/admin')->group(function(){
         Route::post('/edit/{id}/update', 'NoticiasController@update') -> name('panel.noticias.update');
         Route::delete('/destroy/{id}', 'NoticiasController@destroy') -> name('panel.noticias.destroy');
         Route::post('/change/status', 'NoticiasController@changeStatus') -> name('panel.noticias.status');
+    });
+
+    Route::prefix('/registros') -> middleware('auth:admin') -> group(function(){
+        Route::get('/', 'RegistrosController@index') -> name('panel.reg.index');
     });
 
     // Website

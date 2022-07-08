@@ -64,6 +64,12 @@
 						</a>
 					</li>
 				@endcan --}}
+				<li class="nav-item">
+					<a class="nav-link {{request() -> is('admin/registros*') ? 'active' : '' }}" href="{{ route('panel.reg.index') }}">
+						<i class="ni ni-single-02 text-default"></i>
+						<span class="nav-link-text">Registros</span>
+					</a>
+				</li>
 				@can(PermissionKey::Admin['permissions']['index']['name'])
 					<li class="nav-item">
 						<a class="nav-link {{request() -> is('admin/cuentas/usuarios*') ? 'active' : '' }}" href="{{ route('panel.admins.index') }}">
