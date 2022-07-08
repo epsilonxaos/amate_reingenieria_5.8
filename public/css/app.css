@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;
 
-0,400;0,500;0,600;0,700,0,800;1,700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap);[type=radio]:checked,
+0,400;0,500;0,600;0,700,0,800;1,700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap);.was-validated .checkbox-tools:not(:checked) + label {
+  background-color: #bd0000c9;
+}
+
+[type=radio]:checked,
 [type=radio]:not(:checked) {
   position: absolute;
   left: -9999px;
@@ -92,18 +96,18 @@ section .tlo {
   font-family: "Kalam", cursive;
   font-weight: 700;
   color: white;
-  font-size: 26px;
+  font-size: 38px;
 }
 
 @media screen and (min-width: 768px) {
   section .tlo {
-    font-size: 30px;
+    font-size: 40px;
   }
 }
 
 @media screen and (min-width: 992px) {
   section .tlo {
-    font-size: 38px;
+    font-size: 50px;
     width: 90%;
   }
 }

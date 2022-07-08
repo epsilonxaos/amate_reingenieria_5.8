@@ -89,33 +89,53 @@ class PermissionKey extends ServiceProvider
         ]
     ];
 
-    const Noticias = [
-        'name' => 'Módulo noticias',
+    const Website = [
+        'name' => 'Módulo website',
         'permissions' => [
             'index' => [
                 'display_name' => 'Ver todos',
-                'name' => 'noticias.index'
-            ],
-            'create' => [
-                'display_name' => 'Crear',
-                'name' => 'noticias.create'
-            ],
-            'edit' => [
-                'display_name' => 'Ver detalle',
-                'name' => 'noticias.edit'
-            ],
-            'update' => [
-                'display_name' => 'Modificar',
-                'name' => 'noticias.update'
-            ],
-            'destroy' => [
-                'display_name' => 'Eliminar',
-                'name' => 'noticias.destroy'
-            ],
-            'status' => [
-                'display_name' => 'Activar / Desactivar',
-                'name' => 'noticias.status'
-            ],
+                'name' => 'website.index'
+            ]
         ]
     ];
+
+    const Registros = [
+        'name' => 'Módulo registros',
+        'permissions' => [
+            'index' => [
+                'display_name' => 'Ver todos',
+                'name' => 'registros.index'
+            ]
+        ]
+    ];
+
+    // const Noticias = [
+    //     'name' => 'Módulo noticias',
+    //     'permissions' => [
+    //         'index' => [
+    //             'display_name' => 'Ver todos',
+    //             'name' => 'noticias.index'
+    //         ],
+    //         'create' => [
+    //             'display_name' => 'Crear',
+    //             'name' => 'noticias.create'
+    //         ],
+    //         'edit' => [
+    //             'display_name' => 'Ver detalle',
+    //             'name' => 'noticias.edit'
+    //         ],
+    //         'update' => [
+    //             'display_name' => 'Modificar',
+    //             'name' => 'noticias.update'
+    //         ],
+    //         'destroy' => [
+    //             'display_name' => 'Eliminar',
+    //             'name' => 'noticias.destroy'
+    //         ],
+    //         'status' => [
+    //             'display_name' => 'Activar / Desactivar',
+    //             'name' => 'noticias.status'
+    //         ],
+    //     ]
+    // ];
 }

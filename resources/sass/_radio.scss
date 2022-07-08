@@ -1,3 +1,8 @@
+
+.was-validated .checkbox-tools:not(:checked) + label {
+	background-color: #bd0000c9;
+}
+
 [type="radio"]:checked,
 [type="radio"]:not(:checked){
 	position: absolute;

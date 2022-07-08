@@ -47,6 +47,10 @@ class RegistrosController extends Controller
      */
     public function store(Request $request)
     {
+        $request -> validate([
+            'g-recaptcha-response' => 'required|captcha'
+        ]);
+        
         $resp = Registros::create([
             'nombre' => $request -> nombre,
             'celular' => $request -> celular,

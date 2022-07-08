@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
+@push('plugins')
+    {!! NoCaptcha::renderJs() !!}
+@endpush
+
 @section('content')
     <section
-        style="min-height: 100vh; background-image: linear-gradient(270deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 100%),url({{ asset('img/bg.jpg') }})">
+        style="min-height: 100vh; background-image: linear-gradient(270deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 100%),url({{ asset($web -> json_informacion -> portada) }})">
         <div class="container pt-md-4 pb-md-4 pr-md-4 pl-md-4 h-100 pt-4 pb-4" style="min-height: 100vh;">
 
             <div class="row justify-content-center align-items-center" style=" height: 100%; min-height: 90vh">
@@ -13,8 +17,8 @@
                             <img src="{{ asset('img/logo-agrans.png') }}" alt="Logo" class="logo">
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-right info mb-5 mb-sm-5">
-                            <p class="mb-0 color-text"><span class="font-weight-bold">Contáctanos:</span> 999 260 4788</p>
-                            <p class="mb-0 color-text">logistica@agrans.com</p>
+                            <p class="mb-0 color-text"><span class="font-weight-bold">Contáctanos:</span> {{$web -> json_informacion -> telefono}}</p>
+                            <p class="mb-0 color-text">{{$web -> json_informacion -> email}}</p>
                         </div>
                     </div>
 
@@ -22,7 +26,7 @@
                 <div class="col-12">
                     <div class="row align-items-end">
                         <div class="col-12 col-lg-6">
-                            <h2 class="text-center text-lg-left tlo mb-4">¡Contáctanos, carga y viaja con nosotros!</h2>
+                            <h2 class="text-center text-lg-left tlo mb-4">{!! $web -> json_informacion -> titulo !!}</span></h2>
                         </div>
                         <div class="col-12 col-lg-6">
                             <div class="card ">
@@ -61,13 +65,12 @@
                                             <label for="correo" class="col-sm-8 col-form-label">¿Cuentas con GPS
                                                 vigente?</label>
                                             <div class="col-sm-4 justify-content-center d-flex align-items-end">
-                                                <input class="checkbox-tools" type="radio" name="gps" id="gps-1"
-                                                    checked="">
+                                                <input class="checkbox-tools" type="radio" name="gps" id="gps-1" required>
                                                 <label class="for-checkbox-tools" for="gps-1">
                                                     Si
                                                 </label>
 
-                                                <input class="checkbox-tools" type="radio" name="gps" id="gps-2">
+                                                <input class="checkbox-tools" type="radio" name="gps" id="gps-2" required>
                                                 <label class="for-checkbox-tools" for="gps-2">
                                                     No
                                                 </label>
@@ -76,18 +79,26 @@
                                         <div class="form-group row">
                                             <label for="correo" class="col-sm-8 col-form-label">¿Facturas?</label>
                                             <div class="col-sm-4 justify-content-center d-flex align-items-end">
-                                                <input class="checkbox-tools" type="radio" name="factura" id="factura-1"
-                                                    checked="">
+                                                <input class="checkbox-tools form-control" type="radio" name="factura" id="factura-1" required>
                                                 <label class="for-checkbox-tools" for="factura-1">
                                                     Si
                                                 </label>
+                                                
 
-                                                <input class="checkbox-tools" type="radio" name="factura" id="factura-2">
+                                                <input class="checkbox-tools form-control" type="radio" name="factura" id="factura-2" required>
                                                 <label class="for-checkbox-tools" for="factura-2">
                                                     No
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="form-group d-flex align-items-center justify-content-center">
+                                            {!! NoCaptcha::display() !!}
+                                        </div>
+                                        @if ($errors->has('g-recaptcha-response'))
+                                            <span class="help-block text-danger" role="alert">
+                                                <strong>Este campo es requido</strong>
+                                            </span>
+                                        @endif
 
                                         <div class="text-right">
                                             <button type="submit"

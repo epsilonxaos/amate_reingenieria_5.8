@@ -8,6 +8,8 @@
 
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
+        @stack('plugins')
     </head>
     <body>
 
@@ -32,6 +34,7 @@
                       event.stopPropagation();
                     }
                     form.classList.add('was-validated');
+                    
                   }, false);
                 });
               }, false);

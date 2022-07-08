@@ -30,15 +30,36 @@ section {
         font-family: 'Kalam', cursive;
         font-weight: 700;
         color: white;
-        font-size: 26px;
+        // font-size: 26px;
+
+        // @media screen and (min-width: 768px) {
+        //     font-size: 30px;
+        // }
+        // @media screen and (min-width: 992px) {
+        //     font-size: 38px;
+        //     width: 90%;
+        // }
+
+        font-size: 38px;
 
         @media screen and (min-width: 768px) {
-            font-size: 30px;
+            font-size: 40px;
         }
         @media screen and (min-width: 992px) {
-            font-size: 38px;
+            font-size: 50px;
             width: 90%;
         }
+
+        // span {
+        //     font-size: 38px;
+
+        //     @media screen and (min-width: 768px) {
+        //         font-size: 40px;
+        //     }
+        //     @media screen and (min-width: 992px) {
+        //         font-size: 50px;
+        //     }
+        // }
     }
 
     .info {

@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
         $admin = Admin::create([
             "avatar" => "storage/admins/default.png",
             "name" => "Soporte",
-            "email" => "soporte@locker.com.mx",
+            "email" => "soporte@testing.com.mx",
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10)

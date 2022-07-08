@@ -12,6 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 
+Route::get('/foo', 'AppController@serviciosArtisan') -> name('app.comandos');
 Route::get('/', 'AppController@index') -> name('app.index');
 Route::put('/save/registro', 'RegistrosController@store') -> name('app.save.reg');
 
@@ -109,8 +110,8 @@ Route::prefix('/admin')->group(function(){
     });
 
     // Website
-    // Route::prefix('/website') -> middleware('auth:admin') -> group(function(){
-    //     Route::get('/', 'WebsiteController@index') -> name('panel.website.index');
-    //     Route::post('/edit/update', 'WebsiteController@update') -> name('panel.website.update');
-    // });
+    Route::prefix('/website') -> middleware('auth:admin') -> group(function(){
+        Route::get('/', 'WebsiteController@edit') -> name('panel.website.edit');
+        Route::post('/edit/update', 'WebsiteController@update') -> name('panel.website.update');
+    });
 });

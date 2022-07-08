@@ -5,10 +5,10 @@
         <div class="container">
             <div class="header-body  text-center mb-5">
                 <div class="row justify-content-center">
-                    <div class="col-xl-5 col-lg-6 col-md-8 py-3 bg-dark">
+                    <div class="col-xl-5 col-lg-6 col-md-8 py-3 bg-white">
                         {{-- <h1 class="text-white">Welcome!</h1>
                         <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p> --}}
-                        <img class="col-md-12" src="{{ asset('img/logo.svg') }}" alt="Logo">
+                        <img class="col-md-12" src="{{ asset('img/logo-agrans.png') }}" alt="Logo">
                     </div>
                 </div>
             </div>
