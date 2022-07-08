@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="vh-100"
-        style="background-image: linear-gradient(270deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 100%),url({{ asset('img/bg.jpg') }})">
-        <div class="container pt-md-4 pb-md-4 pr-md-4 pl-md-4 h-100">
+    <section
+        style="min-height: 100vh; background-image: linear-gradient(270deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.2) 100%),url({{ asset('img/bg.jpg') }})">
+        <div class="container pt-md-4 pb-md-4 pr-md-4 pl-md-4 h-100 pt-4 pb-4" style="min-height: 100vh;">
 
-            <div class="row justify-content-center align-items-center" style=" height: 100%; ">
+            <div class="row justify-content-center align-items-center" style=" height: 100%; min-height: 90vh">
 
                 <div class="col-12">
                     <div class="row">
@@ -30,29 +30,31 @@
                                     <h3 class="mb-0">¡Regístrate!</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="">
+                                    <form action="{{ route('app.save.reg') }}" method="POST" class="needs-validation" novalidate>
+                                        @method('PUT')
+                                        @csrf
                                         <div class="form-group row mb-2">
-                                            <label for="nombre" class="col-lg-4 col-form-label">Nombre</label>
+                                            <label for="nombre" class="col-lg-4 col-form-label">Nombre *</label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                                <input type="text" class="form-control" id="nombre" name="nombre" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2">
-                                            <label for="celular" class="col-lg-4 col-form-label">Celular</label>
+                                            <label for="celular" class="col-lg-4 col-form-label">Celular *</label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="celular" name="celular">
+                                                <input type="text" class="form-control" id="celular" name="celular" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2">
-                                            <label for="correo" class="col-lg-4 col-form-label">Correo</label>
+                                            <label for="correo" class="col-lg-4 col-form-label">Correo *</label>
                                             <div class="col-lg-8">
-                                                <input type="email" class="form-control" id="correo" name="correo">
+                                                <input type="email" class="form-control" id="correo" name="correo" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2">
-                                            <label for="linea" class="col-lg-4 col-form-label">Línea fletera</label>
+                                            <label for="linea" class="col-lg-4 col-form-label">Línea fletera *</label>
                                             <div class="col-lg-8">
-                                                <input type="text" class="form-control" id="linea" name="linea">
+                                                <input type="text" class="form-control" id="linea" name="linea" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-2">
@@ -103,4 +105,26 @@
 
         </div>
     </section>
+
 @endsection
+
+@push('js')
+    @if (Session::has('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Completado',
+                text: '¡El registro se realizo con éxito!',
+            });
+        </script>
+    @endif
+    @if (Session::has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Algo fallo, intenta más tarde',
+            });
+        </script>
+    @endif
+@endpush

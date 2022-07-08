@@ -13,6 +13,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'AppController@index') -> name('app.index');
+Route::put('/save/registro', 'RegistrosController@store') -> name('app.save.reg');
 
 
 // Route::get('/', 'AdminController@unauthenticated')->name('panel.admins.unauthenticated');
@@ -24,6 +25,7 @@ Route::prefix('/admin')->group(function(){
     Route::post('/password/email', 'Auth\ForgotPasswordController@sendAdminResetLinkEmail')->name('panel.admins.password.email');
     Route::post('/login', 'AdminController@login')->name('panel.admins.login');
     Route::post('/logout', 'AdminController@logout')->name('panel.admins.logout');
+    
 
     //Administradores
     Route::prefix('/cuentas')->middleware('auth:admin')->group(function(){

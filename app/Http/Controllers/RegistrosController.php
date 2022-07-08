@@ -47,7 +47,20 @@ class RegistrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resp = Registros::create([
+            'nombre' => $request -> nombre,
+            'celular' => $request -> celular,
+            'correo' => $request -> correo,
+            'linea_fletera' => $request -> linea,
+            'gsp_vigente' => $request -> gps,
+            'factura' => $request -> factura,
+        ]);
+
+        if($resp) {
+            return redirect() -> back() -> with('success', '');
+        }
+
+        return redirect() -> back() -> with('error', '');
     }
 
     /**
