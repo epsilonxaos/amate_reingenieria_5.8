@@ -39,10 +39,13 @@
 						<table class="table align-items-center table-flush" id="dataTable">
 							<thead class="thead-light">
 								<tr>
+                                    @if (request('seccion') === 'experiencias')
+									    <th scope="col" class="sort" data-sort="portada" width="200px">Icono</th>
+                                        <th scope="col" class="sort" data-sort="titulo">Titulo</th>
+                                    @endif
                                     @if (request('seccion') === 'indefinido')
 									    <th scope="col" class="sort" data-sort="portada" width="200px">Portada</th>
                                     @endif
-                                    <th scope="col" class="sort" data-sort="titulo">Titulo</th>
 									<th scope="col" class="sort text-center" data-sort="fecha">Fecha publicación</th>
 									<th scope="col" class="no-sort text-center" width="200px">Visualizar</th>
 									<th scope="col" class="no-sort text-center" width="150px">Acciones</th>
@@ -52,14 +55,19 @@
 								@if ((isset($lista)) && (count($lista) > 0))
                                     @foreach ($lista as $num => $row)
                                         <tr>
-                                            @if (request('seccion') === 'indefinido')
+                                            @if (request('seccion') === 'experiencias')
                                                 <td>
-                                                    <div class="bg" style="background-image: url({{asset($row -> portada)}});"></div>
+                                                    <div class="bg" style="background-image: url({{asset($row -> cover)}}); background-size: contain"></div>
+                                                </td>
+                                                <td class="font-weight-bold">
+                                                    {{ $row -> title }}
                                                 </td>
                                             @endif
-                                            <td class="font-weight-bold">
-                                                {{ $row -> title }}
-                                            </td>
+                                            @if (request('seccion') === 'indefinido')
+                                                <td>
+                                                    <div class="bg" style="background-image: url({{asset($row -> cover)}});"></div>
+                                                </td>
+                                            @endif
                                             <td class="text-center">
                                                 {{ \App\Helpers::dateSpanishComplete($row -> created_at) }}
                                             </td>

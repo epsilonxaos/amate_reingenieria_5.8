@@ -62,9 +62,15 @@ class CategoriasController extends Controller
             $cover = Helpers::addFileStorage($request -> file('cover'), $this -> directorio);
             $add -> cover = $cover;
         }
+        if($request -> hasFile('cover_en')){
+            $cover = Helpers::addFileStorage($request -> file('cover_en'), $this -> directorio);
+            $add -> cover_en = $cover;
+        }
 
         $add -> title = $request -> title;
+        $add -> title_en = $request -> title_en;
         $add -> description = $request -> description;
+        $add -> description_en = $request -> description_en;
         $add -> seccion = $seccion;
         $add -> save();
 
@@ -108,9 +114,17 @@ class CategoriasController extends Controller
             $add -> cover = $cover;
             $add -> save();
         }
+        if($request -> hasFile('cover_en')){
+            Helpers::deleteFileStorage('categorias', 'cover_en', $id);
+            $cover = Helpers::addFileStorage($request -> file('cover_en'), $this -> directorio);
+            $add -> cover_en = $cover;
+            $add -> save();
+        }
 
         $add -> title = $request -> title;
+        $add -> title_en = $request -> title_en;
         $add -> description = $request -> description;
+        $add -> description_en = $request -> description_en;
         $add -> seccion = $seccion;
         $add -> save();
 

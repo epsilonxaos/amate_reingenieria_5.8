@@ -10,8 +10,11 @@ class Categorias extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         "cover",
+        "cover_en",
         "title",
+        "title_en",
         "description",
+        "description_en",
         "seccion"
     ];
 }
