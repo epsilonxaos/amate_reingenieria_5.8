@@ -373,8 +373,31 @@ class EventoController extends Controller
      * @param  \App\Evento  $evento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Evento $evento)
+    public function destroy(Int $id)
     {
-        //
+        Helpers::deleteFileStorage('evento', 'cover', $id);
+        Helpers::deleteFileStorage('evento', 'img_lateral_1', $id);
+        Helpers::deleteFileStorage('evento', 'img_lateral_2', $id);
+        Helpers::deleteFileStorage('evento', 'img_lateral_3', $id);
+
+        $galeria = EventoGaleria::where('evento_id', $id) -> get();
+        foreach ($galeria as $val) {
+            Helpers::deleteFileStorage('evento_galeria', 'img', $val -> id);
+        }
+
+        Evento::where('id', $id) -> delete();
+        return redirect() -> back() -> with('success', 'Registro eliminado correctamente!');
+    }
+
+    /**
+     * Change status to show - hidden
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus(Request $request)
+    {
+        Helpers::changeStatus('evento', $request -> id, $request -> status);
+        return 'true';
     }
 }

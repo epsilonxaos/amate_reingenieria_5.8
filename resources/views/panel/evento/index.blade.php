@@ -64,11 +64,11 @@
                                                 {{ \App\Helpers::dateSpanishComplete($row -> created_at) }}
                                             </td>
                                             <td>
+                                                <div class="wp">
+                                                    <input class="tgl tgl-light chkbx-toggle" id="toggle_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> status == 1) ? 'checked="checked"' : ''}}"/>
+                                                    <label class="tgl-btn toggle_{{$num}}" data-url="{{route('panel.evento.status')}}" for="toggle_{{$num}}" onclick="cambiar_status('toggle_{{$num}}', {{$row -> id}}, {{($row -> status == 1) ? 0 : 1}})"></label>
+                                                </div>
                                                 {{-- @can(PermissionKey::Noticias['permissions']['status']['name'])
-                                                    <div class="wp">
-                                                        <input class="tgl tgl-light chkbx-toggle" id="toggle_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> status == 1) ? 'checked="checked"' : ''}}"/>
-                                                        <label class="tgl-btn toggle_{{$num}}" for="toggle_{{$num}}" onclick="cambiar_status('toggle_{{$num}}', {{$row -> id}}, {{($row -> status == 1) ? 0 : 1}})"></label>
-                                                    </div>
                                                 @elsecan(PermissionKey::Noticias['permissions']['index']['name'])
                                                     <div class="wp">
                                                         <input class="tgl tgl-light chkbx-toggle" type="checkbox" disabled/>
@@ -78,14 +78,15 @@
                                             </td>
                                             <td class="text-center">
                                                 <a href="{{route('panel.evento.edit', ['id' => $row -> id])}}" class="btn btn-info btn-sm"><i class="fas fa-edit mr-2"></i> Editar</a>
+                                                <a href="{{route('panel.evento.galeria.acciones', ['accion' => 'edit', 'id' => $row -> id])}}" class="btn btn-primary btn-sm"><i class="fas fa-edit mr-2"></i> Galeria</a>
+                                                <form action="{{route('panel.evento.destroy', ["id" => $row -> id])}}" method="post" class="d-inline delete-form-{{$row -> id}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" onclick="deleteSubmitForm({{$row -> id}})" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                                </form>
                                                 {{-- @can(PermissionKey::Noticias['permissions']['edit']['name'])
                                                 @endcan --}}
                                                 {{-- @can(PermissionKey::Noticias['permissions']['destroy']['name'])
-                                                    <form action="{{route('panel.evento.destroy', ["id" => $row -> id])}}" method="post" class="d-inline delete-form-{{$row -> id}}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="button" onclick="deleteSubmitForm({{$row -> id}})" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
-                                                    </form>
                                                 @endcan --}}
                                             </td>
                                         </tr>
