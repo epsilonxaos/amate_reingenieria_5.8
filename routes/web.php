@@ -126,10 +126,6 @@ Route::prefix('/admin')->group(function(){
         Route::post('/change/status', 'NoticiasController@changeStatus') -> name('panel.noticias.status');
     });
 
-    Route::prefix('/registros') -> middleware('auth:admin') -> group(function(){
-        Route::get('/', 'RegistrosController@index') -> name('panel.reg.index');
-    });
-
     // Website
     Route::prefix('/website') -> middleware('auth:admin') -> group(function(){
         Route::get('/', 'WebsiteController@edit') -> name('panel.website.edit');
