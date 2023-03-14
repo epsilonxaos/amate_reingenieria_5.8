@@ -94,6 +94,26 @@ Route::prefix('/admin')->group(function(){
         Route::post('/change/status', 'CategoriasController@changeStatus') -> name('panel.categorias.status');
     });
 
+    //Experiencias o Eventos
+    Route::prefix('/evento') -> middleware('auth:admin') -> group(function(){
+        Route::get('/', 'EventoController@index') -> name('panel.evento.index');
+        Route::get('/create', 'EventoController@create') -> name('panel.evento.create');
+        Route::put('/create/store', 'EventoController@store') -> name('panel.evento.store');
+        Route::get('/edit/{id}', 'EventoController@edit') -> name('panel.evento.edit');
+        Route::post('/edit/{id}/update', 'EventoController@update') -> name('panel.evento.update');
+        Route::delete('/destroy/{id}', 'EventoController@destroy') -> name('panel.evento.destroy');
+        Route::post('/change/status', 'EventoController@changeStatus') -> name('panel.evento.status');
+
+        // Galeria
+        Route::prefix('/galeria') -> middleware('auth:admin') -> group(function(){
+            Route::get('/{accion}/{id}', 'EventoController@createGaleria') -> name('panel.evento.galeria.acciones');
+            Route::post('/add', 'EventoController@storeGaleria') -> name('panel.evento.galeria.store');
+            Route::post('/ordenamiento', 'EventoController@ordenamiento') -> name('panel.evento.galeria.ordenamiento');
+            Route::post('/destroy', 'EventoController@destroyImageGallery') -> name('panel.evento.galeria.destroy');
+            Route::post('/update', 'EventoController@updateUrlGallery') -> name('panel.evento.galeria.update');
+        });
+    });
+
     //Noticias
     Route::prefix('/noticias') -> middleware('auth:admin') -> group(function(){
         Route::get('/', 'NoticiasController@index') -> name('panel.noticias.index');

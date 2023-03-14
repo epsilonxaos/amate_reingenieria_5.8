@@ -29,7 +29,8 @@ $('.trumbowyg-panel').trumbowyg(
             ['unorderedList', 'orderedList'],
             ['horizontalRule'],
             ['removeformat'],
-            ['noembed']
+            ['noembed'],
+            ['fullscreen']
         ]
     }
 );

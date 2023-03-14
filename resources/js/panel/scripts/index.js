@@ -11,3 +11,9 @@ import './update-status';
 // import './dropzone';
 
 import './file-upload-with-preview';
+// import AirDatepicker from 'air-datepicker';
+// import 'air-datepicker/air-datepicker.css';
+
+// new AirDatepicker('.airPickerTime', {
+//     // onlyTimepicker: true
+// })

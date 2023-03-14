@@ -31,12 +31,12 @@
 									<span class="nav-link-text">Categorías</span>
 								</a>
 							</li>
-							{{-- <li class="nav-item">
+							<li class="nav-item">
 								<a class="nav-link {{request() -> is('admin/evento*') ? 'active' : ''}}" href="{{route('panel.evento.index')}}">
 									<i class="ni ni-bullet-list-67 text-default"></i>
-									<span class="nav-link-text">evento</span>
+									<span class="nav-link-text">Experiencias</span>
 								</a>
-							</li> --}}
+							</li>
 						</ul>
 					</div>
 				</li>

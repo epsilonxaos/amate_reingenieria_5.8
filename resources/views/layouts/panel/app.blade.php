@@ -171,11 +171,11 @@
 
         $('.dropify').dropify();
 
-        function limitText(limitField, limitNum) {
+        function limitText(limitField, limitNum, limitTextSelector) {
             if (limitField.value.length > limitNum) {
                 limitField.value = limitField.value.substring(0, limitNum);
             } else {
-                document.querySelector('.limitText').innerHTML = limitNum - limitField.value.length;
+                document.querySelector(limitTextSelector).innerHTML = limitNum - limitField.value.length;
             }
         }
 

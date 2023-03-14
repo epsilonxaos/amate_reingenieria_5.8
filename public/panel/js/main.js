@@ -1907,8 +1907,8 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-  * Bootstrap v4.6.1 (https://getbootstrap.com/)
-  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v4.6.2 (https://getbootstrap.com/)
+  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
@@ -1934,11 +1934,14 @@ module.exports = {
   function _createClass(Constructor, protoProps, staticProps) {
     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
     if (staticProps) _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+      writable: false
+    });
     return Constructor;
   }
 
   function _extends() {
-    _extends = Object.assign || function (target) {
+    _extends = Object.assign ? Object.assign.bind() : function (target) {
       for (var i = 1; i < arguments.length; i++) {
         var source = arguments[i];
 
@@ -1951,7 +1954,6 @@ module.exports = {
 
       return target;
     };
-
     return _extends.apply(this, arguments);
   }
 
@@ -1963,17 +1965,16 @@ module.exports = {
   }
 
   function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
       o.__proto__ = p;
       return o;
     };
-
     return _setPrototypeOf(o, p);
   }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.6.1): util.js
+   * Bootstrap (v4.6.2): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -2147,7 +2148,7 @@ module.exports = {
    */
 
   var NAME$a = 'alert';
-  var VERSION$a = '4.6.1';
+  var VERSION$a = '4.6.2';
   var DATA_KEY$a = 'bs.alert';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$7 = '.data-api';
@@ -2295,7 +2296,7 @@ module.exports = {
    */
 
   var NAME$9 = 'button';
-  var VERSION$9 = '4.6.1';
+  var VERSION$9 = '4.6.2';
   var DATA_KEY$9 = 'bs.button';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var DATA_API_KEY$6 = '.data-api';
@@ -2486,7 +2487,7 @@ module.exports = {
    */
 
   var NAME$8 = 'carousel';
-  var VERSION$8 = '4.6.1';
+  var VERSION$8 = '4.6.2';
   var DATA_KEY$8 = 'bs.carousel';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var DATA_API_KEY$5 = '.data-api';
@@ -3073,7 +3074,7 @@ module.exports = {
    */
 
   var NAME$7 = 'collapse';
-  var VERSION$7 = '4.6.1';
+  var VERSION$7 = '4.6.2';
   var DATA_KEY$7 = 'bs.collapse';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$4 = '.data-api';
@@ -3414,7 +3415,7 @@ module.exports = {
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '4.6.1';
+  var VERSION$6 = '4.6.2';
   var DATA_KEY$6 = 'bs.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$3 = '.data-api';
@@ -3917,7 +3918,7 @@ module.exports = {
    */
 
   var NAME$5 = 'modal';
-  var VERSION$5 = '4.6.1';
+  var VERSION$5 = '4.6.2';
   var DATA_KEY$5 = 'bs.modal';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$2 = '.data-api';
@@ -4521,7 +4522,7 @@ module.exports = {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.6.1): tools/sanitizer.js
+   * Bootstrap (v4.6.2): tools/sanitizer.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4646,7 +4647,7 @@ module.exports = {
    */
 
   var NAME$4 = 'tooltip';
-  var VERSION$4 = '4.6.1';
+  var VERSION$4 = '4.6.2';
   var DATA_KEY$4 = 'bs.tooltip';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var JQUERY_NO_CONFLICT$4 = $__default["default"].fn[NAME$4];
@@ -5356,7 +5357,7 @@ module.exports = {
    */
 
   var NAME$3 = 'popover';
-  var VERSION$3 = '4.6.1';
+  var VERSION$3 = '4.6.2';
   var DATA_KEY$3 = 'bs.popover';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var JQUERY_NO_CONFLICT$3 = $__default["default"].fn[NAME$3];
@@ -5530,7 +5531,7 @@ module.exports = {
    */
 
   var NAME$2 = 'scrollspy';
-  var VERSION$2 = '4.6.1';
+  var VERSION$2 = '4.6.2';
   var DATA_KEY$2 = 'bs.scrollspy';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$1 = '.data-api';
@@ -5616,9 +5617,7 @@ module.exports = {
         }
 
         return null;
-      }).filter(function (item) {
-        return item;
-      }).sort(function (a, b) {
+      }).filter(Boolean).sort(function (a, b) {
         return a[0] - b[0];
       }).forEach(function (item) {
         _this2._offsets.push(item[0]);
@@ -5814,7 +5813,7 @@ module.exports = {
    */
 
   var NAME$1 = 'tab';
-  var VERSION$1 = '4.6.1';
+  var VERSION$1 = '4.6.2';
   var DATA_KEY$1 = 'bs.tab';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY = '.data-api';
@@ -5852,7 +5851,7 @@ module.exports = {
     _proto.show = function show() {
       var _this = this;
 
-      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $__default["default"](this._element).hasClass(CLASS_NAME_ACTIVE) || $__default["default"](this._element).hasClass(CLASS_NAME_DISABLED)) {
+      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $__default["default"](this._element).hasClass(CLASS_NAME_ACTIVE) || $__default["default"](this._element).hasClass(CLASS_NAME_DISABLED) || this._element.hasAttribute('disabled')) {
         return;
       }
 
@@ -6038,7 +6037,7 @@ module.exports = {
    */
 
   var NAME = 'toast';
-  var VERSION = '4.6.1';
+  var VERSION = '4.6.2';
   var DATA_KEY = 'bs.toast';
   var EVENT_KEY = "." + DATA_KEY;
   var JQUERY_NO_CONFLICT = $__default["default"].fn[NAME];
@@ -6278,7 +6277,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, ".custom-file-container {\n  box-sizing: border-box;\n  position: relative;\n  display: block;\n}\n.custom-file-container__custom-file {\n  box-sizing: border-box;\n  position: relative;\n  display: inline-block;\n  width: 100%;\n  height: calc(2.25rem + 2px);\n  margin-bottom: 0;\n  margin-top: 5px;\n}\n.custom-file-container__custom-file:hover {\n  cursor: pointer;\n}\n.custom-file-container__custom-file__custom-file-input {\n  box-sizing: border-box;\n  min-width: 14rem;\n  max-width: 100%;\n  height: calc(2.25rem + 2px);\n  margin: 0;\n  opacity: 0;\n}\n.custom-file-container__custom-file__custom-file-input:focus ~ span {\n  outline: 1px dotted #212121;\n  outline: 5px auto -webkit-focus-ring-color;\n}\n.custom-file-container__custom-file__custom-file-control {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 5;\n  height: calc(2.25rem + 2px);\n  padding: 0.5rem 0.75rem;\n  overflow: hidden;\n  line-height: 1.5;\n  color: #333;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  border: 1px solid #c0c0af;\n  border-radius: 0.25rem;\n}\n.custom-file-container__custom-file__custom-file-control__button {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 6;\n  display: block;\n  height: calc(2.25rem + 2px);\n  padding: 0.5rem 0.75rem;\n  line-height: 1.25;\n  color: #333;\n  background-color: #EDEDE8;\n  border-left: 1px solid #c0c0af;\n  box-sizing: border-box;\n}\n.custom-file-container__image-preview {\n  box-sizing: border-box;\n  transition: all 0.2s ease;\n  margin-top: 20px;\n  margin-bottom: 40px;\n  height: 250px;\n  width: 100%;\n  border-radius: 4px;\n  background-size: cover;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #fff;\n  overflow: scroll;\n}\n.custom-file-container__image-multi-preview {\n  position: relative;\n  box-sizing: border-box;\n  transition: all 0.2s ease;\n  border-radius: 6px;\n  background-size: cover;\n  background-position: center center;\n  background-repeat: no-repeat;\n  float: left;\n  margin: 1.858736059%;\n  width: 29.615861214%;\n  height: 90px;\n  box-shadow: 0 4px 10px 0 rgba(51, 51, 51, 0.25);\n}\n.custom-file-container__image-multi-preview__single-image-clear {\n  left: -6px;\n  background: #EDEDE8;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  text-align: center;\n  margin-top: -6px;\n  box-shadow: 0 4px 10px 0 rgba(51, 51, 51, 0.25);\n}\n.custom-file-container__image-multi-preview__single-image-clear:hover {\n  background: #cbcbbd;\n  cursor: pointer;\n}\n.custom-file-container__image-multi-preview__single-image-clear__icon {\n  color: #6a6a53;\n  display: block;\n  margin-top: -2px;\n}", ""]);
+exports.push([module.i, ".custom-file-container {\n  box-sizing: border-box;\n  position: relative;\n  display: block;\n}\n.custom-file-container__custom-file {\n  box-sizing: border-box;\n  position: relative;\n  display: inline-block;\n  width: 100%;\n  height: calc(2.25rem + 2px);\n  margin-bottom: 0;\n  margin-top: 5px;\n}\n.custom-file-container__custom-file:hover {\n  cursor: pointer;\n}\n.custom-file-container__custom-file__custom-file-input {\n  box-sizing: border-box;\n  min-width: 14rem;\n  max-width: 100%;\n  height: calc(2.25rem + 2px);\n  margin: 0;\n  opacity: 0;\n}\n.custom-file-container__custom-file__custom-file-input:focus ~ span {\n  outline: 1px dotted #212121;\n  outline: 5px auto -webkit-focus-ring-color;\n}\n.custom-file-container__custom-file__custom-file-control {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 5;\n  height: calc(2.25rem + 2px);\n  padding: 0.5rem 0.75rem;\n  overflow: hidden;\n  line-height: 1.5;\n  color: #333;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n          user-select: none;\n  background-color: #fff;\n  background-clip: padding-box;\n  border: 1px solid #c0c0af;\n  border-radius: 0.25rem;\n}\n.custom-file-container__custom-file__custom-file-control__button {\n  box-sizing: border-box;\n  position: absolute;\n  top: 0;\n  right: 0;\n  z-index: 6;\n  display: block;\n  height: calc(2.25rem + 2px);\n  padding: 0.5rem 0.75rem;\n  line-height: 1.25;\n  color: #333;\n  background-color: #EDEDE8;\n  border-left: 1px solid #c0c0af;\n  box-sizing: border-box;\n}\n.custom-file-container__image-preview {\n  box-sizing: border-box;\n  transition: all 0.2s ease;\n  margin-top: 20px;\n  margin-bottom: 40px;\n  height: 250px;\n  width: 100%;\n  border-radius: 4px;\n  background-size: cover;\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-color: #fff;\n  overflow: scroll;\n}\n.custom-file-container__image-multi-preview {\n  position: relative;\n  box-sizing: border-box;\n  transition: all 0.2s ease;\n  border-radius: 6px;\n  background-size: cover;\n  background-position: center center;\n  background-repeat: no-repeat;\n  float: left;\n  margin: 1.858736059%;\n  width: 29.615861214%;\n  height: 90px;\n  box-shadow: 0 4px 10px 0 rgba(51, 51, 51, 0.25);\n}\n.custom-file-container__image-multi-preview__single-image-clear {\n  left: -6px;\n  background: #EDEDE8;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  text-align: center;\n  margin-top: -6px;\n  box-shadow: 0 4px 10px 0 rgba(51, 51, 51, 0.25);\n}\n.custom-file-container__image-multi-preview__single-image-clear:hover {\n  background: #cbcbbd;\n  cursor: pointer;\n}\n.custom-file-container__image-multi-preview__single-image-clear__icon {\n  color: #6a6a53;\n  display: block;\n  margin-top: -2px;\n}", ""]);
 
 // exports
 
@@ -6297,7 +6296,7 @@ exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base
 
 
 // module
-exports.push([module.i, "td.dt-control{background:url(\"https://www.datatables.net/examples/resources/details_open.png\") no-repeat center center;cursor:pointer}tr.dt-hasChild td.dt-control{background:url(\"https://www.datatables.net/examples/resources/details_close.png\") no-repeat center center}table.dataTable th.dt-left,table.dataTable td.dt-left{text-align:left}table.dataTable th.dt-center,table.dataTable td.dt-center,table.dataTable td.dataTables_empty{text-align:center}table.dataTable th.dt-right,table.dataTable td.dt-right{text-align:right}table.dataTable th.dt-justify,table.dataTable td.dt-justify{text-align:justify}table.dataTable th.dt-nowrap,table.dataTable td.dt-nowrap{white-space:nowrap}table.dataTable thead th.dt-head-left,table.dataTable thead td.dt-head-left,table.dataTable tfoot th.dt-head-left,table.dataTable tfoot td.dt-head-left{text-align:left}table.dataTable thead th.dt-head-center,table.dataTable thead td.dt-head-center,table.dataTable tfoot th.dt-head-center,table.dataTable tfoot td.dt-head-center{text-align:center}table.dataTable thead th.dt-head-right,table.dataTable thead td.dt-head-right,table.dataTable tfoot th.dt-head-right,table.dataTable tfoot td.dt-head-right{text-align:right}table.dataTable thead th.dt-head-justify,table.dataTable thead td.dt-head-justify,table.dataTable tfoot th.dt-head-justify,table.dataTable tfoot td.dt-head-justify{text-align:justify}table.dataTable thead th.dt-head-nowrap,table.dataTable thead td.dt-head-nowrap,table.dataTable tfoot th.dt-head-nowrap,table.dataTable tfoot td.dt-head-nowrap{white-space:nowrap}table.dataTable tbody th.dt-body-left,table.dataTable tbody td.dt-body-left{text-align:left}table.dataTable tbody th.dt-body-center,table.dataTable tbody td.dt-body-center{text-align:center}table.dataTable tbody th.dt-body-right,table.dataTable tbody td.dt-body-right{text-align:right}table.dataTable tbody th.dt-body-justify,table.dataTable tbody td.dt-body-justify{text-align:justify}table.dataTable tbody th.dt-body-nowrap,table.dataTable tbody td.dt-body-nowrap{white-space:nowrap}table.dataTable{clear:both;margin-top:6px !important;margin-bottom:6px !important;max-width:none !important;border-collapse:separate !important;border-spacing:0}table.dataTable td,table.dataTable th{box-sizing:content-box}table.dataTable td.dataTables_empty,table.dataTable th.dataTables_empty{text-align:center}table.dataTable.nowrap th,table.dataTable.nowrap td{white-space:nowrap}div.dataTables_wrapper div.dataTables_length label{font-weight:normal;text-align:left;white-space:nowrap}div.dataTables_wrapper div.dataTables_length select{width:auto;display:inline-block}div.dataTables_wrapper div.dataTables_filter{text-align:right}div.dataTables_wrapper div.dataTables_filter label{font-weight:normal;white-space:nowrap;text-align:left}div.dataTables_wrapper div.dataTables_filter input{margin-left:.5em;display:inline-block;width:auto}div.dataTables_wrapper div.dataTables_info{padding-top:.85em}div.dataTables_wrapper div.dataTables_paginate{margin:0;white-space:nowrap;text-align:right}div.dataTables_wrapper div.dataTables_paginate ul.pagination{margin:2px 0;white-space:nowrap;justify-content:flex-end}div.dataTables_wrapper div.dataTables_processing{position:absolute;top:50%;left:50%;width:200px;margin-left:-100px;margin-top:-26px;text-align:center;padding:1em 0}table.dataTable>thead>tr>th:active,table.dataTable>thead>tr>td:active{outline:none}table.dataTable>thead>tr>th:not(.sorting_disabled),table.dataTable>thead>tr>td:not(.sorting_disabled){padding-right:30px}table.dataTable>thead .sorting,table.dataTable>thead .sorting_asc,table.dataTable>thead .sorting_desc,table.dataTable>thead .sorting_asc_disabled,table.dataTable>thead .sorting_desc_disabled{cursor:pointer;position:relative}table.dataTable>thead .sorting:before,table.dataTable>thead .sorting:after,table.dataTable>thead .sorting_asc:before,table.dataTable>thead .sorting_asc:after,table.dataTable>thead .sorting_desc:before,table.dataTable>thead .sorting_desc:after,table.dataTable>thead .sorting_asc_disabled:before,table.dataTable>thead .sorting_asc_disabled:after,table.dataTable>thead .sorting_desc_disabled:before,table.dataTable>thead .sorting_desc_disabled:after{position:absolute;bottom:.9em;display:block;opacity:.3}table.dataTable>thead .sorting:before,table.dataTable>thead .sorting_asc:before,table.dataTable>thead .sorting_desc:before,table.dataTable>thead .sorting_asc_disabled:before,table.dataTable>thead .sorting_desc_disabled:before{right:1em;content:\"\\2191\"}table.dataTable>thead .sorting:after,table.dataTable>thead .sorting_asc:after,table.dataTable>thead .sorting_desc:after,table.dataTable>thead .sorting_asc_disabled:after,table.dataTable>thead .sorting_desc_disabled:after{right:.5em;content:\"\\2193\"}table.dataTable>thead .sorting_asc:before,table.dataTable>thead .sorting_desc:after{opacity:1}table.dataTable>thead .sorting_asc_disabled:before,table.dataTable>thead .sorting_desc_disabled:after{opacity:0}div.dataTables_scrollHead table.dataTable{margin-bottom:0 !important}div.dataTables_scrollBody>table{border-top:none;margin-top:0 !important;margin-bottom:0 !important}div.dataTables_scrollBody>table>thead .sorting:before,div.dataTables_scrollBody>table>thead .sorting_asc:before,div.dataTables_scrollBody>table>thead .sorting_desc:before,div.dataTables_scrollBody>table>thead .sorting:after,div.dataTables_scrollBody>table>thead .sorting_asc:after,div.dataTables_scrollBody>table>thead .sorting_desc:after{display:none}div.dataTables_scrollBody>table>tbody tr:first-child th,div.dataTables_scrollBody>table>tbody tr:first-child td{border-top:none}div.dataTables_scrollFoot>.dataTables_scrollFootInner{box-sizing:content-box}div.dataTables_scrollFoot>.dataTables_scrollFootInner>table{margin-top:0 !important;border-top:none}@media screen and (max-width: 767px){div.dataTables_wrapper div.dataTables_length,div.dataTables_wrapper div.dataTables_filter,div.dataTables_wrapper div.dataTables_info,div.dataTables_wrapper div.dataTables_paginate{text-align:center}div.dataTables_wrapper div.dataTables_paginate ul.pagination{justify-content:center !important}}table.dataTable.table-sm>thead>tr>th:not(.sorting_disabled){padding-right:20px}table.dataTable.table-sm .sorting:before,table.dataTable.table-sm .sorting_asc:before,table.dataTable.table-sm .sorting_desc:before{top:5px;right:.85em}table.dataTable.table-sm .sorting:after,table.dataTable.table-sm .sorting_asc:after,table.dataTable.table-sm .sorting_desc:after{top:5px}table.table-bordered.dataTable{border-right-width:0}table.table-bordered.dataTable th,table.table-bordered.dataTable td{border-left-width:0}table.table-bordered.dataTable th:last-child,table.table-bordered.dataTable th:last-child,table.table-bordered.dataTable td:last-child,table.table-bordered.dataTable td:last-child{border-right-width:1px}table.table-bordered.dataTable tbody th,table.table-bordered.dataTable tbody td{border-bottom-width:0}div.dataTables_scrollHead table.table-bordered{border-bottom-width:0}div.table-responsive>div.dataTables_wrapper>div.row{margin:0}div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:first-child{padding-left:0}div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child{padding-right:0}\n", ""]);
+exports.push([module.i, ":root{--dt-row-selected: 2, 117, 216;--dt-row-selected-text: 255, 255, 255;--dt-row-selected-link: 9, 10, 11}table.dataTable td.dt-control{text-align:center;cursor:pointer}table.dataTable td.dt-control:before{height:1em;width:1em;margin-top:-9px;display:inline-block;color:white;border:.15em solid white;border-radius:1em;box-shadow:0 0 .2em #444;box-sizing:content-box;text-align:center;text-indent:0 !important;font-family:\"Courier New\",Courier,monospace;line-height:1em;content:\"+\";background-color:#31b131}table.dataTable tr.dt-hasChild td.dt-control:before{content:\"-\";background-color:#d33333}table.dataTable thead>tr>th.sorting,table.dataTable thead>tr>th.sorting_asc,table.dataTable thead>tr>th.sorting_desc,table.dataTable thead>tr>th.sorting_asc_disabled,table.dataTable thead>tr>th.sorting_desc_disabled,table.dataTable thead>tr>td.sorting,table.dataTable thead>tr>td.sorting_asc,table.dataTable thead>tr>td.sorting_desc,table.dataTable thead>tr>td.sorting_asc_disabled,table.dataTable thead>tr>td.sorting_desc_disabled{cursor:pointer;position:relative;padding-right:26px}table.dataTable thead>tr>th.sorting:before,table.dataTable thead>tr>th.sorting:after,table.dataTable thead>tr>th.sorting_asc:before,table.dataTable thead>tr>th.sorting_asc:after,table.dataTable thead>tr>th.sorting_desc:before,table.dataTable thead>tr>th.sorting_desc:after,table.dataTable thead>tr>th.sorting_asc_disabled:before,table.dataTable thead>tr>th.sorting_asc_disabled:after,table.dataTable thead>tr>th.sorting_desc_disabled:before,table.dataTable thead>tr>th.sorting_desc_disabled:after,table.dataTable thead>tr>td.sorting:before,table.dataTable thead>tr>td.sorting:after,table.dataTable thead>tr>td.sorting_asc:before,table.dataTable thead>tr>td.sorting_asc:after,table.dataTable thead>tr>td.sorting_desc:before,table.dataTable thead>tr>td.sorting_desc:after,table.dataTable thead>tr>td.sorting_asc_disabled:before,table.dataTable thead>tr>td.sorting_asc_disabled:after,table.dataTable thead>tr>td.sorting_desc_disabled:before,table.dataTable thead>tr>td.sorting_desc_disabled:after{position:absolute;display:block;opacity:.125;right:10px;line-height:9px;font-size:.8em}table.dataTable thead>tr>th.sorting:before,table.dataTable thead>tr>th.sorting_asc:before,table.dataTable thead>tr>th.sorting_desc:before,table.dataTable thead>tr>th.sorting_asc_disabled:before,table.dataTable thead>tr>th.sorting_desc_disabled:before,table.dataTable thead>tr>td.sorting:before,table.dataTable thead>tr>td.sorting_asc:before,table.dataTable thead>tr>td.sorting_desc:before,table.dataTable thead>tr>td.sorting_asc_disabled:before,table.dataTable thead>tr>td.sorting_desc_disabled:before{bottom:50%;content:\"\\25B2\";content:\"\\25B2\"/\"\"}table.dataTable thead>tr>th.sorting:after,table.dataTable thead>tr>th.sorting_asc:after,table.dataTable thead>tr>th.sorting_desc:after,table.dataTable thead>tr>th.sorting_asc_disabled:after,table.dataTable thead>tr>th.sorting_desc_disabled:after,table.dataTable thead>tr>td.sorting:after,table.dataTable thead>tr>td.sorting_asc:after,table.dataTable thead>tr>td.sorting_desc:after,table.dataTable thead>tr>td.sorting_asc_disabled:after,table.dataTable thead>tr>td.sorting_desc_disabled:after{top:50%;content:\"\\25BC\";content:\"\\25BC\"/\"\"}table.dataTable thead>tr>th.sorting_asc:before,table.dataTable thead>tr>th.sorting_desc:after,table.dataTable thead>tr>td.sorting_asc:before,table.dataTable thead>tr>td.sorting_desc:after{opacity:.6}table.dataTable thead>tr>th.sorting_desc_disabled:after,table.dataTable thead>tr>th.sorting_asc_disabled:before,table.dataTable thead>tr>td.sorting_desc_disabled:after,table.dataTable thead>tr>td.sorting_asc_disabled:before{display:none}table.dataTable thead>tr>th:active,table.dataTable thead>tr>td:active{outline:none}div.dataTables_scrollBody>table.dataTable>thead>tr>th:before,div.dataTables_scrollBody>table.dataTable>thead>tr>th:after,div.dataTables_scrollBody>table.dataTable>thead>tr>td:before,div.dataTables_scrollBody>table.dataTable>thead>tr>td:after{display:none}div.dataTables_processing{position:absolute;top:50%;left:50%;width:200px;margin-left:-100px;margin-top:-26px;text-align:center;padding:2px}div.dataTables_processing>div:last-child{position:relative;width:80px;height:15px;margin:1em auto}div.dataTables_processing>div:last-child>div{position:absolute;top:0;width:13px;height:13px;border-radius:50%;background:#0275d8;background:rgb(var(--dt-row-selected));animation-timing-function:cubic-bezier(0, 1, 1, 0)}div.dataTables_processing>div:last-child>div:nth-child(1){left:8px;animation:datatables-loader-1 .6s infinite}div.dataTables_processing>div:last-child>div:nth-child(2){left:8px;animation:datatables-loader-2 .6s infinite}div.dataTables_processing>div:last-child>div:nth-child(3){left:32px;animation:datatables-loader-2 .6s infinite}div.dataTables_processing>div:last-child>div:nth-child(4){left:56px;animation:datatables-loader-3 .6s infinite}@keyframes datatables-loader-1{0%{transform:scale(0)}100%{transform:scale(1)}}@keyframes datatables-loader-3{0%{transform:scale(1)}100%{transform:scale(0)}}@keyframes datatables-loader-2{0%{transform:translate(0, 0)}100%{transform:translate(24px, 0)}}table.dataTable.nowrap th,table.dataTable.nowrap td{white-space:nowrap}table.dataTable th.dt-left,table.dataTable td.dt-left{text-align:left}table.dataTable th.dt-center,table.dataTable td.dt-center,table.dataTable td.dataTables_empty{text-align:center}table.dataTable th.dt-right,table.dataTable td.dt-right{text-align:right}table.dataTable th.dt-justify,table.dataTable td.dt-justify{text-align:justify}table.dataTable th.dt-nowrap,table.dataTable td.dt-nowrap{white-space:nowrap}table.dataTable thead th,table.dataTable thead td,table.dataTable tfoot th,table.dataTable tfoot td{text-align:left}table.dataTable thead th.dt-head-left,table.dataTable thead td.dt-head-left,table.dataTable tfoot th.dt-head-left,table.dataTable tfoot td.dt-head-left{text-align:left}table.dataTable thead th.dt-head-center,table.dataTable thead td.dt-head-center,table.dataTable tfoot th.dt-head-center,table.dataTable tfoot td.dt-head-center{text-align:center}table.dataTable thead th.dt-head-right,table.dataTable thead td.dt-head-right,table.dataTable tfoot th.dt-head-right,table.dataTable tfoot td.dt-head-right{text-align:right}table.dataTable thead th.dt-head-justify,table.dataTable thead td.dt-head-justify,table.dataTable tfoot th.dt-head-justify,table.dataTable tfoot td.dt-head-justify{text-align:justify}table.dataTable thead th.dt-head-nowrap,table.dataTable thead td.dt-head-nowrap,table.dataTable tfoot th.dt-head-nowrap,table.dataTable tfoot td.dt-head-nowrap{white-space:nowrap}table.dataTable tbody th.dt-body-left,table.dataTable tbody td.dt-body-left{text-align:left}table.dataTable tbody th.dt-body-center,table.dataTable tbody td.dt-body-center{text-align:center}table.dataTable tbody th.dt-body-right,table.dataTable tbody td.dt-body-right{text-align:right}table.dataTable tbody th.dt-body-justify,table.dataTable tbody td.dt-body-justify{text-align:justify}table.dataTable tbody th.dt-body-nowrap,table.dataTable tbody td.dt-body-nowrap{white-space:nowrap}table.dataTable{clear:both;margin-top:6px !important;margin-bottom:6px !important;max-width:none !important;border-collapse:separate !important;border-spacing:0}table.dataTable td,table.dataTable th{box-sizing:content-box}table.dataTable td.dataTables_empty,table.dataTable th.dataTables_empty{text-align:center}table.dataTable.nowrap th,table.dataTable.nowrap td{white-space:nowrap}table.dataTable.table-striped>tbody>tr:nth-of-type(2n+1){background-color:transparent}table.dataTable>tbody>tr{background-color:transparent}table.dataTable>tbody>tr.selected>*{box-shadow:inset 0 0 0 9999px #0275d8;box-shadow:inset 0 0 0 9999px rgb(var(--dt-row-selected));color:white;color:rgb(var(--dt-row-selected-text))}table.dataTable>tbody>tr.selected a{color:#090a0b;color:rgb(var(--dt-row-selected-link))}table.dataTable.table-striped>tbody>tr.odd>*{box-shadow:inset 0 0 0 9999px rgba(0, 0, 0, 0.05)}table.dataTable.table-striped>tbody>tr.odd.selected>*{box-shadow:inset 0 0 0 9999px rgba(2, 117, 216, 0.95);box-shadow:inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.95)}table.dataTable.table-hover>tbody>tr:hover>*{box-shadow:inset 0 0 0 9999px rgba(0, 0, 0, 0.075)}table.dataTable.table-hover>tbody>tr.selected:hover>*{box-shadow:inset 0 0 0 9999px rgba(2, 117, 216, 0.975);box-shadow:inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.975)}div.dataTables_wrapper div.dataTables_length label{font-weight:normal;text-align:left;white-space:nowrap}div.dataTables_wrapper div.dataTables_length select{width:auto;display:inline-block}div.dataTables_wrapper div.dataTables_filter{text-align:right}div.dataTables_wrapper div.dataTables_filter label{font-weight:normal;white-space:nowrap;text-align:left}div.dataTables_wrapper div.dataTables_filter input{margin-left:.5em;display:inline-block;width:auto}div.dataTables_wrapper div.dataTables_info{padding-top:.85em}div.dataTables_wrapper div.dataTables_paginate{margin:0;white-space:nowrap;text-align:right}div.dataTables_wrapper div.dataTables_paginate ul.pagination{margin:2px 0;white-space:nowrap;justify-content:flex-end}div.dataTables_wrapper div.dataTables_processing{position:absolute;top:50%;left:50%;width:200px;margin-left:-100px;margin-top:-26px;text-align:center;padding:1em 0}div.dataTables_scrollHead table.dataTable{margin-bottom:0 !important}div.dataTables_scrollBody>table{border-top:none;margin-top:0 !important;margin-bottom:0 !important}div.dataTables_scrollBody>table>thead .sorting:before,div.dataTables_scrollBody>table>thead .sorting_asc:before,div.dataTables_scrollBody>table>thead .sorting_desc:before,div.dataTables_scrollBody>table>thead .sorting:after,div.dataTables_scrollBody>table>thead .sorting_asc:after,div.dataTables_scrollBody>table>thead .sorting_desc:after{display:none}div.dataTables_scrollBody>table>tbody tr:first-child th,div.dataTables_scrollBody>table>tbody tr:first-child td{border-top:none}div.dataTables_scrollFoot>.dataTables_scrollFootInner{box-sizing:content-box}div.dataTables_scrollFoot>.dataTables_scrollFootInner>table{margin-top:0 !important;border-top:none}@media screen and (max-width: 767px){div.dataTables_wrapper div.dataTables_length,div.dataTables_wrapper div.dataTables_filter,div.dataTables_wrapper div.dataTables_info,div.dataTables_wrapper div.dataTables_paginate{text-align:center}div.dataTables_wrapper div.dataTables_paginate ul.pagination{justify-content:center !important}}table.dataTable.table-sm>thead>tr>th:not(.sorting_disabled){padding-right:20px}table.table-bordered.dataTable{border-right-width:0}table.table-bordered.dataTable th,table.table-bordered.dataTable td{border-left-width:0}table.table-bordered.dataTable th:last-child,table.table-bordered.dataTable th:last-child,table.table-bordered.dataTable td:last-child,table.table-bordered.dataTable td:last-child{border-right-width:1px}table.table-bordered.dataTable tbody th,table.table-bordered.dataTable tbody td{border-bottom-width:0}div.dataTables_scrollHead table.table-bordered{border-bottom-width:0}div.table-responsive>div.dataTables_wrapper>div.row{margin:0}div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:first-child{padding-left:0}div.table-responsive>div.dataTables_wrapper>div.row>div[class^=col-]:last-child{padding-right:0}\n", ""]);
 
 // exports
 
@@ -6316,7 +6315,7 @@ exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/** Trumbowyg v2.25.1 - A lightweight WYSIWYG editor - alex-d.github.io/Trumbowyg - License MIT - Author : Alexandre Demode (Alex-D) / alex-d.fr */\n#trumbowyg-icons,#trumbowyg-icons svg{height:0;width:0}#trumbowyg-icons{overflow:hidden;visibility:hidden}.trumbowyg-box *,.trumbowyg-box ::after,.trumbowyg-box ::before,.trumbowyg-modal *,.trumbowyg-modal ::after,.trumbowyg-modal ::before{box-sizing:border-box}.trumbowyg-box svg,.trumbowyg-modal svg{width:17px;height:100%;fill:#222}.trumbowyg-box,.trumbowyg-editor{display:block;position:relative;border:1px solid #DDD;width:100%;min-height:300px}.trumbowyg-box .trumbowyg-editor{margin:0 auto}.trumbowyg-box.trumbowyg-fullscreen{background:#FEFEFE;border:none!important}.trumbowyg-editor,.trumbowyg-textarea{position:relative;box-sizing:border-box;padding:20px;min-height:300px;width:100%;border-style:none;resize:none;outline:0;overflow:auto;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}.trumbowyg-editor.trumbowyg-autogrow-on-enter,.trumbowyg-textarea.trumbowyg-autogrow-on-enter{transition:height .3s ease-out}.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:transparent!important;text-shadow:0 0 7px #333}@media screen and (min-width:0 \\0){.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(200,200,200,.6)!important}}@supports (-ms-accelerator:true){.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(200,200,200,.6)!important}}.trumbowyg-box-blur .trumbowyg-editor hr,.trumbowyg-box-blur .trumbowyg-editor img{opacity:.2}.trumbowyg-textarea{position:relative;display:block;overflow:auto;border:none;font-size:14px;font-family:Inconsolata,Consolas,Courier,\"Courier New\",sans-serif;line-height:18px}.trumbowyg-box.trumbowyg-editor-visible .trumbowyg-textarea{height:1px!important;width:25%;min-height:0!important;padding:0!important;background:0 0;opacity:0!important}.trumbowyg-box.trumbowyg-editor-hidden .trumbowyg-textarea{display:block;margin-bottom:1px}.trumbowyg-box.trumbowyg-editor-hidden .trumbowyg-editor{display:none}.trumbowyg-box.trumbowyg-disabled .trumbowyg-textarea{opacity:.8;background:0 0}.trumbowyg-editor[contenteditable=true]:empty:not(:focus)::before{content:attr(placeholder);color:#999;pointer-events:none;white-space:break-spaces}.trumbowyg-button-pane{width:100%;min-height:36px;background:#ecf0f1;border-bottom:1px solid #d7e0e2;margin:0;padding:0 5px;position:relative;list-style-type:none;line-height:10px;-webkit-backface-visibility:hidden;backface-visibility:hidden;z-index:11}.trumbowyg-button-pane::after{content:\" \";display:block;position:absolute;top:36px;left:0;right:0;width:100%;height:1px;background:#d7e0e2}.trumbowyg-button-pane .trumbowyg-button-group{display:inline-block}.trumbowyg-button-pane .trumbowyg-button-group .trumbowyg-fullscreen-button svg{color:transparent}.trumbowyg-button-pane .trumbowyg-button-group::after{content:\" \";display:inline-block;width:1px;background:#d7e0e2;margin:0 5px;height:35px;vertical-align:top}.trumbowyg-button-pane .trumbowyg-button-group:last-child::after{content:none}.trumbowyg-button-pane button{display:inline-block;position:relative;width:35px;height:35px;padding:1px 6px!important;margin-bottom:1px;overflow:hidden;border:none;cursor:pointer;background:0 0;vertical-align:middle;transition:background-color 150ms,opacity 150ms}.trumbowyg-button-pane button.trumbowyg-textual-button{width:auto;line-height:35px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.trumbowyg-button-pane button.trumbowyg-disable,.trumbowyg-button-pane.trumbowyg-disable button:not(.trumbowyg-not-disable):not(.trumbowyg-active),.trumbowyg-disabled .trumbowyg-button-pane button:not(.trumbowyg-not-disable):not(.trumbowyg-viewHTML-button){opacity:.2;cursor:default;pointer-events:none}.trumbowyg-button-pane.trumbowyg-disable .trumbowyg-button-group::before,.trumbowyg-disabled .trumbowyg-button-pane .trumbowyg-button-group::before{background:#e3e9eb}.trumbowyg-button-pane button.trumbowyg-active,.trumbowyg-button-pane button:not(.trumbowyg-disable):focus,.trumbowyg-button-pane button:not(.trumbowyg-disable):hover{background-color:#FFF;outline:0}.trumbowyg-button-pane .trumbowyg-open-dropdown::after{display:block;content:\" \";position:absolute;top:25px;right:3px;height:0;width:0;border:3px solid transparent;border-top-color:#555}.trumbowyg-button-pane .trumbowyg-open-dropdown.trumbowyg-textual-button{padding-left:10px!important;padding-right:18px!important}.trumbowyg-button-pane .trumbowyg-open-dropdown.trumbowyg-textual-button::after{top:17px;right:7px}.trumbowyg-button-pane .trumbowyg-right{float:right}.trumbowyg-dropdown{max-width:300px;max-height:250px;overflow-y:auto;overflow-x:hidden;white-space:nowrap;border:1px solid #ecf0f1;padding:5px 0;border-top:none;background:#FFF;margin-left:-1px;box-shadow:rgba(0,0,0,.1) 0 2px 3px;z-index:12}.trumbowyg-dropdown button{display:block;width:100%;height:35px;line-height:35px;text-decoration:none;background:#FFF;padding:0 20px 0 10px;color:#333!important;border:none;cursor:pointer;text-align:left;font-size:15px;transition:all 150ms}.trumbowyg-dropdown button:focus,.trumbowyg-dropdown button:hover{background:#ecf0f1}.trumbowyg-dropdown button svg{float:left;margin-right:14px}.trumbowyg-modal{position:absolute;top:0;left:50%;transform:translateX(-50%);max-width:520px;width:100%;height:350px;z-index:12;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}.trumbowyg-modal-box{position:absolute;top:0;left:50%;transform:translateX(-50%);max-width:500px;width:calc(100% - 20px);padding-bottom:45px;z-index:1;background-color:#FFF;text-align:center;font-size:14px;box-shadow:rgba(0,0,0,.2) 0 2px 3px;-webkit-backface-visibility:hidden;backface-visibility:hidden}.trumbowyg-modal-box .trumbowyg-modal-title{font-size:24px;font-weight:700;margin:0 0 20px;padding:15px 0 13px;display:block;border-bottom:1px solid #EEE;color:#333;background:#fbfcfc}.trumbowyg-modal-box .trumbowyg-progress{width:100%;height:3px;position:absolute;top:58px}.trumbowyg-modal-box .trumbowyg-progress .trumbowyg-progress-bar{background:#2BC06A;width:0;height:100%;transition:width 150ms linear}.trumbowyg-modal-box .trumbowyg-input-row{position:relative;margin:15px 12px;border:1px solid #DEDEDE;overflow:hidden}.trumbowyg-modal-box .trumbowyg-input-infos{text-align:left;transition:all 150ms;width:150px;border-right:1px solid #DEDEDE;padding:0 7px;background-color:#fbfcfc;position:absolute;left:0;top:0;bottom:0}.trumbowyg-modal-box .trumbowyg-input-infos label{color:#69878f;overflow:hidden}.trumbowyg-modal-box .trumbowyg-input-infos label,.trumbowyg-modal-box .trumbowyg-input-infos label span{display:block;height:27px;line-height:27px;transition:all 150ms}.trumbowyg-modal-box .trumbowyg-input-infos .trumbowyg-msg-error{color:#e74c3c}.trumbowyg-modal-box .trumbowyg-input-html{padding:1px 1px 1px 152px}.trumbowyg-modal-box .trumbowyg-input-html,.trumbowyg-modal-box .trumbowyg-input-html input,.trumbowyg-modal-box .trumbowyg-input-html select,.trumbowyg-modal-box .trumbowyg-input-html textarea{font-size:14px}.trumbowyg-modal-box .trumbowyg-input-html input,.trumbowyg-modal-box .trumbowyg-input-html select,.trumbowyg-modal-box .trumbowyg-input-html textarea{transition:all 150ms;height:27px;line-height:27px;border:0;width:100%;padding:0 7px}.trumbowyg-modal-box .trumbowyg-input-html input:focus,.trumbowyg-modal-box .trumbowyg-input-html input:hover,.trumbowyg-modal-box .trumbowyg-input-html select:focus,.trumbowyg-modal-box .trumbowyg-input-html select:hover,.trumbowyg-modal-box .trumbowyg-input-html textarea:focus,.trumbowyg-modal-box .trumbowyg-input-html textarea:hover{outline:#95a5a6 solid 1px}.trumbowyg-modal-box .trumbowyg-input-html input:focus,.trumbowyg-modal-box .trumbowyg-input-html select:focus,.trumbowyg-modal-box .trumbowyg-input-html textarea:focus{background:#fbfcfc}.trumbowyg-modal-box .trumbowyg-input-html input[type=checkbox]{width:16px;height:16px;padding:0}.trumbowyg-modal-box .trumbowyg-input-html-with-checkbox{text-align:left;padding:3px 1px 1px 3px}.trumbowyg-modal-box .trumbowyg-input-error input,.trumbowyg-modal-box .trumbowyg-input-error select,.trumbowyg-modal-box .trumbowyg-input-error textarea{outline:#e74c3c solid 1px}.trumbowyg-modal-box .trumbowyg-input-error .trumbowyg-input-infos label span:first-child{margin-top:-27px}.trumbowyg-modal-box .error{margin-top:25px;display:block;color:red}.trumbowyg-modal-box .trumbowyg-modal-button{position:absolute;bottom:10px;right:0;text-decoration:none;color:#FFF;display:block;width:100px;height:35px;line-height:33px;margin:0 10px;background-color:#333;border:none;cursor:pointer;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif;font-size:16px;transition:all 150ms}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit{right:110px;background:#2bc06a}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:focus,.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:hover{background:#40d47e;outline:0}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:active{background:#25a25a}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset{color:#555;background:#e6e6e6}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:focus,.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:hover{background:#fbfbfb;outline:0}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:active{background:#d5d5d5}.trumbowyg-overlay{position:absolute;background-color:rgba(255,255,255,.5);height:100%;width:100%;left:0;display:none;top:0;z-index:10}body.trumbowyg-body-fullscreen{overflow:hidden}.trumbowyg-fullscreen{position:fixed;top:0;left:0;width:100%;height:100%;margin:0;padding:0;z-index:99999}.trumbowyg-fullscreen .trumbowyg-editor,.trumbowyg-fullscreen.trumbowyg-box{border:none}.trumbowyg-fullscreen .trumbowyg-editor,.trumbowyg-fullscreen .trumbowyg-textarea{height:calc(100% - 37px)!important;overflow:auto}.trumbowyg-fullscreen .trumbowyg-overlay{height:100%!important}.trumbowyg-fullscreen .trumbowyg-button-group .trumbowyg-fullscreen-button svg{color:#222;fill:transparent}.trumbowyg-editor embed,.trumbowyg-editor img,.trumbowyg-editor object,.trumbowyg-editor video{max-width:100%}.trumbowyg-editor img,.trumbowyg-editor video{height:auto}.trumbowyg-editor img{cursor:move}.trumbowyg-editor canvas:focus{outline:0}.trumbowyg-editor.trumbowyg-reset-css{background:#FEFEFE!important;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif!important;font-size:14px!important;line-height:1.45em!important;color:#333}.trumbowyg-editor.trumbowyg-reset-css a{color:#15c!important;text-decoration:underline!important}.trumbowyg-editor.trumbowyg-reset-css blockquote,.trumbowyg-editor.trumbowyg-reset-css div,.trumbowyg-editor.trumbowyg-reset-css ol,.trumbowyg-editor.trumbowyg-reset-css p,.trumbowyg-editor.trumbowyg-reset-css ul{box-shadow:none!important;background:0 0!important;margin:0 0 15px!important;line-height:1.4em!important;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif!important;font-size:14px!important;border:none}.trumbowyg-editor.trumbowyg-reset-css hr,.trumbowyg-editor.trumbowyg-reset-css iframe,.trumbowyg-editor.trumbowyg-reset-css object{margin-bottom:15px!important}.trumbowyg-editor.trumbowyg-reset-css blockquote{margin-left:32px!important;font-style:italic!important;color:#555}.trumbowyg-editor.trumbowyg-reset-css ul{list-style:disc}.trumbowyg-editor.trumbowyg-reset-css ol{list-style:decimal}.trumbowyg-editor.trumbowyg-reset-css ol,.trumbowyg-editor.trumbowyg-reset-css ul{padding-left:20px!important}.trumbowyg-editor.trumbowyg-reset-css ol ol,.trumbowyg-editor.trumbowyg-reset-css ol ul,.trumbowyg-editor.trumbowyg-reset-css ul ol,.trumbowyg-editor.trumbowyg-reset-css ul ul{border:none;margin:2px!important;padding:0 0 0 24px!important}.trumbowyg-editor.trumbowyg-reset-css hr{display:block;height:1px;border:none;border-top:1px solid #CCC}.trumbowyg-editor.trumbowyg-reset-css h1,.trumbowyg-editor.trumbowyg-reset-css h2,.trumbowyg-editor.trumbowyg-reset-css h3,.trumbowyg-editor.trumbowyg-reset-css h4{color:#111;background:0 0;margin:0!important;padding:0!important;font-weight:700}.trumbowyg-editor.trumbowyg-reset-css h1{font-size:32px!important;line-height:38px!important;margin-bottom:20px!important}.trumbowyg-editor.trumbowyg-reset-css h2{font-size:26px!important;line-height:34px!important;margin-bottom:15px!important}.trumbowyg-editor.trumbowyg-reset-css h3{font-size:22px!important;line-height:28px!important;margin-bottom:7px!important}.trumbowyg-editor.trumbowyg-reset-css h4{font-size:16px!important;line-height:22px!important;margin-bottom:7px!important}.trumbowyg-dark .trumbowyg-textarea{background:#111;color:#ddd}.trumbowyg-dark .trumbowyg-box{border:1px solid #343434}.trumbowyg-dark .trumbowyg-box.trumbowyg-fullscreen{background:#111}.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{text-shadow:0 0 7px #ccc}@media screen and (min-width:0 \\0){.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(20,20,20,.6)!important}}@supports (-ms-accelerator:true){.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(20,20,20,.6)!important}}.trumbowyg-dark .trumbowyg-box svg{fill:#ecf0f1;color:#ecf0f1}.trumbowyg-dark .trumbowyg-button-pane{background-color:#222;border-bottom-color:#343434}.trumbowyg-dark .trumbowyg-button-pane::after{background:#343434}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-button-group:not(:empty)::after{background-color:#343434}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-button-group:not(:empty) .trumbowyg-fullscreen-button svg{color:transparent}.trumbowyg-dark .trumbowyg-button-pane.trumbowyg-disable .trumbowyg-button-group::after{background-color:#2a2a2a}.trumbowyg-dark .trumbowyg-button-pane button.trumbowyg-active,.trumbowyg-dark .trumbowyg-button-pane button:not(.trumbowyg-disable):focus,.trumbowyg-dark .trumbowyg-button-pane button:not(.trumbowyg-disable):hover{background-color:#333}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-open-dropdown::after{border-top-color:#fff}.trumbowyg-dark .trumbowyg-fullscreen .trumbowyg-button-pane .trumbowyg-button-group:not(:empty) .trumbowyg-fullscreen-button svg{color:#ecf0f1;fill:transparent}.trumbowyg-dark .trumbowyg-dropdown{border-color:#222;background:#333;box-shadow:rgba(0,0,0,.3) 0 2px 3px}.trumbowyg-dark .trumbowyg-dropdown button{background:#333;color:#fff!important}.trumbowyg-dark .trumbowyg-dropdown button:focus,.trumbowyg-dark .trumbowyg-dropdown button:hover{background:#222}.trumbowyg-dark .trumbowyg-modal-box{background-color:#222}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-title{border-bottom:1px solid #555;color:#fff;background:#3c3c3c}.trumbowyg-dark .trumbowyg-modal-box label{display:block;position:relative;margin:15px 12px;height:27px;line-height:27px;overflow:hidden}.trumbowyg-dark .trumbowyg-modal-box label .trumbowyg-input-infos span{color:#eee;background-color:#2f2f2f;border-color:#222}.trumbowyg-dark .trumbowyg-modal-box label .trumbowyg-input-infos span.trumbowyg-msg-error{color:#e74c3c}.trumbowyg-dark .trumbowyg-modal-box label.trumbowyg-input-error input,.trumbowyg-dark .trumbowyg-modal-box label.trumbowyg-input-error textarea{border-color:#e74c3c}.trumbowyg-dark .trumbowyg-modal-box label input{border-color:#222;color:#eee;background:#333}.trumbowyg-dark .trumbowyg-modal-box label input:focus,.trumbowyg-dark .trumbowyg-modal-box label input:hover{border-color:#626262}.trumbowyg-dark .trumbowyg-modal-box label input:focus{background-color:#2f2f2f}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit{background:#1b7943}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:focus,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:hover{background:#25a25a}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:active{background:#176437}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset{background:#333;color:#ccc}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:focus,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:hover{background:#444}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:active{background:#111}.trumbowyg-dark .trumbowyg-overlay{background-color:rgba(15,15,15,.6)}", ""]);
+exports.push([module.i, "/** Trumbowyg v2.27.3 - A lightweight WYSIWYG editor - alex-d.github.io/Trumbowyg/ - License MIT - Author : Alexandre Demode (Alex-D) / alex-d.fr */\n#trumbowyg-icons,.trumbowyg-icons{overflow:hidden;visibility:hidden;height:0;width:0}#trumbowyg-icons svg,.trumbowyg-icons svg{height:0;width:0}.trumbowyg-box *,.trumbowyg-box ::after,.trumbowyg-box ::before,.trumbowyg-modal *,.trumbowyg-modal ::after,.trumbowyg-modal ::before{box-sizing:border-box}.trumbowyg-box svg,.trumbowyg-modal svg{width:17px;height:100%;color:#222;fill:#222}.trumbowyg-box{display:flex;flex-direction:column;min-height:300px}.trumbowyg-editor-box{display:block;flex:1}.trumbowyg-box,.trumbowyg-editor-box{position:relative;width:100%;border:1px solid #d7e0e2}.trumbowyg-box .trumbowyg-editor{min-height:100%;margin:0 auto}.trumbowyg-box.trumbowyg-fullscreen{background:#fefefe;border:none!important}.trumbowyg-editor-box,.trumbowyg-textarea{position:relative;box-sizing:border-box;padding:20px;width:100%;border-style:none;resize:none;outline:0;overflow:auto;-webkit-user-select:text;-moz-user-select:text;user-select:text}.trumbowyg-editor-box.trumbowyg-autogrow-on-enter,.trumbowyg-textarea.trumbowyg-autogrow-on-enter{transition:height .3s ease-out}.trumbowyg-editor-box{padding:0}.trumbowyg-editor{outline:0;padding:20px}.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:transparent!important;text-shadow:0 0 7px #333}@media screen and (min-width:0 \\0){.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(200,200,200,.6)!important}}@supports (-ms-accelerator:true){.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(200,200,200,.6)!important}}.trumbowyg-box-blur .trumbowyg-editor hr,.trumbowyg-box-blur .trumbowyg-editor img{opacity:.2}.trumbowyg-textarea{position:relative;display:block;overflow:auto;border:none;font-size:14px;font-family:Consolas,Courier,\"Courier New\",monospace;line-height:18px}.trumbowyg-box.trumbowyg-editor-visible .trumbowyg-textarea{height:1px!important;width:25%;min-height:0!important;padding:0!important;background:0 0;opacity:0!important}.trumbowyg-box.trumbowyg-editor-hidden .trumbowyg-textarea{display:block;flex:1;margin-bottom:1px}.trumbowyg-box.trumbowyg-editor-hidden .trumbowyg-editor-box{display:none}.trumbowyg-box.trumbowyg-disabled .trumbowyg-textarea{opacity:.8;background:0 0}.trumbowyg-editor-box[contenteditable=true]:empty:not(:focus)::before{content:attr(placeholder);color:#999;pointer-events:none;white-space:break-spaces}.trumbowyg-button-pane{display:flex;flex-wrap:wrap;width:100%;min-height:36px;background:#ecf0f1;border-bottom:1px solid #d7e0e2;margin:0;padding:0 5px;position:relative;list-style-type:none;line-height:10px;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;z-index:11}.trumbowyg-button-pane::after,.trumbowyg-button-pane::before{content:\" \";display:block;position:absolute;top:35px;left:0;right:0;width:100%;height:1px;background:#d7e0e2}.trumbowyg-button-pane::after{top:71px}.trumbowyg-button-pane .trumbowyg-button-group{display:flex;flex-wrap:wrap}.trumbowyg-button-pane .trumbowyg-button-group .trumbowyg-fullscreen-button svg{color:transparent}.trumbowyg-button-pane .trumbowyg-button-group::after{content:\" \";display:block;width:1px;background:#d7e0e2;margin:0 5px;height:35px;vertical-align:top}.trumbowyg-button-pane .trumbowyg-button-group:last-child::after{content:none}.trumbowyg-button-pane button{display:block;position:relative;width:35px;height:35px;padding:1px 6px!important;margin-bottom:1px;overflow:hidden;border:none;cursor:pointer;background:0 0;vertical-align:middle;transition:background-color 150ms,opacity 150ms}.trumbowyg-button-pane button.trumbowyg-textual-button{width:auto;line-height:35px;-webkit-user-select:none;-moz-user-select:none;user-select:none}.trumbowyg-button-pane button.trumbowyg-disable,.trumbowyg-button-pane.trumbowyg-disable button:not(.trumbowyg-not-disable):not(.trumbowyg-active),.trumbowyg-disabled .trumbowyg-button-pane button:not(.trumbowyg-not-disable):not(.trumbowyg-viewHTML-button){opacity:.2;cursor:default;pointer-events:none}.trumbowyg-button-pane.trumbowyg-disable .trumbowyg-button-group::before,.trumbowyg-disabled .trumbowyg-button-pane .trumbowyg-button-group::before{background:#e3e9eb}.trumbowyg-button-pane button.trumbowyg-active,.trumbowyg-button-pane button:not(.trumbowyg-disable):focus,.trumbowyg-button-pane button:not(.trumbowyg-disable):hover{background-color:#fff;outline:0}.trumbowyg-button-pane .trumbowyg-open-dropdown::after{display:block;content:\" \";position:absolute;top:27px;right:3px;height:0;width:0;border:3px solid transparent;border-top-color:#555}.trumbowyg-button-pane .trumbowyg-open-dropdown.trumbowyg-textual-button{padding-left:10px!important;padding-right:18px!important}.trumbowyg-button-pane .trumbowyg-open-dropdown.trumbowyg-textual-button::after{top:17px;right:7px}.trumbowyg-button-pane .trumbowyg-right{margin-left:auto}.trumbowyg-dropdown{max-width:300px;max-height:250px;overflow-y:auto;overflow-x:hidden;white-space:nowrap;border:1px solid #d7e0e2;padding:5px 0;border-top:none;background:#fff;color:#222;margin-left:-1px;box-shadow:rgba(0,0,0,.1) 0 2px 3px;z-index:12}.trumbowyg-dropdown button{display:block;width:100%;height:35px;line-height:35px;text-decoration:none;background:#fff;padding:0 20px 0 10px;color:#222;border:none;cursor:pointer;text-align:left;font-size:15px;transition:all 150ms}.trumbowyg-dropdown button:focus,.trumbowyg-dropdown button:hover{background:#ecf0f1}.trumbowyg-dropdown button svg{float:left;margin-right:14px}.trumbowyg-modal{position:absolute;top:0;left:50%;transform:translateX(-50%);max-width:520px;width:100%;height:350px;z-index:12;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}.trumbowyg-modal-box{position:absolute;top:0;left:50%;transform:translateX(-50%);max-width:500px;width:calc(100% - 20px);padding-bottom:45px;z-index:1;background-color:#fff;text-align:center;font-size:14px;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif;box-shadow:rgba(0,0,0,.2) 0 2px 3px;-webkit-backface-visibility:hidden;backface-visibility:hidden}.trumbowyg-modal-box .trumbowyg-modal-title{font-size:24px;font-weight:700;margin:0 0 20px;padding:15px 0 13px;display:block;border-bottom:1px solid #d7e0e2}.trumbowyg-modal-box .trumbowyg-progress{width:100%;height:3px;position:absolute;top:58px}.trumbowyg-modal-box .trumbowyg-progress .trumbowyg-progress-bar{background:#2bc06a;width:0;height:100%;transition:width 150ms linear}.trumbowyg-modal-box .trumbowyg-input-row{position:relative;margin:15px 12px;border:1px solid #dedede;overflow:hidden}.trumbowyg-modal-box .trumbowyg-input-infos{text-align:left;transition:all 150ms;width:150px;border-right:1px solid #dedede;padding:0 7px;background-color:#fbfcfc;position:absolute;left:0;top:0;bottom:0}.trumbowyg-modal-box .trumbowyg-input-infos label{color:#69878f;overflow:hidden;height:27px;line-height:27px}.trumbowyg-modal-box .trumbowyg-input-infos label,.trumbowyg-modal-box .trumbowyg-input-infos label span{display:block;height:27px;line-height:27px;transition:all 150ms}.trumbowyg-modal-box .trumbowyg-input-infos .trumbowyg-msg-error{color:#e74c3c}.trumbowyg-modal-box .trumbowyg-input-html{padding:1px 1px 1px 152px}.trumbowyg-modal-box .trumbowyg-input-html,.trumbowyg-modal-box .trumbowyg-input-html input,.trumbowyg-modal-box .trumbowyg-input-html select,.trumbowyg-modal-box .trumbowyg-input-html textarea{font-size:14px}.trumbowyg-modal-box .trumbowyg-input-html input,.trumbowyg-modal-box .trumbowyg-input-html select,.trumbowyg-modal-box .trumbowyg-input-html textarea{transition:all 150ms;height:27px;line-height:27px;border:0;width:100%;padding:0 7px}.trumbowyg-modal-box .trumbowyg-input-html input:focus,.trumbowyg-modal-box .trumbowyg-input-html input:hover,.trumbowyg-modal-box .trumbowyg-input-html select:focus,.trumbowyg-modal-box .trumbowyg-input-html select:hover,.trumbowyg-modal-box .trumbowyg-input-html textarea:focus,.trumbowyg-modal-box .trumbowyg-input-html textarea:hover{outline:1px solid #95a5a6}.trumbowyg-modal-box .trumbowyg-input-html input:focus,.trumbowyg-modal-box .trumbowyg-input-html select:focus,.trumbowyg-modal-box .trumbowyg-input-html textarea:focus{background:#fbfcfc}.trumbowyg-modal-box .trumbowyg-input-html input[type=checkbox]{width:16px;height:16px;padding:0}.trumbowyg-modal-box .trumbowyg-input-html-with-checkbox{text-align:left;padding:3px 1px 1px 3px}.trumbowyg-modal-box .trumbowyg-input-error input,.trumbowyg-modal-box .trumbowyg-input-error select,.trumbowyg-modal-box .trumbowyg-input-error textarea{outline:1px solid #e74c3c}.trumbowyg-modal-box .trumbowyg-input-error .trumbowyg-input-infos label span:first-child{margin-top:-27px}.trumbowyg-modal-box .error{margin-top:25px;display:block;color:red}.trumbowyg-modal-box .trumbowyg-modal-button{position:absolute;bottom:10px;right:0;text-decoration:none;color:#fff;display:block;width:100px;height:35px;line-height:33px;margin:0 10px;background-color:#333;border:none;cursor:pointer;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif;font-size:16px;transition:all 150ms}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit{right:110px;background:#2bc06a}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:focus,.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:hover{background:#40d47e;outline:0}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:active{background:#25a25a}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset{color:#555;background:#e6e6e6}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:focus,.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:hover{background:#fbfbfb;outline:0}.trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:active{background:#d5d5d5}.trumbowyg-overlay{position:absolute;background-color:rgba(255,255,255,.5);height:100%;width:100%;left:0;display:none;top:0;z-index:10}body.trumbowyg-body-fullscreen{overflow:hidden}.trumbowyg-fullscreen{position:fixed;top:0;left:0;width:100%;height:100%;margin:0;padding:0;z-index:99999}.trumbowyg-fullscreen .trumbowyg-editor-box,.trumbowyg-fullscreen.trumbowyg-box{border:none}.trumbowyg-fullscreen .trumbowyg-editor-box,.trumbowyg-fullscreen .trumbowyg-textarea{height:auto!important;overflow:auto}.trumbowyg-fullscreen .trumbowyg-overlay{height:100%!important}.trumbowyg-fullscreen .trumbowyg-button-group .trumbowyg-fullscreen-button svg{color:#222;fill:transparent}.trumbowyg-editor embed,.trumbowyg-editor img,.trumbowyg-editor object,.trumbowyg-editor video{max-width:100%}.trumbowyg-editor img,.trumbowyg-editor video{height:auto}.trumbowyg-editor img{cursor:move}.trumbowyg-editor canvas:focus{outline:0}.trumbowyg-editor.trumbowyg-reset-css{background:#fefefe!important;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif!important;font-size:14px!important;line-height:1.45em!important;color:#333!important;font-weight:400!important}.trumbowyg-editor.trumbowyg-reset-css a{color:#15c!important;text-decoration:underline!important}.trumbowyg-editor.trumbowyg-reset-css blockquote,.trumbowyg-editor.trumbowyg-reset-css div,.trumbowyg-editor.trumbowyg-reset-css ol,.trumbowyg-editor.trumbowyg-reset-css p,.trumbowyg-editor.trumbowyg-reset-css ul{box-shadow:none!important;background:0 0!important;margin:0!important;margin-bottom:15px!important;line-height:1.4em!important;font-family:\"Trebuchet MS\",Helvetica,Verdana,sans-serif!important;font-size:14px!important;border:none!important}.trumbowyg-editor.trumbowyg-reset-css hr,.trumbowyg-editor.trumbowyg-reset-css iframe,.trumbowyg-editor.trumbowyg-reset-css object{margin-bottom:15px!important}.trumbowyg-editor.trumbowyg-reset-css blockquote{margin-left:32px!important;font-style:italic!important;color:#555!important}.trumbowyg-editor.trumbowyg-reset-css ul{list-style:disc!important}.trumbowyg-editor.trumbowyg-reset-css ol{list-style:decimal!important}.trumbowyg-editor.trumbowyg-reset-css ol,.trumbowyg-editor.trumbowyg-reset-css ul{padding-left:20px!important}.trumbowyg-editor.trumbowyg-reset-css ol ol,.trumbowyg-editor.trumbowyg-reset-css ol ul,.trumbowyg-editor.trumbowyg-reset-css ul ol,.trumbowyg-editor.trumbowyg-reset-css ul ul{border:none!important;margin:2px!important;padding:0!important;padding-left:24px!important}.trumbowyg-editor.trumbowyg-reset-css hr{display:block!important;height:1px!important;border:none!important;border-top:1px solid #ccc!important}.trumbowyg-editor.trumbowyg-reset-css h1,.trumbowyg-editor.trumbowyg-reset-css h2,.trumbowyg-editor.trumbowyg-reset-css h3,.trumbowyg-editor.trumbowyg-reset-css h4{color:#111!important;background:0 0!important;margin:0!important;padding:0!important;font-weight:700!important}.trumbowyg-editor.trumbowyg-reset-css h1{font-size:32px!important;line-height:38px!important;margin-bottom:20px!important}.trumbowyg-editor.trumbowyg-reset-css h2{font-size:26px!important;line-height:34px!important;margin-bottom:15px!important}.trumbowyg-editor.trumbowyg-reset-css h3{font-size:22px!important;line-height:28px!important;margin-bottom:7px!important}.trumbowyg-editor.trumbowyg-reset-css h4{font-size:16px!important;line-height:22px!important;margin-bottom:7px!important}.trumbowyg-dark .trumbowyg-textarea{background:#222;color:#fff;border-color:#343434}.trumbowyg-dark .trumbowyg-box{border:1px solid #343434}.trumbowyg-dark .trumbowyg-box.trumbowyg-fullscreen{background:#111}.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{text-shadow:0 0 7px #ccc}@media screen and (min-width:0 \\0){.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(20,20,20,.6)!important}}@supports (-ms-accelerator:true){.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor *,.trumbowyg-dark .trumbowyg-box.trumbowyg-box-blur .trumbowyg-editor::before{color:rgba(20,20,20,.6)!important}}.trumbowyg-dark .trumbowyg-box svg{fill:#fff;color:#fff}.trumbowyg-dark .trumbowyg-button-pane{background-color:#222;border-bottom-color:#343434}.trumbowyg-dark .trumbowyg-button-pane::after,.trumbowyg-dark .trumbowyg-button-pane::before{background:#343434}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-button-group:not(:empty)::after{background-color:#343434}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-button-group:not(:empty) .trumbowyg-fullscreen-button svg{color:transparent}.trumbowyg-dark .trumbowyg-button-pane.trumbowyg-disable .trumbowyg-button-group::after{background-color:#2a2a2a}.trumbowyg-dark .trumbowyg-button-pane button.trumbowyg-active,.trumbowyg-dark .trumbowyg-button-pane button:not(.trumbowyg-disable):focus,.trumbowyg-dark .trumbowyg-button-pane button:not(.trumbowyg-disable):hover{background-color:#333}.trumbowyg-dark .trumbowyg-button-pane .trumbowyg-open-dropdown::after{border-top-color:#fff}.trumbowyg-dark .trumbowyg-fullscreen .trumbowyg-button-pane .trumbowyg-button-group:not(:empty) .trumbowyg-fullscreen-button svg{color:#ecf0f1;fill:transparent}.trumbowyg-dark .trumbowyg-dropdown{border-color:#343434;background:#333;box-shadow:rgba(0,0,0,.3) 0 2px 3px}.trumbowyg-dark .trumbowyg-dropdown button{background:#333;color:#fff}.trumbowyg-dark .trumbowyg-dropdown button:focus,.trumbowyg-dark .trumbowyg-dropdown button:hover{background:#222}.trumbowyg-dark .trumbowyg-modal-box{background-color:#333;color:#fff}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-title{border-bottom:1px solid #555;color:#fff;background:#3c3c3c}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-row{border-color:#222}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-infos{color:#eee;background-color:#2f2f2f;border-right-color:#222}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-infos span{color:#eee;background-color:#2f2f2f;border-color:#343434}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-infos span.trumbowyg-msg-error{color:#e74c3c}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-row.trumbowyg-input-error input,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-row.trumbowyg-input-error select,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-input-row.trumbowyg-input-error textarea{border-color:#e74c3c}.trumbowyg-dark .trumbowyg-modal-box input,.trumbowyg-dark .trumbowyg-modal-box select,.trumbowyg-dark .trumbowyg-modal-box textarea{border-color:#343434;color:#fff;background:#222}.trumbowyg-dark .trumbowyg-modal-box input:focus,.trumbowyg-dark .trumbowyg-modal-box input:hover,.trumbowyg-dark .trumbowyg-modal-box select:focus,.trumbowyg-dark .trumbowyg-modal-box select:hover,.trumbowyg-dark .trumbowyg-modal-box textarea:focus,.trumbowyg-dark .trumbowyg-modal-box textarea:hover{border-color:#626262}.trumbowyg-dark .trumbowyg-modal-box input:focus,.trumbowyg-dark .trumbowyg-modal-box select:focus,.trumbowyg-dark .trumbowyg-modal-box textarea:focus{background-color:#2f2f2f}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit{background:#1b7943}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:focus,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:hover{background:#25a25a}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-submit:active{background:#176437}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset{background:#333;color:#ccc}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:focus,.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:hover{background:#444}.trumbowyg-dark .trumbowyg-modal-box .trumbowyg-modal-button.trumbowyg-modal-reset:active{background:#111}.trumbowyg-dark .trumbowyg-overlay{background-color:rgba(15,15,15,.6)}", ""]);
 
 // exports
 
@@ -6459,16 +6458,24 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.mjs":
+/*!**********************************************************************!*\
+  !*** ./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.mjs ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables Bootstrap 4 integration
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/*! DataTables Bootstrap 4 integration
  * ©2011-2017 SpryMedia Ltd - datatables.net/license
  */
+
+
+
+
 
 /**
  * DataTables integration for Bootstrap 4. This requires Bootstrap 4 and
@@ -6478,22 +6485,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables B
  * controls using Bootstrap. See http://datatables.net/manual/styling/bootstrap
  * for further information.
  */
-(function( factory ){
-	if ( true ) {
-		// AMD
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function ( $ ) {
-			return factory( $, window, document );
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	}
-	else {}
-}(function( $, window, document, undefined ) {
-'use strict';
-var DataTable = $.fn.dataTable;
-
 
 /* Set the defaults for DataTables initialisation */
-$.extend( true, DataTable.defaults, {
+jquery__WEBPACK_IMPORTED_MODULE_0__.extend( true, datatables_net__WEBPACK_IMPORTED_MODULE_1__.defaults, {
 	dom:
 		"<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
 		"<'row'<'col-sm-12'tr>>" +
@@ -6503,7 +6497,7 @@ $.extend( true, DataTable.defaults, {
 
 
 /* Default class modification */
-$.extend( DataTable.ext.classes, {
+jquery__WEBPACK_IMPORTED_MODULE_0__.extend( datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.classes, {
 	sWrapper:      "dataTables_wrapper dt-bootstrap4",
 	sFilterInput:  "form-control form-control-sm",
 	sLengthSelect: "custom-select custom-select-sm form-control form-control-sm",
@@ -6513,18 +6507,18 @@ $.extend( DataTable.ext.classes, {
 
 
 /* Bootstrap paging button renderer */
-DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
-	var api     = new DataTable.Api( settings );
+datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
+	var api     = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( settings );
 	var classes = settings.oClasses;
 	var lang    = settings.oLanguage.oPaginate;
 	var aria = settings.oLanguage.oAria.paginate || {};
-	var btnDisplay, btnClass, counter=0;
+	var btnDisplay, btnClass;
 
 	var attach = function( container, buttons ) {
 		var i, ien, node, button;
 		var clickHandler = function ( e ) {
 			e.preventDefault();
-			if ( !$(e.currentTarget).hasClass('disabled') && api.page() != e.data.action ) {
+			if ( !jquery__WEBPACK_IMPORTED_MODULE_0__(e.currentTarget).hasClass('disabled') && api.page() != e.data.action ) {
 				api.page( e.data.action ).draw( 'page' );
 			}
 		};
@@ -6577,17 +6571,22 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 				}
 
 				if ( btnDisplay ) {
-					node = $('<li>', {
+					var disabled = btnClass.indexOf('disabled') !== -1;
+
+					node = jquery__WEBPACK_IMPORTED_MODULE_0__('<li>', {
 							'class': classes.sPageButton+' '+btnClass,
 							'id': idx === 0 && typeof button === 'string' ?
 								settings.sTableId +'_'+ button :
 								null
 						} )
-						.append( $('<a>', {
-								'href': '#',
+						.append( jquery__WEBPACK_IMPORTED_MODULE_0__('<a>', {
+								'href': disabled ? null : '#',
 								'aria-controls': settings.sTableId,
+								'aria-disabled': disabled ? 'true' : null,
 								'aria-label': aria[ button ],
-								'data-dt-idx': counter,
+								'aria-role': 'link',
+								'aria-current': btnClass === 'active' ? 'page' : null,
+								'data-dt-idx': button,
 								'tabindex': settings.iTabIndex,
 								'class': 'page-link'
 							} )
@@ -6598,8 +6597,6 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 					settings.oApi._fnBindAction(
 						node, {action: button}, clickHandler
 					);
-
-					counter++;
 				}
 			}
 		}
@@ -6614,77 +6611,51 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 		// elements, focus is lost on the select button which is bad for
 		// accessibility. So we want to restore focus once the draw has
 		// completed
-		activeEl = $(host).find(document.activeElement).data('dt-idx');
+		activeEl = jquery__WEBPACK_IMPORTED_MODULE_0__(host).find(document.activeElement).data('dt-idx');
 	}
 	catch (e) {}
 
 	attach(
-		$(host).empty().html('<ul class="pagination"/>').children('ul'),
+		jquery__WEBPACK_IMPORTED_MODULE_0__(host).empty().html('<ul class="pagination"/>').children('ul'),
 		buttons
 	);
 
 	if ( activeEl !== undefined ) {
-		$(host).find( '[data-dt-idx='+activeEl+']' ).trigger('focus');
+		jquery__WEBPACK_IMPORTED_MODULE_0__(host).find( '[data-dt-idx='+activeEl+']' ).trigger('focus');
 	}
 };
 
 
-return DataTable;
-}));
+/* harmony default export */ __webpack_exports__["default"] = (datatables_net__WEBPACK_IMPORTED_MODULE_1__);
 
 
 /***/ }),
 
-/***/ "./node_modules/datatables.net-select/js/dataTables.select.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/datatables.net-select/js/dataTables.select.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/datatables.net-select/js/dataTables.select.mjs":
+/*!*********************************************************************!*\
+  !*** ./node_modules/datatables.net-select/js/dataTables.select.mjs ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(__webpack_module__, __webpack_exports__, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Select for DataTables 1.3.4-dev
- * 2015-2021 SpryMedia Ltd - datatables.net/license/mit
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/*! Select for DataTables 1.6.2
+ * © SpryMedia Ltd - datatables.net/license/mit
  */
 
-/**
- * @summary     Select for DataTables
- * @description A collection of API methods, events and buttons for DataTables
- *   that provides selection options of the items in a DataTable
- * @version     1.3.4-dev
- * @file        dataTables.select.js
- * @author      SpryMedia Ltd (www.sprymedia.co.uk)
- * @contact     datatables.net/forums
- * @copyright   Copyright 2015-2021 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
- *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net/extensions/select
- */
-(function( factory ){
-	if ( true ) {
-		// AMD
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function ( $ ) {
-			return factory( $, window, document );
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	}
-	else {}
-}(function( $, window, document, undefined ) {
-'use strict';
-var DataTable = $.fn.dataTable;
+
+
 
 
 // Version information for debugger
-DataTable.select = {};
+datatables_net__WEBPACK_IMPORTED_MODULE_1__.select = {};
 
-DataTable.select.version = '1.3.4-dev';
+datatables_net__WEBPACK_IMPORTED_MODULE_1__.select.version = '1.6.2';
 
-DataTable.select.init = function ( dt ) {
+datatables_net__WEBPACK_IMPORTED_MODULE_1__.select.init = function ( dt ) {
 	var ctx = dt.settings()[0];
 
 	if (ctx._select) {
@@ -6697,25 +6668,37 @@ DataTable.select.init = function ( dt ) {
 		if(data === null || data.select === undefined) {
 			return;
 		}
-		dt.rows().deselect();
-		dt.columns().deselect();
-		dt.cells().deselect();
+
+		// Clear any currently selected rows, before restoring state
+		// None will be selected on first initialisation
+		if (dt.rows({selected: true}).any()) {
+			dt.rows().deselect();
+		}
 		if (data.select.rows !== undefined) {
 			dt.rows(data.select.rows).select();
 		}
+
+		if (dt.columns({selected: true}).any()) {
+			dt.columns().deselect();
+		}
 		if (data.select.columns !== undefined) {
 			dt.columns(data.select.columns).select();
+		}
+
+		if (dt.cells({selected: true}).any()) {
+			dt.cells().deselect();
 		}
 		if (data.select.cells !== undefined) {
 			for(var i = 0; i < data.select.cells.length; i++) {
 				dt.cell(data.select.cells[i].row, data.select.cells[i].column).select();
 			}
 		}
+
 		dt.state.save();
 	}
 	
-	dt.one('init', function() {
-		dt.on('stateSaveParams', function(e, settings, data) {
+	dt
+		.on('stateSaveParams', function(e, settings, data) {
 			data.select = {};
 			data.select.rows = dt.rows({selected:true}).ids(true).toArray();
 			data.select.columns = dt.columns({selected:true})[0];
@@ -6723,13 +6706,13 @@ DataTable.select.init = function ( dt ) {
 				return {row: dt.row(coords.row).id(true), column: coords.column}
 			});
 		})
-		
-		selectAndSave(undefined, undefined, savedSelected)
-		dt.on('stateLoaded stateLoadParams', selectAndSave)
-	})
+		.on('stateLoadParams', selectAndSave)
+		.one('init', function() {
+			selectAndSave(undefined, undefined, savedSelected);
+		});
 
 	var init = ctx.oInit.select;
-	var defaults = DataTable.defaults.select;
+	var defaults = datatables_net__WEBPACK_IMPORTED_MODULE_1__.defaults.select;
 	var opts = init === undefined ?
 		defaults :
 		init;
@@ -6755,7 +6738,7 @@ DataTable.select.init = function ( dt ) {
 		style = opts;
 		setStyle = true;
 	}
-	else if ( $.isPlainObject( opts ) ) {
+	else if ( jquery__WEBPACK_IMPORTED_MODULE_0__.isPlainObject( opts ) ) {
 		if ( opts.blurable !== undefined ) {
 			blurable = opts.blurable;
 		}
@@ -6800,12 +6783,12 @@ DataTable.select.init = function ( dt ) {
 
 
 	// Sort table based on selected rows. Requires Select Datatables extension
-	$.fn.dataTable.ext.order['select-checkbox'] = function ( settings, col ) {
+	jquery__WEBPACK_IMPORTED_MODULE_0__.fn.dataTable.ext.order['select-checkbox'] = function ( settings, col ) {
 		return this.api().column( col, {order: 'index'} ).nodes().map( function ( td ) {
 			if ( settings._select.items === 'row' ) {
-				return $( td ).parent().hasClass( settings._select.className );
+				return jquery__WEBPACK_IMPORTED_MODULE_0__( td ).parent().hasClass( settings._select.className );
 			} else if ( settings._select.items === 'cell' ) {
-				return $( td ).hasClass( settings._select.className );
+				return jquery__WEBPACK_IMPORTED_MODULE_0__( td ).hasClass( settings._select.className );
 			}
 			return false;
 		});
@@ -6813,7 +6796,7 @@ DataTable.select.init = function ( dt ) {
 
 	// If the init options haven't enabled select, but there is a selectable
 	// class name, then enable
-	if ( ! setStyle && $( dt.table().node() ).hasClass( 'selectable' ) ) {
+	if ( ! setStyle && jquery__WEBPACK_IMPORTED_MODULE_0__( dt.table().node() ).hasClass( 'selectable' ) ) {
 		dt.select.style( 'os' );
 	}
 };
@@ -6987,12 +6970,12 @@ function disableMouseSelection( dt )
 	var ctx = dt.settings()[0];
 	var selector = ctx._select.selector;
 
-	$( dt.table().container() )
+	jquery__WEBPACK_IMPORTED_MODULE_0__( dt.table().container() )
 		.off( 'mousedown.dtSelect', selector )
 		.off( 'mouseup.dtSelect', selector )
 		.off( 'click.dtSelect', selector );
 
-	$('body').off( 'click.dtSelect' + _safeId(dt.table().node()) );
+	jquery__WEBPACK_IMPORTED_MODULE_0__('body').off( 'click.dtSelect' + _safeId(dt.table().node()) );
 }
 
 /**
@@ -7003,7 +6986,7 @@ function disableMouseSelection( dt )
  */
 function enableMouseSelection ( dt )
 {
-	var container = $( dt.table().container() );
+	var container = jquery__WEBPACK_IMPORTED_MODULE_0__( dt.table().container() );
 	var ctx = dt.settings()[0];
 	var selector = ctx._select.selector;
 	var matchSelection;
@@ -7040,7 +7023,7 @@ function enableMouseSelection ( dt )
 
 				// If the element that contains the selection is not in the table, we can ignore it
 				// This can happen if the developer selects text from the click event
-				if ( ! selection.anchorNode || $(selection.anchorNode).closest('table')[0] === dt.table().node() ) {
+				if ( ! selection.anchorNode || jquery__WEBPACK_IMPORTED_MODULE_0__(selection.anchorNode).closest('table')[0] === dt.table().node() ) {
 					if ( selection !== matchSelection ) {
 						return;
 					}
@@ -7051,11 +7034,11 @@ function enableMouseSelection ( dt )
 			var wrapperClass = dt.settings()[0].oClasses.sWrapper.trim().replace(/ +/g, '.');
 
 			// Ignore clicks inside a sub-table
-			if ( $(e.target).closest('div.'+wrapperClass)[0] != dt.table().container() ) {
+			if ( jquery__WEBPACK_IMPORTED_MODULE_0__(e.target).closest('div.'+wrapperClass)[0] != dt.table().container() ) {
 				return;
 			}
 
-			var cell = dt.cell( $(e.target).closest('td, th') );
+			var cell = dt.cell( jquery__WEBPACK_IMPORTED_MODULE_0__(e.target).closest('td, th') );
 
 			// Check the cell actually belongs to the host DataTable (so child
 			// rows, etc, are ignored)
@@ -7063,7 +7046,7 @@ function enableMouseSelection ( dt )
 				return;
 			}
 
-			var event = $.Event('user-select.dt');
+			var event = jquery__WEBPACK_IMPORTED_MODULE_0__.Event('user-select.dt');
 			eventTrigger( dt, event, [ items, cell, e ] );
 
 			if ( event.isDefaultPrevented() ) {
@@ -7088,21 +7071,28 @@ function enableMouseSelection ( dt )
 		} );
 
 	// Blurable
-	$('body').on( 'click.dtSelect' + _safeId(dt.table().node()), function ( e ) {
+	jquery__WEBPACK_IMPORTED_MODULE_0__('body').on( 'click.dtSelect' + _safeId(dt.table().node()), function ( e ) {
 		if ( ctx._select.blurable ) {
 			// If the click was inside the DataTables container, don't blur
-			if ( $(e.target).parents().filter( dt.table().container() ).length ) {
+			if ( jquery__WEBPACK_IMPORTED_MODULE_0__(e.target).parents().filter( dt.table().container() ).length ) {
 				return;
 			}
 
 			// Ignore elements which have been removed from the DOM (i.e. paging
 			// buttons)
-			if ( $(e.target).parents('html').length === 0 ) {
+			if ( jquery__WEBPACK_IMPORTED_MODULE_0__(e.target).parents('html').length === 0 ) {
 			 	return;
 			}
 
 			// Don't blur in Editor form
-			if ( $(e.target).parents('div.DTE').length ) {
+			if ( jquery__WEBPACK_IMPORTED_MODULE_0__(e.target).parents('div.DTE').length ) {
+				return;
+			}
+
+			var event = jquery__WEBPACK_IMPORTED_MODULE_0__.Event('select-blur.dt');
+			eventTrigger( dt, event, [ e.target, e ] );
+
+			if ( event.isDefaultPrevented() ) {
 				return;
 			}
 
@@ -7133,7 +7123,7 @@ function eventTrigger ( api, type, args, any )
 
 	args.unshift( api );
 
-	$(api.table().node()).trigger( type, args );
+	jquery__WEBPACK_IMPORTED_MODULE_0__(api.table().node()).trigger( type, args );
 }
 
 /**
@@ -7160,7 +7150,7 @@ function info ( api )
 	var cells   = api.cells( { selected: true } ).flatten().length;
 
 	var add = function ( el, name, num ) {
-		el.append( $('<span class="select-item"/>').append( api.i18n(
+		el.append( jquery__WEBPACK_IMPORTED_MODULE_0__('<span class="select-item"/>').append( api.i18n(
 			'select.'+name+'s',
 			{ _: '%d '+name+'s selected', 0: '', 1: '1 '+name+' selected' },
 			num
@@ -7168,10 +7158,10 @@ function info ( api )
 	};
 
 	// Internal knowledge of DataTables to loop over all information elements
-	$.each( ctx.aanFeatures.i, function ( i, el ) {
-		el = $(el);
+	jquery__WEBPACK_IMPORTED_MODULE_0__.each( ctx.aanFeatures.i, function ( i, el ) {
+		el = jquery__WEBPACK_IMPORTED_MODULE_0__(el);
 
-		var output  = $('<span class="select-info"/>');
+		var output  = jquery__WEBPACK_IMPORTED_MODULE_0__('<span class="select-info"/>');
 		add( output, 'row', rows );
 		add( output, 'column', columns );
 		add( output, 'cell', cells  );
@@ -7198,7 +7188,7 @@ function info ( api )
  * @private
  */
 function init ( ctx ) {
-	var api = new DataTable.Api( ctx );
+	var api = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx );
 	ctx._select_init = true;
 
 	// Row callback so that classes can be added to rows and cells if the item
@@ -7215,14 +7205,14 @@ function init ( ctx ) {
 
 			// Row
 			if ( d._select_selected ) {
-				$( row ).addClass( ctx._select.className );
+				jquery__WEBPACK_IMPORTED_MODULE_0__( row ).addClass( ctx._select.className );
 			}
 
 			// Cells and columns - if separated out, we would need to do two
 			// loops, so it makes sense to combine them into a single one
 			for ( i=0, ien=ctx.aoColumns.length ; i<ien ; i++ ) {
 				if ( ctx.aoColumns[i]._select_selected || (d._selected_cells && d._selected_cells[i]) ) {
-					$(d.anCells[i]).addClass( ctx._select.className );
+					jquery__WEBPACK_IMPORTED_MODULE_0__(d.anCells[i]).addClass( ctx._select.className );
 				}
 			}
 		},
@@ -7273,11 +7263,12 @@ function init ( ctx ) {
 
 	// Clean up and release
 	api.on( 'destroy.dtSelect', function () {
-		api.rows({selected: true}).deselect();
+		// Remove class directly rather than calling deselect - which would trigger events
+		jquery__WEBPACK_IMPORTED_MODULE_0__(api.rows({selected: true}).nodes()).removeClass(api.settings()[0]._select.className);
 
 		disableMouseSelection( api );
 		api.off( '.dtSelect' );
-		$('body').off('.dtSelect' + _safeId(api.table().node()));
+		jquery__WEBPACK_IMPORTED_MODULE_0__('body').off('.dtSelect' + _safeId(api.table().node()));
 	} );
 }
 
@@ -7295,13 +7286,13 @@ function rowColumnRange( dt, type, idx, last )
 {
 	// Add a range of rows from the last selected row to this one
 	var indexes = dt[type+'s']( { search: 'applied' } ).indexes();
-	var idx1 = $.inArray( last, indexes );
-	var idx2 = $.inArray( idx, indexes );
+	var idx1 = jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( last, indexes );
+	var idx2 = jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( idx, indexes );
 
 	if ( ! dt[type+'s']( { selected: true } ).any() && idx1 === -1 ) {
 		// select from top to here - slightly odd, but both Windows and Mac OS
 		// do this
-		indexes.splice( $.inArray( idx, indexes )+1, indexes.length );
+		indexes.splice( jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( idx, indexes )+1, indexes.length );
 	}
 	else {
 		// reverse so we can shift click 'up' as well as down
@@ -7321,7 +7312,7 @@ function rowColumnRange( dt, type, idx, last )
 	}
 	else {
 		// Deselect range - need to keep the clicked on row selected
-		indexes.splice( $.inArray( idx, indexes ), 1 );
+		indexes.splice( jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( idx, indexes ), 1 );
 		dt[type+'s']( indexes ).deselect();
 	}
 }
@@ -7337,7 +7328,7 @@ function rowColumnRange( dt, type, idx, last )
 function clear( ctx, force )
 {
 	if ( force || ctx._select.style === 'single' ) {
-		var api = new DataTable.Api( ctx );
+		var api = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx );
 		
 		api.rows( { selected: true } ).deselect();
 		api.columns( { selected: true } ).deselect();
@@ -7428,11 +7419,11 @@ function _safeId( node ) {
 // row and column are basically identical just assigned to different properties
 // and checking a different array, so we can dynamically create the functions to
 // reduce the code size
-$.each( [
+jquery__WEBPACK_IMPORTED_MODULE_0__.each( [
 	{ type: 'row', prop: 'aoData' },
 	{ type: 'column', prop: 'aoColumns' }
 ], function ( i, o ) {
-	DataTable.ext.selector[ o.type ].push( function ( settings, opts, indexes ) {
+	datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.selector[ o.type ].push( function ( settings, opts, indexes ) {
 		var selected = opts.selected;
 		var data;
 		var out = [];
@@ -7455,7 +7446,7 @@ $.each( [
 	} );
 } );
 
-DataTable.ext.selector.cell.push( function ( settings, opts, cells ) {
+datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.selector.cell.push( function ( settings, opts, cells ) {
 	var selected = opts.selected;
 	var rowData;
 	var out = [];
@@ -7487,12 +7478,12 @@ DataTable.ext.selector.cell.push( function ( settings, opts, cells ) {
  */
 
 // Local variables to improve compression
-var apiRegister = DataTable.Api.register;
-var apiRegisterPlural = DataTable.Api.registerPlural;
+var apiRegister = datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api.register;
+var apiRegisterPlural = datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api.registerPlural;
 
 apiRegister( 'select()', function () {
 	return this.iterator( 'table', function ( ctx ) {
-		DataTable.select.init( new DataTable.Api( ctx ) );
+		datatables_net__WEBPACK_IMPORTED_MODULE_1__.select.init( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ) );
 	} );
 } );
 
@@ -7534,7 +7525,7 @@ apiRegister( 'select.items()', function ( items ) {
 	return this.iterator( 'table', function ( ctx ) {
 		ctx._select.items = items;
 
-		eventTrigger( new DataTable.Api( ctx ), 'selectItems', [ items ] );
+		eventTrigger( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ), 'selectItems', [ items ] );
 	} );
 } );
 
@@ -7547,7 +7538,7 @@ apiRegister( 'select.style()', function ( style ) {
 
 	return this.iterator( 'table', function ( ctx ) {
 		if ( ! ctx._select ) {
-			DataTable.select.init( new DataTable.Api(ctx) );
+			datatables_net__WEBPACK_IMPORTED_MODULE_1__.select.init( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api(ctx) );
 		}
 
 		if ( ! ctx._select_init ) {
@@ -7558,14 +7549,14 @@ apiRegister( 'select.style()', function ( style ) {
 
 		// Add / remove mouse event handlers. They aren't required when only
 		// API selection is available
-		var dt = new DataTable.Api( ctx );
+		var dt = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx );
 		disableMouseSelection( dt );
 		
 		if ( style !== 'api' ) {
 			enableMouseSelection( dt );
 		}
 
-		eventTrigger( new DataTable.Api( ctx ), 'selectStyle', [ style ] );
+		eventTrigger( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ), 'selectStyle', [ style ] );
 	} );
 } );
 
@@ -7575,12 +7566,12 @@ apiRegister( 'select.selector()', function ( selector ) {
 	}
 
 	return this.iterator( 'table', function ( ctx ) {
-		disableMouseSelection( new DataTable.Api( ctx ) );
+		disableMouseSelection( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ) );
 
 		ctx._select.selector = selector;
 
 		if ( ctx._select.style !== 'api' ) {
-			enableMouseSelection( new DataTable.Api( ctx ) );
+			enableMouseSelection( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ) );
 		}
 	} );
 } );
@@ -7598,7 +7589,7 @@ apiRegisterPlural( 'rows().select()', 'row().select()', function ( select ) {
 		clear( ctx );
 
 		ctx.aoData[ idx ]._select_selected = true;
-		$( ctx.aoData[ idx ].nTr ).addClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( ctx.aoData[ idx ].nTr ).addClass( ctx._select.className );
 	} );
 
 	this.iterator( 'table', function ( ctx, i ) {
@@ -7606,6 +7597,21 @@ apiRegisterPlural( 'rows().select()', 'row().select()', function ( select ) {
 	} );
 
 	return this;
+} );
+
+apiRegister( 'row().selected()', function () {
+	var ctx = this.context[0];
+
+	if (
+		ctx &&
+		this.length &&
+		ctx.aoData[this[0]] &&
+		ctx.aoData[this[0]]._select_selected
+	) {
+		return true;
+	}
+
+	return false;
 } );
 
 apiRegisterPlural( 'columns().select()', 'column().select()', function ( select ) {
@@ -7620,10 +7626,10 @@ apiRegisterPlural( 'columns().select()', 'column().select()', function ( select 
 
 		ctx.aoColumns[ idx ]._select_selected = true;
 
-		var column = new DataTable.Api( ctx ).column( idx );
+		var column = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ).column( idx );
 
-		$( column.header() ).addClass( ctx._select.className );
-		$( column.footer() ).addClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( column.header() ).addClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( column.footer() ).addClass( ctx._select.className );
 
 		column.nodes().to$().addClass( ctx._select.className );
 	} );
@@ -7633,6 +7639,21 @@ apiRegisterPlural( 'columns().select()', 'column().select()', function ( select 
 	} );
 
 	return this;
+} );
+
+apiRegister( 'column().selected()', function () {
+	var ctx = this.context[0];
+
+	if (
+		ctx &&
+		this.length &&
+		ctx.aoColumns[this[0]] &&
+		ctx.aoColumns[this[0]]._select_selected
+	) {
+		return true;
+	}
+
+	return false;
 } );
 
 apiRegisterPlural( 'cells().select()', 'cell().select()', function ( select ) {
@@ -7654,7 +7675,7 @@ apiRegisterPlural( 'cells().select()', 'cell().select()', function ( select ) {
 		data._selected_cells[ colIdx ] = true;
 
 		if ( data.anCells ) {
-			$( data.anCells[ colIdx ] ).addClass( ctx._select.className );
+			jquery__WEBPACK_IMPORTED_MODULE_0__( data.anCells[ colIdx ] ).addClass( ctx._select.className );
 		}
 	} );
 
@@ -7665,6 +7686,20 @@ apiRegisterPlural( 'cells().select()', 'cell().select()', function ( select ) {
 	return this;
 } );
 
+apiRegister( 'cell().selected()', function () {
+	var ctx = this.context[0];
+
+	if (ctx && this.length) {
+		var row = ctx.aoData[this[0][0].row];
+
+		if (row && row._selected_cells && row._selected_cells[this[0][0].column]) {
+			return true;
+		}
+	}
+
+	return false;
+} );
+
 
 apiRegisterPlural( 'rows().deselect()', 'row().deselect()', function () {
 	var api = this;
@@ -7672,7 +7707,7 @@ apiRegisterPlural( 'rows().deselect()', 'row().deselect()', function () {
 	this.iterator( 'row', function ( ctx, idx ) {
 		ctx.aoData[ idx ]._select_selected = false;
 		ctx._select_lastCell = null;
-		$( ctx.aoData[ idx ].nTr ).removeClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( ctx.aoData[ idx ].nTr ).removeClass( ctx._select.className );
 	} );
 
 	this.iterator( 'table', function ( ctx, i ) {
@@ -7688,11 +7723,11 @@ apiRegisterPlural( 'columns().deselect()', 'column().deselect()', function () {
 	this.iterator( 'column', function ( ctx, idx ) {
 		ctx.aoColumns[ idx ]._select_selected = false;
 
-		var api = new DataTable.Api( ctx );
+		var api = new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx );
 		var column = api.column( idx );
 
-		$( column.header() ).removeClass( ctx._select.className );
-		$( column.footer() ).removeClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( column.header() ).removeClass( ctx._select.className );
+		jquery__WEBPACK_IMPORTED_MODULE_0__( column.footer() ).removeClass( ctx._select.className );
 
 		// Need to loop over each cell, rather than just using
 		// `column().nodes()` as cells which are individually selected should
@@ -7702,7 +7737,7 @@ apiRegisterPlural( 'columns().deselect()', 'column().deselect()', function () {
 			var cellSelected = data._selected_cells;
 
 			if ( data.anCells && (! cellSelected || ! cellSelected[ cellIdx.column ]) ) {
-				$( data.anCells[ cellIdx.column  ] ).removeClass( ctx._select.className );
+				jquery__WEBPACK_IMPORTED_MODULE_0__( data.anCells[ cellIdx.column  ] ).removeClass( ctx._select.className );
 			}
 		} );
 	} );
@@ -7728,7 +7763,7 @@ apiRegisterPlural( 'cells().deselect()', 'cell().deselect()', function () {
 		// selected, in which case the class should remain (since it is selected
 		// in the column)
 		if ( data.anCells && ! ctx.aoColumns[ colIdx ]._select_selected ) {
-			$( data.anCells[ colIdx ] ).removeClass( ctx._select.className );
+			jquery__WEBPACK_IMPORTED_MODULE_0__( data.anCells[ colIdx ] ).removeClass( ctx._select.className );
 		}
 	} );
 
@@ -7758,15 +7793,15 @@ function namespacedEvents ( config ) {
 }
 
 function enabled ( dt, config ) {
-	if ( $.inArray( 'rows', config.limitTo ) !== -1 && dt.rows( { selected: true } ).any() ) {
+	if ( jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( 'rows', config.limitTo ) !== -1 && dt.rows( { selected: true } ).any() ) {
 		return true;
 	}
 
-	if ( $.inArray( 'columns', config.limitTo ) !== -1 && dt.columns( { selected: true } ).any() ) {
+	if ( jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( 'columns', config.limitTo ) !== -1 && dt.columns( { selected: true } ).any() ) {
 		return true;
 	}
 
-	if ( $.inArray( 'cells', config.limitTo ) !== -1 && dt.cells( { selected: true } ).any() ) {
+	if ( jquery__WEBPACK_IMPORTED_MODULE_0__.inArray( 'cells', config.limitTo ) !== -1 && dt.cells( { selected: true } ).any() ) {
 		return true;
 	}
 
@@ -7775,7 +7810,7 @@ function enabled ( dt, config ) {
 
 var _buttonNamespace = 0;
 
-$.extend( DataTable.ext.buttons, {
+jquery__WEBPACK_IMPORTED_MODULE_0__.extend( datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.buttons, {
 	selected: {
 		text: i18n( 'selected', 'Selected' ),
 		className: 'buttons-selected',
@@ -7848,13 +7883,51 @@ $.extend( DataTable.ext.buttons, {
 		destroy: function ( dt, node, config ) {
 			dt.off( config._eventNamespace );
 		}
+	},
+	showSelected: {
+		text: i18n( 'showSelected', 'Show only selected' ),
+		className: 'buttons-show-selected',
+		action: function (e, dt, node, conf) {
+			// Works by having a filtering function which will reduce to the selected
+			// items only. So we can re-reference the function it gets stored in the
+			// `conf` object
+			if (conf._filter) {
+				var idx = datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.search.indexOf(conf._filter);
+
+				if (idx !== -1) {
+					datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.search.splice(idx, 1);
+					conf._filter = null;
+				}
+
+				this.active(false);
+			}
+			else {
+				var fn = function (s, data, idx) {
+					// Need to be sure we are operating on our table!
+					if (s !== dt.settings()[0]) {
+						return true;
+					}
+
+					let row = s.aoData[idx];
+
+					return row._select_selected;
+				}
+
+				conf._filter = fn;
+				datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.search.push(fn);
+
+				this.active(true);
+			}
+
+			dt.draw();
+		}
 	}
 } );
 
-$.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
+jquery__WEBPACK_IMPORTED_MODULE_0__.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 	var lc = item.toLowerCase();
 
-	DataTable.ext.buttons[ 'select'+item+'s' ] = {
+	datatables_net__WEBPACK_IMPORTED_MODULE_1__.ext.buttons[ 'select'+item+'s' ] = {
 		text: i18n( 'select'+item+'s', 'Select '+lc+'s' ),
 		className: 'buttons-select-'+lc+'s',
 		action: function () {
@@ -7871,6 +7944,7 @@ $.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 } );
 
 
+jquery__WEBPACK_IMPORTED_MODULE_0__.fn.DataTable.select = datatables_net__WEBPACK_IMPORTED_MODULE_1__.select;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Initialisation
@@ -7880,17 +7954,16 @@ $.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 // this required that the table be in the document! If it isn't then something
 // needs to trigger this method unfortunately. The next major release of
 // DataTables will rework the events and address this.
-$(document).on( 'preInit.dt.dtSelect', function (e, ctx) {
+jquery__WEBPACK_IMPORTED_MODULE_0__(document).on( 'preInit.dt.dtSelect', function (e, ctx) {
 	if ( e.namespace !== 'dt' ) {
 		return;
 	}
 
-	DataTable.select.init( new DataTable.Api( ctx ) );
+	datatables_net__WEBPACK_IMPORTED_MODULE_1__.select.init( new datatables_net__WEBPACK_IMPORTED_MODULE_1__.Api( ctx ) );
 } );
 
 
-return DataTable.select;
-}));
+/* harmony default export */ __webpack_exports__["default"] = (datatables_net__WEBPACK_IMPORTED_MODULE_1__);
 
 
 /***/ }),
@@ -7902,18 +7975,17 @@ return DataTable.select;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1.11.3
- * ©2008-2021 SpryMedia Ltd - datatables.net/license
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1.13.4
+ * ©2008-2023 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     DataTables
  * @description Paginate, search and order HTML tables
- * @version     1.11.3
- * @file        jquery.dataTables.js
+ * @version     1.13.4
  * @author      SpryMedia Ltd
  * @contact     www.datatables.net
- * @copyright   Copyright 2008-2021 SpryMedia Ltd.
+ * @copyright   SpryMedia Ltd.
  *
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license
@@ -7938,45 +8010,20 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	}
-	else {}
+	else { var jq; }
 }
 (function( $, window, document, undefined ) {
 	"use strict";
 
-	/**
-	 * DataTables is a plug-in for the jQuery Javascript library. It is a highly
-	 * flexible tool, based upon the foundations of progressive enhancement,
-	 * which will add advanced interaction controls to any HTML table. For a
-	 * full list of features please refer to
-	 * [DataTables.net](href="http://datatables.net).
-	 *
-	 * Note that the `DataTable` object is not a global variable but is aliased
-	 * to `jQuery.fn.DataTable` and `jQuery.fn.dataTable` through which it may
-	 * be  accessed.
-	 *
-	 *  @class
-	 *  @param {object} [init={}] Configuration object for DataTables. Options
-	 *    are defined by {@link DataTable.defaults}
-	 *  @requires jQuery 1.7+
-	 *
-	 *  @example
-	 *    // Basic initialisation
-	 *    $(document).ready( function {
-	 *      $('#example').dataTable();
-	 *    } );
-	 *
-	 *  @example
-	 *    // Initialisation with configuration options - in this case, disable
-	 *    // pagination and sorting.
-	 *    $(document).ready( function {
-	 *      $('#example').dataTable( {
-	 *        "paginate": false,
-	 *        "sort": false
-	 *      } );
-	 *    } );
-	 */
+	
 	var DataTable = function ( selector, options )
 	{
+		// Check if called with a window or jQuery object for DOM less applications
+		// This is for backwards compatibility
+		if (DataTable.factory(selector, options)) {
+			return DataTable;
+		}
+	
 		// When creating with `new`, create a new DataTable, returning the API instance
 		if (this instanceof DataTable) {
 			return $(selector).DataTable(options);
@@ -7985,7 +8032,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			// Argument switching
 			options = selector;
 		}
-
+	
 		/**
 		 * Perform a jQuery selector action on the table's TR elements (from the tbody) and
 		 * return the resulting jQuery object.
@@ -8741,24 +8788,24 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		 */
 		this.fnVersionCheck = _ext.fnVersionCheck;
 		
-
+	
 		var _that = this;
 		var emptyInit = options === undefined;
 		var len = this.length;
-
+	
 		if ( emptyInit ) {
 			options = {};
 		}
-
+	
 		this.oApi = this.internal = _ext.internal;
-
+	
 		// Extend with old style plug-in API methods
 		for ( var fn in DataTable.ext.internal ) {
 			if ( fn ) {
 				this[fn] = _fnExternApiFunc(fn);
 			}
 		}
-
+	
 		this.each(function() {
 			// For each initialisation we want to give it a clean initialisation
 			// object that can be bashed around
@@ -8766,7 +8813,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			var oInit = len > 1 ? // optimisation for single table case
 				_fnExtend( o, options, true ) :
 				options;
-
+	
 			/*global oInit,_that,emptyInit*/
 			var i=0, iLen, j, jLen, k, kLen;
 			var sId = this.getAttribute( 'id' );
@@ -8980,7 +9027,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 					success: function ( json ) {
 						_fnCamelToHungarian( defaults.oLanguage, json );
 						_fnLanguageCompat( json );
-						$.extend( true, oLanguage, json );
+						$.extend( true, oLanguage, json, oSettings.oInit.oLanguage );
 			
 						_fnCallbackFire( oSettings, null, 'i18n', [oSettings]);
 						_fnInitialise( oSettings );
@@ -9066,6 +9113,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				$( rowOne[0] ).children('th, td').each( function (i, cell) {
 					var col = oSettings.aoColumns[i];
 			
+					if (! col) {
+						_fnLog( oSettings, 0, 'Incorrect column count', 18 );
+					}
+			
 					if ( col.mData === i ) {
 						var sort = a( cell, 'sort' ) || a( cell, 'order' );
 						var filter = a( cell, 'filter' ) || a( cell, 'search' );
@@ -9077,6 +9128,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 								type:   sort !== null   ? i+'.@data-'+sort   : undefined,
 								filter: filter !== null ? i+'.@data-'+filter : undefined
 							};
+							col._isArrayHost = true;
 			
 							_fnColumnOptions( oSettings, i );
 						}
@@ -9209,7 +9261,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		_that = null;
 		return this;
 	};
-
+	
 	
 	/*
 	 * It is useful to have variables which are scoped locally so only the
@@ -9282,7 +9334,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 	
 	var _isNumber = function ( d, decimalPoint, formatted ) {
-		var strType = typeof d === 'string';
+		let type = typeof d;
+		var strType = type === 'string';
+	
+		if ( type === 'number' || type === 'bigint') {
+			return true;
+		}
 	
 		// If empty return immediately so there must be a number if it is a
 		// formatted string (this stops the string "k", or "kr", etc being detected
@@ -10213,8 +10270,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				th.addClass( oOptions.sClass );
 			}
 	
+			var origClass = oCol.sClass;
+	
 			$.extend( oCol, oOptions );
 			_fnMap( oCol, oOptions, "sWidth", "sWidthOrig" );
+	
+			// Merge class from previously defined classes with this one, rather than just
+			// overwriting it in the extend above
+			if (origClass !== oCol.sClass) {
+				oCol.sClass = origClass + ' ' + oCol.sClass;
+			}
 	
 			/* iDataSort to be applied (backwards compatibility), but aDataSort will take
 			 * priority if defined
@@ -10252,7 +10317,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 		// Indicate if DataTables should read DOM data as an object or array
 		// Used in _fnGetRowElements
-		if ( typeof mDataSrc !== 'number' ) {
+		if ( typeof mDataSrc !== 'number' && ! oCol._isArrayHost ) {
 			oSettings._rowReadObject = true;
 		}
 	
@@ -10488,9 +10553,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				def = aoColDefs[i];
 	
 				/* Each definition can target multiple columns, as it is an array */
-				var aTargets = def.targets !== undefined ?
-					def.targets :
-					def.aTargets;
+				var aTargets = def.target !== undefined
+					? def.target
+					: def.targets !== undefined
+						? def.targets
+						: def.aTargets;
 	
 				if ( ! Array.isArray( aTargets ) )
 				{
@@ -11060,6 +11127,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				create = nTrIn ? false : true;
 	
 				nTd = create ? document.createElement( oCol.sCellType ) : anTds[i];
+	
+				if (! nTd) {
+					_fnLog( oSettings, 0, 'Incorrect column count', 18 );
+				}
+	
 				nTd._DT_CellIndex = {
 					row: iRow,
 					column: i
@@ -11210,10 +11282,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 			for ( i=0, ien=cells.length ; i<ien ; i++ ) {
 				column = columns[i];
-				column.nTf = cells[i].cell;
 	
-				if ( column.sClass ) {
-					$(column.nTf).addClass( column.sClass );
+				if (column) {
+					column.nTf = cells[i].cell;
+		
+					if ( column.sClass ) {
+						$(column.nTf).addClass( column.sClass );
+					}
+				}
+				else {
+					_fnLog( oSettings, 0, 'Incorrect column count', 18 );
 				}
 			}
 		}
@@ -11334,6 +11412,9 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	 */
 	function _fnDraw( oSettings, ajaxComplete )
 	{
+		// Allow for state saving and a custom start position
+		_fnStart( oSettings );
+	
 		/* Provide a pre-callback function which can be used to cancel the draw is false is returned */
 		var aPreDraw = _fnCallbackFire( oSettings, 'aoPreDrawCallback', 'preDraw', [oSettings] );
 		if ( $.inArray( false, aPreDraw ) !== -1 )
@@ -11342,33 +11423,17 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			return;
 		}
 	
-		var i, iLen, n;
 		var anRows = [];
 		var iRowCount = 0;
 		var asStripeClasses = oSettings.asStripeClasses;
 		var iStripes = asStripeClasses.length;
-		var iOpenRows = oSettings.aoOpenRows.length;
 		var oLang = oSettings.oLanguage;
-		var iInitDisplayStart = oSettings.iInitDisplayStart;
 		var bServerSide = _fnDataSource( oSettings ) == 'ssp';
 		var aiDisplay = oSettings.aiDisplay;
-	
-		oSettings.bDrawing = true;
-	
-		/* Check and see if we have an initial draw position from state saving */
-		if ( iInitDisplayStart !== undefined && iInitDisplayStart !== -1 )
-		{
-			oSettings._iDisplayStart = bServerSide ?
-				iInitDisplayStart :
-				iInitDisplayStart >= oSettings.fnRecordsDisplay() ?
-					0 :
-					iInitDisplayStart;
-	
-			oSettings.iInitDisplayStart = -1;
-		}
-	
 		var iDisplayStart = oSettings._iDisplayStart;
 		var iDisplayEnd = oSettings.fnDisplayEnd();
+	
+		oSettings.bDrawing = true;
 	
 		/* Server-side processing draw intercept */
 		if ( oSettings.bDeferLoading )
@@ -11772,6 +11837,28 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	}
 	
 	/**
+	 * Set the start position for draw
+	 *  @param {object} oSettings dataTables settings object
+	 */
+	function _fnStart( oSettings )
+	{
+		var bServerSide = _fnDataSource( oSettings ) == 'ssp';
+		var iInitDisplayStart = oSettings.iInitDisplayStart;
+	
+		// Check and see if we have an initial draw position from state saving
+		if ( iInitDisplayStart !== undefined && iInitDisplayStart !== -1 )
+		{
+			oSettings._iDisplayStart = bServerSide ?
+				iInitDisplayStart :
+				iInitDisplayStart >= oSettings.fnRecordsDisplay() ?
+					0 :
+					iInitDisplayStart;
+	
+			oSettings.iInitDisplayStart = -1;
+		}
+	}
+	
+	/**
 	 * Create an Ajax call based on the table's settings, taking into account that
 	 * parameters can have multiple forms, and backwards compatibility.
 	 *
@@ -11814,8 +11901,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		var ajax = oSettings.ajax;
 		var instance = oSettings.oInstance;
 		var callback = function ( json ) {
-			var status = oSettings.jqXhr
-				? oSettings.jqXhr.status
+			var status = oSettings.jqXHR
+				? oSettings.jqXHR.status
 				: null;
 	
 			if ( json === null || (typeof status === 'number' && status == 204 ) ) {
@@ -12964,6 +13051,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				_fnDraw( settings );
 			}
 		}
+		else {
+			// No change event - paging was called, but no change
+			_fnCallbackFire( settings, null, 'page-nc', [settings] );
+		}
 	
 		return changed;
 	}
@@ -12980,9 +13071,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	{
 		return $('<div/>', {
 				'id': ! settings.aanFeatures.r ? settings.sTableId+'_processing' : null,
-				'class': settings.oClasses.sProcessing
+				'class': settings.oClasses.sProcessing,
+				'role': 'status'
 			} )
 			.html( settings.oLanguage.sProcessing )
+			.append('<div><div></div><div></div><div></div><div></div></div>')
 			.insertBefore( settings.nTable )[0];
 	}
 	
@@ -13232,6 +13325,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			footerCopy = footer.clone().prependTo( table );
 			footerTrgEls = footer.find('tr'); // the original tfoot is in its own table and must be sized
 			footerSrcEls = footerCopy.find('tr');
+			footerCopy.find('[id]').removeAttr('id');
 		}
 	
 		// Clone the current header and footer elements and then place it into the inner table
@@ -13239,6 +13333,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		headerTrgEls = header.find('tr'); // original header is in its own table
 		headerSrcEls = headerCopy.find('tr');
 		headerCopy.find('th, td').removeAttr('tabindex');
+		headerCopy.find('[id]').removeAttr('id');
 	
 	
 		/*
@@ -13312,7 +13407,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			nToSize.style.width = headerWidths[i];
 		}, headerTrgEls );
 	
-		$(headerSrcEls).height(0);
+		$(headerSrcEls).css('height', 0);
 	
 		/* Same again with the footer if we have one */
 		if ( footer )
@@ -13359,7 +13454,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 		// Sanity check that the table is of a sensible width. If not then we are going to get
 		// misalignment - try to prevent this by not allowing the table to shrink below its min width
-		if ( table.outerWidth() < sanityWidth )
+		if ( Math.round(table.outerWidth()) < Math.round(sanityWidth) )
 		{
 			// The min width depends upon if we have a vertical scrollbar visible or not */
 			correction = ((divBodyEl.scrollHeight > divBodyEl.offsetHeight ||
@@ -14365,16 +14460,27 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		// Store the saved state so it might be accessed at any time
 		settings.oLoadedState = $.extend( true, {}, s );
 	
+		// Page Length
+		if ( s.length !== undefined ) {
+			// If already initialised just set the value directly so that the select element is also updated
+			if (api) {
+				api.page.len(s.length)
+			}
+			else {
+				settings._iDisplayLength   = s.length;
+			}
+		}
+	
 		// Restore key features - todo - for 1.11 this needs to be done by
 		// subscribed events
 		if ( s.start !== undefined ) {
-			settings._iDisplayStart    = s.start;
 			if(api === null) {
+				settings._iDisplayStart    = s.start;
 				settings.iInitDisplayStart = s.start;
 			}
-		}
-		if ( s.length !== undefined ) {
-			settings._iDisplayLength   = s.length;
+			else {
+				_fnPageChange(settings, s.start/settings._iDisplayLength);
+			}
 		}
 	
 		// Order
@@ -14641,8 +14747,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 		if ( eventName !== null ) {
 			var e = $.Event( eventName+'.dt' );
+			var table = $(settings.nTable);
 	
-			$(settings.nTable).trigger( e, args );
+			table.trigger( e, args );
+	
+			// If not yet attached to the document, trigger the event
+			// on the body directly to sort of simulate the bubble
+			if (table.parents('body').length === 0) {
+				$('body').trigger( e, args );
+			}
 	
 			ret.push( e.result );
 		}
@@ -14716,7 +14829,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		return 'dom';
 	}
 	
-
+	
 	
 	
 	/**
@@ -15108,8 +15221,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 		pluck: function ( prop )
 		{
+			var fn = DataTable.util.get(prop);
+	
 			return this.map( function ( el ) {
-				return el[ prop ];
+				return fn(el);
 			} );
 		},
 	
@@ -16203,22 +16318,42 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 	$(document).on('plugin-init.dt', function (e, context) {
 		var api = new _Api( context );
-		api.on( 'stateSaveParams', function ( e, settings, data ) {
-			var indexes = api.rows().iterator( 'row', function ( settings, idx ) {
-				return settings.aoData[idx]._detailsShow ? idx : undefined;
-			});
+		var namespace = 'on-plugin-init';
+		var stateSaveParamsEvent = 'stateSaveParams.' + namespace;
+		var destroyEvent = 'destroy. ' + namespace;
 	
-			data.childRows = api.rows( indexes ).ids( true ).toArray();
-		})
+		api.on( stateSaveParamsEvent, function ( e, settings, d ) {
+			// This could be more compact with the API, but it is a lot faster as a simple
+			// internal loop
+			var idFn = settings.rowIdFn;
+			var data = settings.aoData;
+			var ids = [];
+	
+			for (var i=0 ; i<data.length ; i++) {
+				if (data[i]._detailsShow) {
+					ids.push( '#' + idFn(data[i]._aData) );
+				}
+			}
+	
+			d.childRows = ids;
+		});
+	
+		api.on( destroyEvent, function () {
+			api.off(stateSaveParamsEvent + ' ' + destroyEvent);
+		});
 	
 		var loaded = api.state.loaded();
 	
 		if ( loaded && loaded.childRows ) {
-			api.rows( loaded.childRows ).every( function () {
-				_fnCallbackFire( context, null, 'requestChild', [ this ] )
-			})
+			api
+				.rows( $.map(loaded.childRows, function (id){
+					return id.replace(/:/g, '\\:')
+				}) )
+				.every( function () {
+					_fnCallbackFire( context, null, 'requestChild', [ this ] )
+				});
 		}
-	})
+	});
 	
 	var __details_add = function ( ctx, row, data, klass )
 	{
@@ -16265,6 +16400,15 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	};
 	
 	
+	// Make state saving of child row details async to allow them to be batch processed
+	var __details_state = DataTable.util.throttle(
+		function (ctx) {
+			_fnSaveState( ctx[0] )
+		},
+		500
+	);
+	
+	
 	var __details_remove = function ( api, idx )
 	{
 		var ctx = api.context;
@@ -16278,7 +16422,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				row._detailsShow = undefined;
 				row._details = undefined;
 				$( row.nTr ).removeClass( 'dt-hasChild' );
-				_fnSaveState( ctx[0] );
+				__details_state( ctx );
 			}
 		}
 	};
@@ -16305,7 +16449,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				_fnCallbackFire( ctx[0], null, 'childRow', [ show, api.row( api[0] ) ] )
 	
 				__details_events( ctx[0] );
-				_fnSaveState( ctx[0] );
+				__details_state( ctx );
 			}
 		}
 	};
@@ -16316,7 +16460,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		var api = new _Api( settings );
 		var namespace = '.dt.DT_details';
 		var drawEvent = 'draw'+namespace;
-		var colvisEvent = 'column-visibility'+namespace;
+		var colvisEvent = 'column-sizing'+namespace;
 		var destroyEvent = 'destroy'+namespace;
 		var data = settings.aoData;
 	
@@ -17177,6 +17321,48 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	
 	
 	/**
+	 * Set the jQuery or window object to be used by DataTables
+	 *
+	 * @param {*} module Library / container object
+	 * @param {string} type Library or container type `lib` or `win`.
+	 */
+	DataTable.use = function (module, type) {
+		if (type === 'lib' || module.fn) {
+			$ = module;
+		}
+		else if (type == 'win' || module.document) {
+			window = module;
+			document = module.document;
+		}
+	}
+	
+	/**
+	 * CommonJS factory function pass through. This will check if the arguments
+	 * given are a window object or a jQuery object. If so they are set
+	 * accordingly.
+	 * @param {*} root Window
+	 * @param {*} jq jQUery
+	 * @returns {boolean} Indicator
+	 */
+	DataTable.factory = function (root, jq) {
+		var is = false;
+	
+		// Test if the first parameter is a window object
+		if (root && root.document) {
+			window = root;
+			document = root.document;
+		}
+	
+		// Test if the second parameter is a jQuery object
+		if (jq && jq.fn && jq.fn.jquery) {
+			$ = jq;
+			is = true;
+		}
+	
+		return is;
+	}
+	
+	/**
 	 * Provide a common method for plug-ins to check the version of DataTables being
 	 * used, in order to ensure compatibility.
 	 *
@@ -17368,7 +17554,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		remove = remove || false;
 	
 		return this.iterator( 'table', function ( settings ) {
-			var orig      = settings.nTableWrapper.parentNode;
 			var classes   = settings.oClasses;
 			var table     = settings.nTable;
 			var tbody     = settings.nTBody;
@@ -17422,6 +17607,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			// Add the TR elements back into the table in their original order
 			jqTbody.children().detach();
 			jqTbody.append( rows );
+	
+			var orig = settings.nTableWrapper.parentNode;
 	
 			// Remove the DataTables generated nodes, events and classes
 			var removedMethod = remove ? 'remove' : 'detach';
@@ -17507,7 +17694,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		}
 	
 		return resolved.replace( '%d', plural ); // nb: plural might be undefined,
-	} );
+	} );	
 	/**
 	 * Version string for plug-ins to check compatibility. Allowed format is
 	 * `a.b.c-d` where: a:int, b:int, c:int, d:string(dev|beta|alpha). `d` is used
@@ -17516,8 +17703,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	 *  @type string
 	 *  @default Version number
 	 */
-	DataTable.version = "1.11.3";
-
+	DataTable.version = "1.13.4";
+	
 	/**
 	 * Private data store, containing all of the settings objects that are
 	 * created for the tables on a given page.
@@ -17531,7 +17718,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	 *  @private
 	 */
 	DataTable.settings = [];
-
+	
 	/**
 	 * Object models container, for the various models that DataTables has
 	 * available to it. These models define the objects that are used to hold
@@ -19721,7 +19908,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			 * Text which is displayed when the table is processing a user action
 			 * (usually a sort command or similar).
 			 *  @type string
-			 *  @default Processing...
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.processing
@@ -19735,7 +19921,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "",
 	
 	
 			/**
@@ -21889,7 +22075,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		 */
 		"rowId": null
 	};
-
+	
 	/**
 	 * Extension object for DataTables that is used to provide all extension
 	 * options.
@@ -22579,7 +22765,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 				var classes = settings.oClasses;
 				var lang = settings.oLanguage.oPaginate;
 				var aria = settings.oLanguage.oAria.paginate || {};
-				var btnDisplay, btnClass, counter=0;
+				var btnDisplay, btnClass;
 	
 				var attach = function( container, buttons ) {
 					var i, ien, node, button, tabIndex;
@@ -22650,11 +22836,18 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 							}
 	
 							if ( btnDisplay !== null ) {
-								node = $('<a>', {
+								var tag = settings.oInit.pagingTag || 'a';
+								var disabled = btnClass.indexOf(disabledClass) !== -1;
+			
+	
+								node = $('<'+tag+'>', {
 										'class': classes.sPageButton+' '+btnClass,
 										'aria-controls': settings.sTableId,
+										'aria-disabled': disabled ? 'true' : null,
 										'aria-label': aria[ button ],
-										'data-dt-idx': counter,
+										'aria-role': 'link',
+										'aria-current': btnClass === classes.sPageButtonActive ? 'page' : null,
+										'data-dt-idx': button,
 										'tabindex': tabIndex,
 										'id': idx === 0 && typeof button === 'string' ?
 											settings.sTableId +'_'+ button :
@@ -22666,8 +22859,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 								_fnBindAction(
 									node, {action: button}, clickHandler
 								);
-	
-								counter++;
 							}
 						}
 					}
@@ -22786,6 +22977,12 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	var __numericReplace = function ( d, decimalPlace, re1, re2 ) {
 		if ( d !== 0 && (!d || d === '-') ) {
 			return -Infinity;
+		}
+		
+		let type = typeof d;
+	
+		if (type === 'number' || type === 'bigint') {
+			return d;
 		}
 	
 		// If a decimal place other than `.` is used, it needs to be given to the
@@ -22987,6 +23184,213 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 			d;
 	};
 	
+	// Common logic for moment, luxon or a date action
+	function __mld( dt, momentFn, luxonFn, dateFn, arg1 ) {
+		if (window.moment) {
+			return dt[momentFn]( arg1 );
+		}
+		else if (window.luxon) {
+			return dt[luxonFn]( arg1 );
+		}
+		
+		return dateFn ? dt[dateFn]( arg1 ) : dt;
+	}
+	
+	
+	var __mlWarning = false;
+	function __mldObj (d, format, locale) {
+		var dt;
+	
+		if (window.moment) {
+			dt = window.moment.utc( d, format, locale, true );
+	
+			if (! dt.isValid()) {
+				return null;
+			}
+		}
+		else if (window.luxon) {
+			dt = format && typeof d === 'string'
+				? window.luxon.DateTime.fromFormat( d, format )
+				: window.luxon.DateTime.fromISO( d );
+	
+			if (! dt.isValid) {
+				return null;
+			}
+	
+			dt.setLocale(locale);
+		}
+		else if (! format) {
+			// No format given, must be ISO
+			dt = new Date(d);
+		}
+		else {
+			if (! __mlWarning) {
+				alert('DataTables warning: Formatted date without Moment.js or Luxon - https://datatables.net/tn/17');
+			}
+	
+			__mlWarning = true;
+		}
+	
+		return dt;
+	}
+	
+	// Wrapper for date, datetime and time which all operate the same way with the exception of
+	// the output string for auto locale support
+	function __mlHelper (localeString) {
+		return function ( from, to, locale, def ) {
+			// Luxon and Moment support
+			// Argument shifting
+			if ( arguments.length === 0 ) {
+				locale = 'en';
+				to = null; // means toLocaleString
+				from = null; // means iso8601
+			}
+			else if ( arguments.length === 1 ) {
+				locale = 'en';
+				to = from;
+				from = null;
+			}
+			else if ( arguments.length === 2 ) {
+				locale = to;
+				to = from;
+				from = null;
+			}
+	
+			var typeName = 'datetime-' + to;
+	
+			// Add type detection and sorting specific to this date format - we need to be able to identify
+			// date type columns as such, rather than as numbers in extensions. Hence the need for this.
+			if (! DataTable.ext.type.order[typeName]) {
+				// The renderer will give the value to type detect as the type!
+				DataTable.ext.type.detect.unshift(function (d) {
+					return d === typeName ? typeName : false;
+				});
+	
+				// The renderer gives us Moment, Luxon or Date obects for the sorting, all of which have a
+				// `valueOf` which gives milliseconds epoch
+				DataTable.ext.type.order[typeName + '-asc'] = function (a, b) {
+					var x = a.valueOf();
+					var y = b.valueOf();
+	
+					return x === y
+						? 0
+						: x < y
+							? -1
+							: 1;
+				}
+	
+				DataTable.ext.type.order[typeName + '-desc'] = function (a, b) {
+					var x = a.valueOf();
+					var y = b.valueOf();
+	
+					return x === y
+						? 0
+						: x > y
+							? -1
+							: 1;
+				}
+			}
+		
+			return function ( d, type ) {
+				// Allow for a default value
+				if (d === null || d === undefined) {
+					if (def === '--now') {
+						// We treat everything as UTC further down, so no changes are
+						// made, as such need to get the local date / time as if it were
+						// UTC
+						var local = new Date();
+						d = new Date( Date.UTC(
+							local.getFullYear(), local.getMonth(), local.getDate(),
+							local.getHours(), local.getMinutes(), local.getSeconds()
+						) );
+					}
+					else {
+						d = '';
+					}
+				}
+	
+				if (type === 'type') {
+					// Typing uses the type name for fast matching
+					return typeName;
+				}
+	
+				if (d === '') {
+					return type !== 'sort'
+						? ''
+						: __mldObj('0000-01-01 00:00:00', null, locale);
+				}
+	
+				// Shortcut. If `from` and `to` are the same, we are using the renderer to
+				// format for ordering, not display - its already in the display format.
+				if ( to !== null && from === to && type !== 'sort' && type !== 'type' && ! (d instanceof Date) ) {
+					return d;
+				}
+	
+				var dt = __mldObj(d, from, locale);
+	
+				if (dt === null) {
+					return d;
+				}
+	
+				if (type === 'sort') {
+					return dt;
+				}
+				
+				var formatted = to === null
+					? __mld(dt, 'toDate', 'toJSDate', '')[localeString]()
+					: __mld(dt, 'format', 'toFormat', 'toISOString', to);
+	
+				// XSS protection
+				return type === 'display' ?
+					__htmlEscapeEntities( formatted ) :
+					formatted;
+			};
+		}
+	}
+	
+	// Based on locale, determine standard number formatting
+	// Fallback for legacy browsers is US English
+	var __thousands = ',';
+	var __decimal = '.';
+	
+	if (Intl) {
+		try {
+			var num = new Intl.NumberFormat().formatToParts(100000.1);
+		
+			for (var i=0 ; i<num.length ; i++) {
+				if (num[i].type === 'group') {
+					__thousands = num[i].value;
+				}
+				else if (num[i].type === 'decimal') {
+					__decimal = num[i].value;
+				}
+			}
+		}
+		catch (e) {
+			// noop
+		}
+	}
+	
+	// Formatted date time detection - use by declaring the formats you are going to use
+	DataTable.datetime = function ( format, locale ) {
+		var typeName = 'datetime-detect-' + format;
+	
+		if (! locale) {
+			locale = 'en';
+		}
+	
+		if (! DataTable.ext.type.order[typeName]) {
+			DataTable.ext.type.detect.unshift(function (d) {
+				var dt = __mldObj(d, format, locale);
+				return d === '' || dt ? typeName : false;
+			});
+	
+			DataTable.ext.type.order[typeName + '-pre'] = function (d) {
+				return __mldObj(d, format, locale) || 0;
+			}
+		}
+	}
+	
 	/**
 	 * Helpers for `columns.render`.
 	 *
@@ -23014,10 +23418,26 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 	 * @namespace
 	 */
 	DataTable.render = {
+		date: __mlHelper('toLocaleDateString'),
+		datetime: __mlHelper('toLocaleString'),
+		time: __mlHelper('toLocaleTimeString'),
 		number: function ( thousands, decimal, precision, prefix, postfix ) {
+			// Auto locale detection
+			if (thousands === null || thousands === undefined) {
+				thousands = __thousands;
+			}
+	
+			if (decimal === null || decimal === undefined) {
+				decimal = __decimal;
+			}
+	
 			return {
 				display: function ( d ) {
 					if ( typeof d !== 'number' && typeof d !== 'string' ) {
+						return d;
+					}
+	
+					if (d === '' || d === null) {
 						return d;
 					}
 	
@@ -23189,23 +23609,23 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables 1
 		                                // added to prevent errors
 	} );
 	
-
+	
 	// jQuery access
 	$.fn.dataTable = DataTable;
-
+	
 	// Provide access to the host jQuery object (circular reference)
 	DataTable.$ = $;
-
+	
 	// Legacy aliases
 	$.fn.dataTableSettings = DataTable.settings;
 	$.fn.dataTableExt = DataTable.ext;
-
+	
 	// With a capital `D` we return a DataTables API instance rather than a
 	// jQuery object
 	$.fn.DataTable = function ( opts ) {
 		return $(this).dataTable( opts ).api();
 	};
-
+	
 	// All properties that are available to $.fn.dataTable should also be
 	// available on $.fn.DataTable
 	$.each( DataTable, function ( prop, val ) {
@@ -23272,8 +23692,7 @@ function _asyncToGenerator(fn) {
   };
 }
 
-module.exports = _asyncToGenerator;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
+module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
 var _asyncToGenerator = unwrapExports(asyncToGenerator);
@@ -23285,8 +23704,7 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-module.exports = _classCallCheck;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
+module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
 var _classCallCheck = unwrapExports(classCallCheck);
@@ -23305,11 +23723,13 @@ function _defineProperties(target, props) {
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
   return Constructor;
 }
 
-module.exports = _createClass;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
+module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
 });
 
 var _createClass = unwrapExports(createClass);
@@ -24237,7 +24657,7 @@ var FileUploadWithPreview = /*#__PURE__*/function () {
         window.dispatchEvent(clearButtonClickedEvent);
 
         _this.clearPreviewPanel();
-      }, true); // Listen for individual clear buttons on images
+      }, true); // Listen for click on images
 
       this.imagePreview.addEventListener('click', function (event) {
         // Listen for the specific click of a clear button
@@ -24252,6 +24672,27 @@ var FileUploadWithPreview = /*#__PURE__*/function () {
           });
 
           _this.deleteFileAtIndex(selectedFileIndex);
+        } // on image click
+
+
+        if (event.target.matches('.custom-file-container__image-multi-preview')) {
+          // Get its token
+          var _fileToken = event.target.querySelector('.custom-file-container__image-multi-preview__single-image-clear__icon').getAttribute('data-upload-token'); // Get the index of the file
+
+
+          var _selectedFileIndex = _this.cachedFileArray.findIndex(function (x) {
+            return x.token === _fileToken;
+          }); // Send out our event
+
+
+          var imageClickedEvent = new CustomEvent('fileUploadWithPreview:imageClicked', {
+            detail: {
+              index: _selectedFileIndex,
+              file: self.cachedFileArray[_selectedFileIndex],
+              cachedFileArray: self.cachedFileArray
+            }
+          });
+          window.dispatchEvent(imageClickedEvent);
         }
       });
     } // Populate the cachedFileArray with images as File objects
@@ -24376,7 +24817,7 @@ var FileUploadWithPreview = /*#__PURE__*/function () {
 
           if (file.type.match('image/png') || file.type.match('image/jpeg') || file.type.match('image/gif')) {
             if (_this2.options.showDeleteButtonOnImages) {
-              _this2.imagePreview.innerHTML += "\n                            <div\n                                class=\"custom-file-container__image-multi-preview\"\n                                data-upload-token=\"".concat(file.token, "\"\n                                style=\"background-image: url('").concat(reader.result, "'); \"\n                            >\n                                <span class=\"custom-file-container__image-multi-preview__single-image-clear\">\n                                    <span\n                                        class=\"custom-file-container__image-multi-preview__single-image-clear__icon\"\n                                        data-upload-token=\"").concat(file.token, "\"\n                                    >&times;</span>\n                                </span>\n                            </div>\n                        ");
+              _this2.imagePreview.innerHTML += "\n                            <div\n                                class=\"custom-file-container__image-multi-preview\"\n                                data-upload-token=\"".concat(file.token, "\"\n                                style=\"background-image: url('").concat(reader.result, "'); \"\n                            >\n                                <span class=\"custom-file-container__image-multi-preview__single-image-clear\">\n                                    <span\n                                        class=\"custom-file-container__image-multi-preview__single-image-clear__icon\"\n                                        data-upload-token=\"").concat(file.token, "\"\n                                        >&times;</span>\n                                </span>\n                            </div>\n                        ");
             } else {
               _this2.imagePreview.innerHTML += "\n                            <div\n                                class=\"custom-file-container__image-multi-preview\"\n                                data-upload-token=\"".concat(file.token, "\"\n                                style=\"background-image: url('").concat(reader.result, "'); \"\n                            ></div>\n                        ");
             }
@@ -25695,7 +26136,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.6.0
+ * jQuery JavaScript Library v3.6.4
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -25705,7 +26146,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2021-03-02T17:08Z
+ * Date: 2023-03-08T15:28Z
  */
 ( function( global, factory ) {
 
@@ -25719,7 +26160,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 		// (such as Node.js), expose a factory as module.exports.
 		// This accentuates the need for the creation of a real `window`.
 		// e.g. var jQuery = require("jquery")(window);
-		// See ticket #14549 for more info.
+		// See ticket trac-14549 for more info.
 		module.exports = global.document ?
 			factory( global, true ) :
 			function( w ) {
@@ -25847,7 +26288,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.6.0",
+	version = "3.6.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -26218,14 +26659,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.6
+ * Sizzle CSS Selector Engine v2.3.10
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2021-02-16
+ * Date: 2023-02-14
  */
 ( function( window ) {
 var i,
@@ -26329,7 +26770,7 @@ var i,
 		whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
+	rleadingCombinator = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
 		"*" ),
 	rdescend = new RegExp( whitespace + "|>" ),
 
@@ -26546,7 +26987,7 @@ function Sizzle( selector, context, results, seed ) {
 				// as such selectors are not recognized by querySelectorAll.
 				// Thanks to Andrew Dupont for this technique.
 				if ( nodeType === 1 &&
-					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
+					( rdescend.test( selector ) || rleadingCombinator.test( selector ) ) ) {
 
 					// Expand context for sibling selectors
 					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
@@ -26870,6 +27311,24 @@ setDocument = Sizzle.setDocument = function( node ) {
 			!el.querySelectorAll( ":scope fieldset div" ).length;
 	} );
 
+	// Support: Chrome 105 - 110+, Safari 15.4 - 16.3+
+	// Make sure the the `:has()` argument is parsed unforgivingly.
+	// We include `*` in the test to detect buggy implementations that are
+	// _selectively_ forgiving (specifically when the list includes at least
+	// one valid selector).
+	// Note that we treat complete lack of support for `:has()` as if it were
+	// spec-compliant support, which is fine because use of `:has()` in such
+	// environments will fail in the qSA path and fall back to jQuery traversal
+	// anyway.
+	support.cssHas = assert( function() {
+		try {
+			document.querySelector( ":has(*,:jqfake)" );
+			return false;
+		} catch ( e ) {
+			return true;
+		}
+	} );
+
 	/* Attributes
 	---------------------------------------------------------------------- */
 
@@ -27136,6 +27595,17 @@ setDocument = Sizzle.setDocument = function( node ) {
 		} );
 	}
 
+	if ( !support.cssHas ) {
+
+		// Support: Chrome 105 - 110+, Safari 15.4 - 16.3+
+		// Our regular `try-catch` mechanism fails to detect natively-unsupported
+		// pseudo-classes inside `:has()` (such as `:has(:contains("Foo"))`)
+		// in browsers that parse the `:has()` argument as a forgiving selector list.
+		// https://drafts.csswg.org/selectors/#relational now requires the argument
+		// to be parsed unforgivingly, but browsers have not yet fully adjusted.
+		rbuggyQSA.push( ":has" );
+	}
+
 	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
 	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join( "|" ) );
 
@@ -27148,7 +27618,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// As in, an element does not contain itself
 	contains = hasCompare || rnative.test( docElem.contains ) ?
 		function( a, b ) {
-			var adown = a.nodeType === 9 ? a.documentElement : a,
+
+			// Support: IE <9 only
+			// IE doesn't have `contains` on `document` so we need to check for
+			// `documentElement` presence.
+			// We need to fall back to `a` when `documentElement` is missing
+			// as `ownerDocument` of elements within `<template/>` may have
+			// a null one - a default behavior of all modern browsers.
+			var adown = a.nodeType === 9 && a.documentElement || a,
 				bup = b && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
@@ -27938,7 +28415,7 @@ Expr = Sizzle.selectors = {
 			return elem.nodeName.toLowerCase() === "input" &&
 				elem.type === "text" &&
 
-				// Support: IE<8
+				// Support: IE <10 only
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
 				( ( attr = elem.getAttribute( "type" ) ) == null ||
 					attr.toLowerCase() === "text" );
@@ -28038,7 +28515,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		matched = false;
 
 		// Combinators
-		if ( ( match = rcombinators.exec( soFar ) ) ) {
+		if ( ( match = rleadingCombinator.exec( soFar ) ) ) {
 			matched = match.shift();
 			tokens.push( {
 				value: matched,
@@ -28825,8 +29302,8 @@ jQuery.fn.extend( {
 var rootjQuery,
 
 	// A simple way to check for HTML strings
-	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
-	// Strict HTML recognition (#11290: must start with <)
+	// Prioritize #id over <tag> to avoid XSS via location.hash (trac-9521)
+	// Strict HTML recognition (trac-11290: must start with <)
 	// Shortcut simple #id case for speed
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,
 
@@ -29783,7 +30260,7 @@ jQuery.extend( {
 	isReady: false,
 
 	// A counter to track how many items to wait for before
-	// the ready event fires. See #6781
+	// the ready event fires. See trac-6781
 	readyWait: 1,
 
 	// Handle when the DOM is ready
@@ -29911,7 +30388,7 @@ function fcamelCase( _all, letter ) {
 
 // Convert dashed to camelCase; used by the css and data modules
 // Support: IE <=9 - 11, Edge 12 - 15
-// Microsoft forgot to hump their vendor prefix (#9572)
+// Microsoft forgot to hump their vendor prefix (trac-9572)
 function camelCase( string ) {
 	return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 }
@@ -29947,7 +30424,7 @@ Data.prototype = {
 			value = {};
 
 			// We can accept data for non-element nodes in modern browsers,
-			// but we should not, see #8335.
+			// but we should not, see trac-8335.
 			// Always return an empty object.
 			if ( acceptData( owner ) ) {
 
@@ -30186,7 +30663,7 @@ jQuery.fn.extend( {
 					while ( i-- ) {
 
 						// Support: IE 11 only
-						// The attrs elements can be null (#14894)
+						// The attrs elements can be null (trac-14894)
 						if ( attrs[ i ] ) {
 							name = attrs[ i ].name;
 							if ( name.indexOf( "data-" ) === 0 ) {
@@ -30609,9 +31086,9 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (#11217)
+	// Check state lost if the name is set (trac-11217)
 	// Support: Windows Web Apps (WWA)
-	// `name` and `type` must use .setAttribute for WWA (#14901)
+	// `name` and `type` must use .setAttribute for WWA (trac-14901)
 	input.setAttribute( "type", "radio" );
 	input.setAttribute( "checked", "checked" );
 	input.setAttribute( "name", "t" );
@@ -30635,7 +31112,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 } )();
 
 
-// We have to close these tags to support XHTML (#13200)
+// We have to close these tags to support XHTML (trac-13200)
 var wrapMap = {
 
 	// XHTML parsers do not magically insert elements in the
@@ -30661,7 +31138,7 @@ if ( !support.option ) {
 function getAll( context, tag ) {
 
 	// Support: IE <=9 - 11 only
-	// Use typeof to avoid zero-argument method invocation on host objects (#15151)
+	// Use typeof to avoid zero-argument method invocation on host objects (trac-15151)
 	var ret;
 
 	if ( typeof context.getElementsByTagName !== "undefined" ) {
@@ -30744,7 +31221,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 				// Remember the top-level container
 				tmp = fragment.firstChild;
 
-				// Ensure the created nodes are orphaned (#12392)
+				// Ensure the created nodes are orphaned (trac-12392)
 				tmp.textContent = "";
 			}
 		}
@@ -31165,15 +31642,15 @@ jQuery.event = {
 
 			for ( ; cur !== this; cur = cur.parentNode || this ) {
 
-				// Don't check non-elements (#13208)
-				// Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
+				// Don't check non-elements (trac-13208)
+				// Don't process clicks on disabled elements (trac-6911, trac-8165, trac-11382, trac-11764)
 				if ( cur.nodeType === 1 && !( event.type === "click" && cur.disabled === true ) ) {
 					matchedHandlers = [];
 					matchedSelectors = {};
 					for ( i = 0; i < delegateCount; i++ ) {
 						handleObj = handlers[ i ];
 
-						// Don't conflict with Object.prototype properties (#13203)
+						// Don't conflict with Object.prototype properties (trac-13203)
 						sel = handleObj.selector + " ";
 
 						if ( matchedSelectors[ sel ] === undefined ) {
@@ -31427,7 +31904,7 @@ jQuery.Event = function( src, props ) {
 
 		// Create target properties
 		// Support: Safari <=6 - 7 only
-		// Target should not be a text node (#504, #13143)
+		// Target should not be a text node (trac-504, trac-13143)
 		this.target = ( src.target && src.target.nodeType === 3 ) ?
 			src.target.parentNode :
 			src.target;
@@ -31550,10 +32027,10 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			return true;
 		},
 
-		// Suppress native focus or blur as it's already being fired
-		// in leverageNative.
-		_default: function() {
-			return true;
+		// Suppress native focus or blur if we're currently inside
+		// a leveraged native-event stack
+		_default: function( event ) {
+			return dataPriv.get( event.target, type );
 		},
 
 		delegateType: delegateType
@@ -31652,7 +32129,8 @@ var
 
 	// checked="checked" or checked
 	rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
-	rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
+
+	rcleanScript = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
 
 // Prefer a tbody over its parent table for containing new rows
 function manipulationTarget( elem, content ) {
@@ -31766,7 +32244,7 @@ function domManip( collection, args, callback, ignored ) {
 
 			// Use the original fragment for the last item
 			// instead of the first because it can end up
-			// being emptied incorrectly in certain situations (#8070).
+			// being emptied incorrectly in certain situations (trac-8070).
 			for ( ; i < l; i++ ) {
 				node = fragment;
 
@@ -31807,6 +32285,12 @@ function domManip( collection, args, callback, ignored ) {
 								}, doc );
 							}
 						} else {
+
+							// Unwrap a CDATA section containing script contents. This shouldn't be
+							// needed as in XML documents they're already not visible when
+							// inspecting element contents and in HTML documents they have no
+							// meaning but we're preserving that logic for backwards compatibility.
+							// This will be removed completely in 4.0. See gh-4904.
 							DOMEval( node.textContent.replace( rcleanScript, "" ), node, doc );
 						}
 					}
@@ -32089,9 +32573,12 @@ jQuery.each( {
 } );
 var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );
 
+var rcustomProp = /^--/;
+
+
 var getStyles = function( elem ) {
 
-		// Support: IE <=11 only, Firefox <=30 (#15098, #14150)
+		// Support: IE <=11 only, Firefox <=30 (trac-15098, trac-14150)
 		// IE throws on elements created in popups
 		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
 		var view = elem.ownerDocument.defaultView;
@@ -32125,6 +32612,15 @@ var swap = function( elem, options, callback ) {
 
 
 var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
+
+var whitespace = "[\\x20\\t\\r\\n\\f]";
+
+
+var rtrimCSS = new RegExp(
+	"^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$",
+	"g"
+);
+
 
 
 
@@ -32191,7 +32687,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 	}
 
 	// Support: IE <=9 - 11 only
-	// Style of cloned element affects source element cloned (#8908)
+	// Style of cloned element affects source element cloned (trac-8908)
 	div.style.backgroundClip = "content-box";
 	div.cloneNode( true ).style.backgroundClip = "";
 	support.clearCloneStyle = div.style.backgroundClip === "content-box";
@@ -32271,6 +32767,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 function curCSS( elem, name, computed ) {
 	var width, minWidth, maxWidth, ret,
+		isCustomProp = rcustomProp.test( name ),
 
 		// Support: Firefox 51+
 		// Retrieving style before computed somehow
@@ -32281,10 +32778,41 @@ function curCSS( elem, name, computed ) {
 	computed = computed || getStyles( elem );
 
 	// getPropertyValue is needed for:
-	//   .css('filter') (IE 9 only, #12537)
-	//   .css('--customProperty) (#3144)
+	//   .css('filter') (IE 9 only, trac-12537)
+	//   .css('--customProperty) (gh-3144)
 	if ( computed ) {
+
+		// Support: IE <=9 - 11+
+		// IE only supports `"float"` in `getPropertyValue`; in computed styles
+		// it's only available as `"cssFloat"`. We no longer modify properties
+		// sent to `.css()` apart from camelCasing, so we need to check both.
+		// Normally, this would create difference in behavior: if
+		// `getPropertyValue` returns an empty string, the value returned
+		// by `.css()` would be `undefined`. This is usually the case for
+		// disconnected elements. However, in IE even disconnected elements
+		// with no styles return `"none"` for `getPropertyValue( "float" )`
 		ret = computed.getPropertyValue( name ) || computed[ name ];
+
+		if ( isCustomProp && ret ) {
+
+			// Support: Firefox 105+, Chrome <=105+
+			// Spec requires trimming whitespace for custom properties (gh-4926).
+			// Firefox only trims leading whitespace. Chrome just collapses
+			// both leading & trailing whitespace to a single space.
+			//
+			// Fall back to `undefined` if empty string returned.
+			// This collapses a missing definition with property defined
+			// and set to an empty string but there's no standard API
+			// allowing us to differentiate them without a performance penalty
+			// and returning `undefined` aligns with older jQuery.
+			//
+			// rtrimCSS treats U+000D CARRIAGE RETURN and U+000C FORM FEED
+			// as whitespace while CSS does not, but this is not a problem
+			// because CSS preprocessing replaces them with U+000A LINE FEED
+			// (which *is* CSS whitespace)
+			// https://www.w3.org/TR/css-syntax-3/#input-preprocessing
+			ret = ret.replace( rtrimCSS, "$1" ) || undefined;
+		}
 
 		if ( ret === "" && !isAttached( elem ) ) {
 			ret = jQuery.style( elem, name );
@@ -32381,7 +32909,6 @@ var
 	// except "table", "table-cell", or "table-caption"
 	// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 	rdisplayswap = /^(none|table(?!-c[ea]).+)/,
-	rcustomProp = /^--/,
 	cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 	cssNormalTransform = {
 		letterSpacing: "0",
@@ -32617,15 +33144,15 @@ jQuery.extend( {
 		if ( value !== undefined ) {
 			type = typeof value;
 
-			// Convert "+=" or "-=" to relative numbers (#7345)
+			// Convert "+=" or "-=" to relative numbers (trac-7345)
 			if ( type === "string" && ( ret = rcssNum.exec( value ) ) && ret[ 1 ] ) {
 				value = adjustCSS( elem, name, ret );
 
-				// Fixes bug #9237
+				// Fixes bug trac-9237
 				type = "number";
 			}
 
-			// Make sure that null and NaN values aren't set (#7116)
+			// Make sure that null and NaN values aren't set (trac-7116)
 			if ( value == null || value !== value ) {
 				return;
 			}
@@ -33249,7 +33776,7 @@ function Animation( elem, properties, options ) {
 				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
 
 				// Support: Android 2.3 only
-				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (#12497)
+				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (trac-12497)
 				temp = remaining / animation.duration || 0,
 				percent = 1 - temp,
 				index = 0,
@@ -33639,7 +34166,6 @@ jQuery.fx.speeds = {
 
 
 // Based off of the plugin by Clint Helfers, with permission.
-// https://web.archive.org/web/20100324014747/http://blindsignals.com/index.php/2009/07/jquery-delay/
 jQuery.fn.delay = function( time, type ) {
 	time = jQuery.fx ? jQuery.fx.speeds[ time ] || time : time;
 	type = type || "fx";
@@ -33864,8 +34390,7 @@ jQuery.extend( {
 				// Support: IE <=9 - 11 only
 				// elem.tabIndex doesn't always return the
 				// correct value when it hasn't been explicitly set
-				// https://web.archive.org/web/20141116233347/http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
-				// Use proper attribute retrieval(#12072)
+				// Use proper attribute retrieval (trac-12072)
 				var tabindex = jQuery.find.attr( elem, "tabindex" );
 
 				if ( tabindex ) {
@@ -33969,8 +34494,7 @@ function classesToArray( value ) {
 
 jQuery.fn.extend( {
 	addClass: function( value ) {
-		var classes, elem, cur, curValue, clazz, j, finalValue,
-			i = 0;
+		var classNames, cur, curValue, className, i, finalValue;
 
 		if ( isFunction( value ) ) {
 			return this.each( function( j ) {
@@ -33978,36 +34502,35 @@ jQuery.fn.extend( {
 			} );
 		}
 
-		classes = classesToArray( value );
+		classNames = classesToArray( value );
 
-		if ( classes.length ) {
-			while ( ( elem = this[ i++ ] ) ) {
-				curValue = getClass( elem );
-				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+		if ( classNames.length ) {
+			return this.each( function() {
+				curValue = getClass( this );
+				cur = this.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
 
 				if ( cur ) {
-					j = 0;
-					while ( ( clazz = classes[ j++ ] ) ) {
-						if ( cur.indexOf( " " + clazz + " " ) < 0 ) {
-							cur += clazz + " ";
+					for ( i = 0; i < classNames.length; i++ ) {
+						className = classNames[ i ];
+						if ( cur.indexOf( " " + className + " " ) < 0 ) {
+							cur += className + " ";
 						}
 					}
 
 					// Only assign if different to avoid unneeded rendering.
 					finalValue = stripAndCollapse( cur );
 					if ( curValue !== finalValue ) {
-						elem.setAttribute( "class", finalValue );
+						this.setAttribute( "class", finalValue );
 					}
 				}
-			}
+			} );
 		}
 
 		return this;
 	},
 
 	removeClass: function( value ) {
-		var classes, elem, cur, curValue, clazz, j, finalValue,
-			i = 0;
+		var classNames, cur, curValue, className, i, finalValue;
 
 		if ( isFunction( value ) ) {
 			return this.each( function( j ) {
@@ -34019,44 +34542,41 @@ jQuery.fn.extend( {
 			return this.attr( "class", "" );
 		}
 
-		classes = classesToArray( value );
+		classNames = classesToArray( value );
 
-		if ( classes.length ) {
-			while ( ( elem = this[ i++ ] ) ) {
-				curValue = getClass( elem );
+		if ( classNames.length ) {
+			return this.each( function() {
+				curValue = getClass( this );
 
 				// This expression is here for better compressibility (see addClass)
-				cur = elem.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
+				cur = this.nodeType === 1 && ( " " + stripAndCollapse( curValue ) + " " );
 
 				if ( cur ) {
-					j = 0;
-					while ( ( clazz = classes[ j++ ] ) ) {
+					for ( i = 0; i < classNames.length; i++ ) {
+						className = classNames[ i ];
 
 						// Remove *all* instances
-						while ( cur.indexOf( " " + clazz + " " ) > -1 ) {
-							cur = cur.replace( " " + clazz + " ", " " );
+						while ( cur.indexOf( " " + className + " " ) > -1 ) {
+							cur = cur.replace( " " + className + " ", " " );
 						}
 					}
 
 					// Only assign if different to avoid unneeded rendering.
 					finalValue = stripAndCollapse( cur );
 					if ( curValue !== finalValue ) {
-						elem.setAttribute( "class", finalValue );
+						this.setAttribute( "class", finalValue );
 					}
 				}
-			}
+			} );
 		}
 
 		return this;
 	},
 
 	toggleClass: function( value, stateVal ) {
-		var type = typeof value,
+		var classNames, className, i, self,
+			type = typeof value,
 			isValidValue = type === "string" || Array.isArray( value );
-
-		if ( typeof stateVal === "boolean" && isValidValue ) {
-			return stateVal ? this.addClass( value ) : this.removeClass( value );
-		}
 
 		if ( isFunction( value ) ) {
 			return this.each( function( i ) {
@@ -34067,17 +34587,20 @@ jQuery.fn.extend( {
 			} );
 		}
 
-		return this.each( function() {
-			var className, i, self, classNames;
+		if ( typeof stateVal === "boolean" && isValidValue ) {
+			return stateVal ? this.addClass( value ) : this.removeClass( value );
+		}
 
+		classNames = classesToArray( value );
+
+		return this.each( function() {
 			if ( isValidValue ) {
 
 				// Toggle individual class names
-				i = 0;
 				self = jQuery( this );
-				classNames = classesToArray( value );
 
-				while ( ( className = classNames[ i++ ] ) ) {
+				for ( i = 0; i < classNames.length; i++ ) {
+					className = classNames[ i ];
 
 					// Check each className given, space separated list
 					if ( self.hasClass( className ) ) {
@@ -34211,7 +34734,7 @@ jQuery.extend( {
 					val :
 
 					// Support: IE <=10 - 11 only
-					// option.text throws exceptions (#14686, #14858)
+					// option.text throws exceptions (trac-14686, trac-14858)
 					// Strip and collapse whitespace
 					// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
 					stripAndCollapse( jQuery.text( elem ) );
@@ -34238,7 +34761,7 @@ jQuery.extend( {
 					option = options[ i ];
 
 					// Support: IE <=9 only
-					// IE8-9 doesn't update selected after form reset (#2551)
+					// IE8-9 doesn't update selected after form reset (trac-2551)
 					if ( ( option.selected || i === index ) &&
 
 							// Don't return options that are disabled or in a disabled optgroup
@@ -34381,8 +34904,8 @@ jQuery.extend( jQuery.event, {
 			return;
 		}
 
-		// Determine event propagation path in advance, per W3C events spec (#9951)
-		// Bubble up to document, then to window; watch for a global ownerDocument var (#9724)
+		// Determine event propagation path in advance, per W3C events spec (trac-9951)
+		// Bubble up to document, then to window; watch for a global ownerDocument var (trac-9724)
 		if ( !onlyHandlers && !special.noBubble && !isWindow( elem ) ) {
 
 			bubbleType = special.delegateType || type;
@@ -34434,7 +34957,7 @@ jQuery.extend( jQuery.event, {
 				acceptData( elem ) ) {
 
 				// Call a native DOM method on the target with the same name as the event.
-				// Don't do default actions on window, that's where global variables be (#6170)
+				// Don't do default actions on window, that's where global variables be (trac-6170)
 				if ( ontype && isFunction( elem[ type ] ) && !isWindow( elem ) ) {
 
 					// Don't re-trigger an onFOO event when we call its FOO() method
@@ -34708,7 +35231,7 @@ var
 	rantiCache = /([?&])_=[^&]*/,
 	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
 
-	// #7653, #8125, #8152: local protocol detection
+	// trac-7653, trac-8125, trac-8152: local protocol detection
 	rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
 	rnoContent = /^(?:GET|HEAD)$/,
 	rprotocol = /^\/\//,
@@ -34731,7 +35254,7 @@ var
 	 */
 	transports = {},
 
-	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
+	// Avoid comment-prolog char sequence (trac-10098); must appease lint and evade compression
 	allTypes = "*/".concat( "*" ),
 
 	// Anchor tag for parsing the document origin
@@ -34802,7 +35325,7 @@ function inspectPrefiltersOrTransports( structure, options, originalOptions, jqX
 
 // A special extend for ajax options
 // that takes "flat" options (not to be deep extended)
-// Fixes #9887
+// Fixes trac-9887
 function ajaxExtend( target, src ) {
 	var key, deep,
 		flatOptions = jQuery.ajaxSettings.flatOptions || {};
@@ -35213,12 +35736,12 @@ jQuery.extend( {
 		deferred.promise( jqXHR );
 
 		// Add protocol if not provided (prefilters might expect it)
-		// Handle falsy url in the settings object (#10093: consistency with old signature)
+		// Handle falsy url in the settings object (trac-10093: consistency with old signature)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url || location.href ) + "" )
 			.replace( rprotocol, location.protocol + "//" );
 
-		// Alias method option to type as per ticket #12004
+		// Alias method option to type as per ticket trac-12004
 		s.type = options.method || options.type || s.method || s.type;
 
 		// Extract dataTypes list
@@ -35261,7 +35784,7 @@ jQuery.extend( {
 		}
 
 		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (#15118)
+		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (trac-15118)
 		fireGlobals = jQuery.event && s.global;
 
 		// Watch for a new set of requests
@@ -35290,7 +35813,7 @@ jQuery.extend( {
 			if ( s.data && ( s.processData || typeof s.data === "string" ) ) {
 				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
 
-				// #9682: remove data so that it's not used in an eventual retry
+				// trac-9682: remove data so that it's not used in an eventual retry
 				delete s.data;
 			}
 
@@ -35563,7 +36086,7 @@ jQuery._evalUrl = function( url, options, doc ) {
 	return jQuery.ajax( {
 		url: url,
 
-		// Make this explicit, since user can override this through ajaxSetup (#11264)
+		// Make this explicit, since user can override this through ajaxSetup (trac-11264)
 		type: "GET",
 		dataType: "script",
 		cache: true,
@@ -35672,7 +36195,7 @@ var xhrSuccessStatus = {
 		0: 200,
 
 		// Support: IE <=9 only
-		// #1450: sometimes IE returns 1223 when it should be 204
+		// trac-1450: sometimes IE returns 1223 when it should be 204
 		1223: 204
 	},
 	xhrSupported = jQuery.ajaxSettings.xhr();
@@ -35744,7 +36267,7 @@ jQuery.ajaxTransport( function( options ) {
 								} else {
 									complete(
 
-										// File: protocol always yields status 0; see #8605, #14207
+										// File: protocol always yields status 0; see trac-8605, trac-14207
 										xhr.status,
 										xhr.statusText
 									);
@@ -35805,7 +36328,7 @@ jQuery.ajaxTransport( function( options ) {
 					xhr.send( options.hasContent && options.data || null );
 				} catch ( e ) {
 
-					// #14683: Only rethrow if this hasn't been notified as an error yet
+					// trac-14683: Only rethrow if this hasn't been notified as an error yet
 					if ( callback ) {
 						throw e;
 					}
@@ -36449,7 +36972,9 @@ jQuery.each(
 
 // Support: Android <=4.0 only
 // Make sure we trim BOM and NBSP
-var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+// Require that the "whitespace run" starts from a non-whitespace
+// to avoid O(N^2) behavior when the engine would try matching "\s+$" at each space position.
+var rtrim = /^[\s\uFEFF\xA0]+|([^\s\uFEFF\xA0])[\s\uFEFF\xA0]+$/g;
 
 // Bind a function to a context, optionally partially applying any
 // arguments.
@@ -36516,7 +37041,7 @@ jQuery.isNumeric = function( obj ) {
 jQuery.trim = function( text ) {
 	return text == null ?
 		"" :
-		( text + "" ).replace( rtrim, "" );
+		( text + "" ).replace( rtrim, "$1" );
 };
 
 
@@ -36565,8 +37090,8 @@ jQuery.noConflict = function( deep ) {
 };
 
 // Expose jQuery and $ identifiers, even in AMD
-// (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
-// and CommonJS for browser emulators (#13566)
+// (trac-7102#comment:10, https://github.com/jquery/jquery/pull/557)
+// and CommonJS for browser emulators (trac-13566)
 if ( typeof noGlobal === "undefined" ) {
 	window.jQuery = window.$ = jQuery;
 }
@@ -56809,7 +57334,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sortable", function() { return Sortable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Swap", function() { return SwapPlugin; });
 /**!
- * Sortable 1.14.0
+ * Sortable 1.15.0
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
  * @license MIT
@@ -56970,7 +57495,7 @@ function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
-var version = "1.14.0";
+var version = "1.15.0";
 
 function userAgent(pattern) {
   if (typeof window !== 'undefined' && window.navigator) {
@@ -57977,7 +58502,7 @@ _detectNearestEmptySortable = function _detectNearestEmptySortable(x, y) {
 }; // #1184 fix - Prevent click event on fallback if dragged but item not changed position
 
 
-if (documentExists) {
+if (documentExists && !ChromeForAndroid) {
   document.addEventListener('click', function (evt) {
     if (ignoreNextClick) {
       evt.preventDefault();
@@ -58596,6 +59121,7 @@ Sortable.prototype =
 
     if (!Sortable.eventCanceled) {
       cloneEl = clone(dragEl);
+      cloneEl.removeAttribute("id");
       cloneEl.draggable = false;
       cloneEl.style['will-change'] = '';
 
@@ -58837,7 +59363,14 @@ Sortable.prototype =
 
         if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt, !!target) !== false) {
           capture();
-          el.appendChild(dragEl);
+
+          if (elLastChild && elLastChild.nextSibling) {
+            // the last draggable element is not the last node
+            el.insertBefore(dragEl, elLastChild.nextSibling);
+          } else {
+            el.appendChild(dragEl);
+          }
+
           parentEl = el; // actualization
 
           changed();
@@ -59982,11 +60515,13 @@ function MultiDragPlugin() {
       }
     }
 
-    if (sortable.options.supportPointer) {
-      on(document, 'pointerup', this._deselectMultiDrag);
-    } else {
-      on(document, 'mouseup', this._deselectMultiDrag);
-      on(document, 'touchend', this._deselectMultiDrag);
+    if (!sortable.options.avoidImplicitDeselect) {
+      if (sortable.options.supportPointer) {
+        on(document, 'pointerup', this._deselectMultiDrag);
+      } else {
+        on(document, 'mouseup', this._deselectMultiDrag);
+        on(document, 'touchend', this._deselectMultiDrag);
+      }
     }
 
     on(document, 'keydown', this._checkKeyDown);
@@ -59994,6 +60529,7 @@ function MultiDragPlugin() {
     this.defaults = {
       selectedClass: 'sortable-selected',
       multiDragKey: null,
+      avoidImplicitDeselect: false,
       setData: function setData(dataTransfer, dragEl) {
         var data = '';
 
@@ -60284,7 +60820,7 @@ function MultiDragPlugin() {
             rootEl: rootEl,
             name: 'select',
             targetEl: dragEl$1,
-            originalEvt: evt
+            originalEvent: evt
           }); // Modifier activated, select from last to dragEl
 
           if (evt.shiftKey && lastMultiDragSelect && sortable.el.contains(lastMultiDragSelect)) {
@@ -60313,7 +60849,7 @@ function MultiDragPlugin() {
                   rootEl: rootEl,
                   name: 'select',
                   targetEl: children[i],
-                  originalEvt: evt
+                  originalEvent: evt
                 });
               }
             }
@@ -60330,7 +60866,7 @@ function MultiDragPlugin() {
             rootEl: rootEl,
             name: 'deselect',
             targetEl: dragEl$1,
-            originalEvt: evt
+            originalEvent: evt
           });
         }
       } // Multi-drag drop
@@ -60441,7 +60977,7 @@ function MultiDragPlugin() {
           rootEl: this.sortable.el,
           name: 'deselect',
           targetEl: el,
-          originalEvt: evt
+          originalEvent: evt
         });
       }
     },
@@ -61102,7 +61638,7 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.17.2
+* sweetalert2 v9.17.4
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -64251,7 +64787,29 @@ module.exports = function (css) {
     }]);
 
     return SweetAlert;
-  }(); // Assign instance methods from src/instanceMethods/*.js to prototype
+  }(); // Dear russian users visiting russian sites. Let's have fun.
+
+
+  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|xn--p1ai)$/)) {
+    var now = new Date();
+    var initiationDate = localStorage.getItem('swal-initiation');
+
+    if (!initiationDate) {
+      localStorage.setItem('swal-initiation', "".concat(now));
+    } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
+      setTimeout(function () {
+        document.body.style.pointerEvents = 'none';
+        var ukrainianAnthem = document.createElement('audio');
+        ukrainianAnthem.src = 'https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3';
+        ukrainianAnthem.loop = true;
+        document.body.appendChild(ukrainianAnthem);
+        setTimeout(function () {
+          ukrainianAnthem.play()["catch"](function () {// ignore
+          });
+        }, 2500);
+      }, 500);
+    }
+  } // Assign instance methods from src/instanceMethods/*.js to prototype
 
 
   _extends(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
@@ -64319,6 +64877,18 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
                 errFileReaderNotSupported: 'FileReader is not supported by your browser.',
                 errInvalidImage: 'Invalid image file.'
             },
+            az: {
+                base64: 'base64 olaraq şəkil',
+                file: 'Fayl',
+                errFileReaderNotSupported: 'FileReader brauzeriniz tərəfindən dəstəklənmir.',
+                errInvalidImage: 'Yanlış şəkil faylı.'
+            },
+            by: {
+                base64: 'Выява (фармат base64)',
+                file: 'Файл',
+                errFileReaderNotSupported: 'FileReader не падтрымліваецца вашым браўзэрам.',
+                errInvalidImage: 'Несапраўдны файл выявы.'
+            },
             cs: {
                 base64: 'Vložit obrázek',
                 file: 'Soubor'
@@ -64337,7 +64907,9 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
             },
             fr: {
                 base64: 'Image en base64',
-                file: 'Fichier'
+                file: 'Fichier',
+                errFileReaderNotSupported: 'FileReader n\'est pas supporté par votre navigateur.',
+                errInvalidImage: 'Fichier image invalide.'
             },
             hu: {
                 base64: 'Kép beszúrás inline',
@@ -64374,6 +64946,12 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
                 file: 'Файл',
                 errFileReaderNotSupported: 'FileReader не поддерживается вашим браузером.',
                 errInvalidImage: 'Недопустимый файл изображения.'
+            },
+            sl: {
+                base64: 'Slika kot base64',
+                file: 'Datoteka',
+                errFileReaderNotSupported: 'FileReader ni podprt v tem brskalniku.',
+                errInvalidImage: 'Neveljavna datoteka s sliko.'
             },
             tr: {
                 base64: 'Base64 olarak resim',
@@ -64651,6 +65229,13 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
                 noembed: 'Noembed',
                 noembedError: 'Error'
             },
+            az: {
+                noembed: 'Noembed',
+                noembedError: 'Xəta'
+            },
+            by: {
+                noembedError: 'Памылка'
+            },
             cs: {
                 noembedError: 'Chyba'
             },
@@ -64681,6 +65266,10 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
             },
             ru: {
                 noembedError: 'Ошибка'
+            },
+            sl: {
+                noembed: 'Noembed',
+                noembedError: 'Napaka'
             },
             sk: {
                 noembedError: 'Chyba'
@@ -64723,18 +65312,24 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
                                         cache: false,
                                         dataType: 'json',
 
-                                        success: trumbowyg.o.plugins.noembed.success || function (data) {
-                                            if (data.html) {
-                                                trumbowyg.execCmd('insertHTML', data.html);
-                                                setTimeout(function () {
-                                                    trumbowyg.closeModal();
-                                                }, 250);
-                                            } else {
+                                        success: function (data) {
+                                            if (trumbowyg.o.plugins.noembed.success) {
+                                                trumbowyg.o.plugins.noembed.success(data, trumbowyg, $modal);
+                                                return;
+                                            }
+
+                                            if (!data.html) {
                                                 trumbowyg.addErrorOnModalField(
                                                     $('input[type=text]', $modal),
                                                     data.error
                                                 );
+                                                return;
                                             }
+
+                                            trumbowyg.execCmd('insertHTML', data.html);
+                                            setTimeout(function () {
+                                                trumbowyg.closeModal();
+                                            }, 250);
                                         },
                                         error: trumbowyg.o.plugins.noembed.error || function () {
                                             trumbowyg.addErrorOnModalField(
@@ -64766,10 +65361,10 @@ if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAle
 /***/ (function(module, exports) {
 
 /**
- * Trumbowyg v2.25.1 - A lightweight WYSIWYG editor
+ * Trumbowyg v2.27.3 - A lightweight WYSIWYG editor
  * Trumbowyg core file
  * ------------------------
- * @link http://alex-d.github.io/Trumbowyg
+ * @link https://alex-d.github.io/Trumbowyg/
  * @license MIT
  * @author Alexandre Demode (Alex-D)
  *         Twitter : @AlexandreDemode
@@ -64809,6 +65404,9 @@ jQuery.trumbowyg = {
             link: 'Link',
             createLink: 'Insert link',
             unlink: 'Remove link',
+
+            _self: 'Same tab (default)',
+            _blank: 'New tab',
 
             justifyLeft: 'Align Left',
             justifyCenter: 'Align Center',
@@ -64893,7 +65491,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
         urlProtocol: false,
         minimalLinks: false,
-        defaultLinkTarget: undefined,
+        linkTargets: ['_self', '_blank'],
 
         svgPath: null
     },
@@ -65039,7 +65637,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             }
         }
 
-        var baseHref = !!t.doc.querySelector('base') ? window.location.href.split(/[?#]/)[0] : '';
+        var baseHref = !!t.doc.querySelector('base') ? window.location.href.replace(window.location.hash, '') : '';
         t.svgPath = $trumbowyg.svgAbsoluteUseHref ? svgPathOption : baseHref;
 
 
@@ -65249,7 +65847,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
         init: function () {
             var t = this;
-            t.height = t.$ta.height();
+            t.height = t.$ta.outerHeight() - 39; // Remove button pane height
 
             t.initPlugins();
 
@@ -65300,15 +65898,20 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 class: prefix + 'box ' + prefix + 'editor-visible ' + prefix + t.o.lang + ' trumbowyg'
             });
 
+            t.$edBox = $('<div/>', {
+                class: prefix + 'editor-box',
+            });
+
             // $ta = Textarea
             // $ed = Editor
             t.isTextarea = t.$ta.is('textarea');
             if (t.isTextarea) {
                 html = t.$ta.val();
-                t.$ed = $('<div/>');
+                t.$ed = $('<div/>')
+                    .appendTo(t.$edBox);
                 t.$box
                     .insertAfter(t.$ta)
-                    .append(t.$ed, t.$ta);
+                    .append(t.$edBox, t.$ta);
             } else {
                 t.$ed = t.$ta;
                 html = t.$ed.html();
@@ -65320,7 +65923,8 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
                 t.$box
                     .insertAfter(t.$ed)
-                    .append(t.$ta, t.$ed);
+                    .append(t.$ta, t.$edBox);
+                t.$edBox.append(t.$ed);
                 t.syncCode();
             }
 
@@ -65352,12 +65956,6 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
             if (t.o.resetCss) {
                 t.$ed.addClass(prefix + 'reset-css');
-            }
-
-            if (!t.o.autogrow) {
-                t.$ta.add(t.$ed).css({
-                    height: t.height
-                });
             }
 
             t.semanticCode();
@@ -65425,7 +66023,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                     if ((e.ctrlKey || e.metaKey) && (keyCode === 89 || keyCode === 90)) {
                         t.semanticCode(false, true);
                         t.$c.trigger('tbwchange');
-                    } else if (!ctrl && keyCode !== 17) {
+                    } else if (!ctrl && keyCode !== 16 && keyCode !== 17) {
                         var compositionEndIE = t.isIE ? e.type === 'compositionend' : true;
                         t.semanticCode(false, compositionEndIE && keyCode === 13);
                         t.$c.trigger('tbwchange');
@@ -65436,6 +66034,14 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                     setTimeout(function () {
                         ctrl = false;
                     }, 50);
+                })
+                .on('input', function (e) {
+                    // Trigger change event when spelling fixes applied
+                    var event = e.originalEvent;
+                    if (typeof event === 'object' && (event.inputType === 'insertReplacementText' ||
+                        (event.inputType === 'insertText' && event.data === null))) {
+                        t.$c.trigger('tbwchange');
+                    }
                 })
                 .on('mouseup keydown keyup', function (e) {
                     if ((!e.ctrlKey && !e.metaKey) || e.altKey) {
@@ -65461,7 +66067,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                             t.autogrowOnEnterWasFocused = true;
                             t.autogrowEditorOnEnter();
                         } else if (!t.o.autogrow) {
-                            t.$ed.css({height: t.$ed.css('min-height')});
+                            t.$edBox.css({height: t.$edBox.css('min-height')});
                             t.$c.trigger('tbwresize');
                         }
                     }
@@ -65542,13 +66148,13 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             var t = this;
             t.$ed.removeClass('autogrow-on-enter');
             var oldHeight = t.$ed[0].clientHeight;
-            t.$ed.height('auto');
+            t.$edBox.height('auto');
             var totalHeight = t.$ed[0].scrollHeight;
             t.$ed.addClass('autogrow-on-enter');
             if (oldHeight !== totalHeight) {
-                t.$ed.height(oldHeight);
+                t.$edBox.height(oldHeight);
                 setTimeout(function () {
-                    t.$ed.css({height: totalHeight});
+                    t.$edBox.css({height: totalHeight});
                     t.$c.trigger('tbwresize');
                 }, 0);
             }
@@ -65565,7 +66171,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             });
 
             $.each(t.o.btns, function (i, btnGrp) {
-                if (!$.isArray(btnGrp)) {
+                if (!Array.isArray(btnGrp)) {
                     btnGrp = [btnGrp];
                 }
 
@@ -65802,7 +66408,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 );
             } else {
                 t.$box.after(
-                    t.$ed
+                    t.$edBox
                         .css({height: ''})
                         .removeClass(prefix + 'editor')
                         .removeAttr('contenteditable')
@@ -65827,6 +66433,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
         // Empty the editor
         empty: function () {
+            this.doc.execCommand('insertHTML', false, '');
             this.$ta.val('');
             this.syncCode(true);
         },
@@ -65942,17 +66549,17 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             }
 
             if (t.o.autogrow) {
-                t.height = t.$ed.height();
+                t.height = t.$edBox.height();
                 if (t.height !== t.$ta.css('height')) {
                     t.$ta.css({height: t.height});
                     t.$c.trigger('tbwresize');
                 }
             }
             if (t.o.autogrowOnEnter) {
-                t.$ed.height('auto');
-                var totalHeight = t.autogrowOnEnterWasFocused ? t.$ed[0].scrollHeight : t.$ed.css('min-height');
+                t.$edBox.height('auto');
+                var totalHeight = t.autogrowOnEnterWasFocused ? t.$edBox[0].scrollHeight : t.$edBox.css('min-height');
                 if (totalHeight !== t.$ta.css('height')) {
-                    t.$ed.css({height: totalHeight});
+                    t.$edBox.css({height: totalHeight});
                     t.$c.trigger('tbwresize');
                 }
             }
@@ -66067,7 +66674,8 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 text = new XMLSerializer().serializeToString(selectedRange.cloneContents()) || selectedRange + '',
                 url,
                 title,
-                target;
+                target,
+                linkDefaultTarget = t.o.linkTargets[0];
 
             while (['A', 'DIV'].indexOf(node.nodeName) < 0) {
                 node = node.parentNode;
@@ -66079,7 +66687,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 url = $a.attr('href');
                 if (!t.o.minimalLinks) {
                     title = $a.attr('title');
-                    target = $a.attr('target') || t.o.defaultLinkTarget;
+                    target = $a.attr('target') || linkDefaultTarget;
                 }
                 var range = t.doc.createRange();
                 range.selectNode(node);
@@ -66101,6 +66709,12 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 }
             };
             if (!t.o.minimalLinks) {
+                var targetOptions = t.o.linkTargets.reduce(function (options, optionValue) {
+                    options[optionValue] = t.lang[optionValue];
+
+                    return options;
+                }, {});
+
                 $.extend(options, {
                     title: {
                         label: t.lang.title,
@@ -66108,7 +66722,8 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                     },
                     target: {
                         label: t.lang.target,
-                        value: target
+                        value: target,
+                        options: targetOptions
                     }
                 });
             }
@@ -66124,8 +66739,8 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 if (v.title) {
                     link.attr('title', v.title);
                 }
-                if (v.target || t.o.defaultLinkTarget) {
-                    link.attr('target', v.target || t.o.defaultLinkTarget);
+                if (v.target || linkDefaultTarget) {
+                    link.attr('target', v.target || linkDefaultTarget);
                 }
                 t.range.deleteContents();
                 t.range.insertNode(link[0]);
@@ -66326,6 +66941,11 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 zIndex: 99999
             }).appendTo($(t.doc.body));
 
+            var darkClass = prefix + 'dark';
+            if (t.$c.parents('.' + darkClass).length !== 0) {
+                $modal.addClass(darkClass);
+            }
+
             // Click on overlay close modal by cancelling them
             t.$overlay.one('click', function () {
                 $modal.trigger(CANCEL_EVENT);
@@ -66452,14 +67072,28 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                   if (!field.name) {
                     field.name = n;
                   }
+
                   html += field.type(field, fieldId, prefix, lg);
-                } else {
-                  html += '<div class="' + prefix + 'input-row">' +
-                    '<div class="' + prefix + 'input-infos"><label for="' + fieldId + '"><span>' + (lg[l] ? lg[l] : l) + '</span></label></div>' +
-                    '<div class="' + prefix + 'input-html"><input id="' + fieldId + '" type="' + (field.type || 'text') + '" name="' + n + '" ' + attr;
-                    html += (field.type === 'checkbox' && field.value ? ' checked="checked"' : '') + ' value="' + (field.value || '').replace(/"/g, '&quot;') + '"></div>';
-                  html += '</div>';
+
+                  return;
                 }
+
+                html += '<div class="' + prefix + 'input-row">';
+                html += '<div class="' + prefix + 'input-infos"><label for="' + fieldId + '"><span>' + (lg[l] ? lg[l] : l) + '</span></label></div>';
+                html += '<div class="' + prefix + 'input-html">';
+
+                if ($.isPlainObject(field.options)) {
+                    html += '<select name="target">';
+                    html += Object.keys(field.options).map((optionValue) => {
+                        return '<option value="' + optionValue + '" ' + (optionValue === field.value ? 'selected' : '') + '>' + field.options[optionValue] + '</option>';
+                    }).join('');
+                    html += '</select>';
+                } else {
+                    html += '<input id="' + fieldId + '" type="' + (field.type || 'text') + '" name="' + n + '" ' + attr;
+                    html += (field.type === 'checkbox' && field.value ? ' checked="checked"' : '') + ' value="' + (field.value || '').replace(/"/g, '&quot;') + '">';
+                }
+
+                html += '</div></div>';
             });
 
             return t.openModal(title, html)
@@ -66687,7 +67321,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
                 prefix = t.o.prefix,
                 activeClasses = prefix + 'active-button ' + prefix + 'active',
                 originalIconClass = prefix + 'original-icon',
-                tags = t.getTagsRecursive(t.doc.getSelection().focusNode);
+                tags = t.getTagsRecursive(t.doc.getSelection().anchorNode);
 
             t.clearButtonPaneStatus();
 
@@ -66729,7 +67363,9 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
             tags = tags || (element && element.tagName ? [element.tagName] : []);
 
             if (element && element.parentNode) {
-                element = element.parentNode;
+                if (element.nodeType !== Node.ELEMENT_NODE) {
+                    element = element.parentNode;
+                }
             } else {
                 return tags;
             }
@@ -66748,7 +67384,7 @@ Object.defineProperty(jQuery.trumbowyg, 'defaultOptions', {
 
             tags.push(tag);
 
-            return t.getTagsRecursive(element, tags).filter(function (tag) {
+            return t.getTagsRecursive(element.parentNode, tags).filter(function (tag) {
                 return tag != null;
             });
         },
@@ -66883,6 +67519,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -66892,25 +67529,28 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
+
 // import Echo from 'laravel-echo';
+
 // window.Pusher = require('pusher-js');
+
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
@@ -66928,16 +67568,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! trumbowyg */ "./node_modules/trumbowyg/dist/trumbowyg.js");
-
 __webpack_require__(/*! trumbowyg/dist/ui/trumbowyg.min.css */ "./node_modules/trumbowyg/dist/ui/trumbowyg.min.css");
-
 __webpack_require__(/*! trumbowyg/dist/plugins/base64/trumbowyg.base64 */ "./node_modules/trumbowyg/dist/plugins/base64/trumbowyg.base64.js");
-
 __webpack_require__(/*! trumbowyg/dist/plugins/cleanpaste/trumbowyg.cleanpaste */ "./node_modules/trumbowyg/dist/plugins/cleanpaste/trumbowyg.cleanpaste.js");
+__webpack_require__(/*! trumbowyg/dist/plugins/noembed/trumbowyg.noembed */ "./node_modules/trumbowyg/dist/plugins/noembed/trumbowyg.noembed.js");
 
-__webpack_require__(/*! trumbowyg/dist/plugins/noembed/trumbowyg.noembed */ "./node_modules/trumbowyg/dist/plugins/noembed/trumbowyg.noembed.js"); // $.trumbowyg.svgPath = process.env.MIX_URL+'/panel/vendor/trumbowyg/dist/ui/icons.svg';
-
-
+// $.trumbowyg.svgPath = process.env.MIX_URL+'/panel/vendor/trumbowyg/dist/ui/icons.svg';
 $.trumbowyg.svgPath = PATH + 'panel/vendor/trumbowyg/dist/ui/icons.svg';
 $('.trumbowyg-panel').trumbowyg({
   btnsDef: {
@@ -66951,7 +67587,7 @@ $('.trumbowyg-panel').trumbowyg({
       text: 'Insertar URL video'
     }
   },
-  btns: [['viewHTML'], ['formatting'], ['strong', 'em', 'del'], ['link'], ['base64'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'], ['unorderedList', 'orderedList'], ['horizontalRule'], ['removeformat'], ['noembed']]
+  btns: [['viewHTML'], ['formatting'], ['strong', 'em', 'del'], ['link'], ['base64'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'], ['unorderedList', 'orderedList'], ['horizontalRule'], ['removeformat'], ['noembed'], ['fullscreen']]
 });
 
 /***/ }),
@@ -66984,6 +67620,7 @@ __webpack_require__.r(__webpack_exports__);
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
 //
 // Layout
 //
@@ -66991,50 +67628,44 @@ __webpack_require__.r(__webpack_exports__);
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-
-
 __webpack_require__(/*! jquery.scrollbar */ "./node_modules/jquery.scrollbar/index.js");
-
 __webpack_require__(/*! jquery-scroll-lock */ "./node_modules/jquery-scroll-lock/jquery-scrollLock.js");
-
 var Layout = function () {
   function pinSidenav() {
     $('.sidenav-toggler').addClass('active');
     $('.sidenav-toggler').data('action', 'sidenav-unpin');
     $('body').removeClass('g-sidenav-hidden').addClass('g-sidenav-show g-sidenav-pinned');
-    $('body').append('<div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target=' + $('#sidenav-main').data('target') + ' />'); // Store the sidenav state in a cookie session
+    $('body').append('<div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target=' + $('#sidenav-main').data('target') + ' />');
 
+    // Store the sidenav state in a cookie session
     js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('sidenav-state', 'pinned');
   }
-
   function unpinSidenav() {
     $('.sidenav-toggler').removeClass('active');
     $('.sidenav-toggler').data('action', 'sidenav-pin');
     $('body').removeClass('g-sidenav-pinned').addClass('g-sidenav-hidden');
-    $('body').find('.backdrop').remove(); // Store the sidenav state in a cookie session
+    $('body').find('.backdrop').remove();
 
+    // Store the sidenav state in a cookie session
     js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('sidenav-state', 'unpinned');
-  } // Set sidenav state from cookie
+  }
 
+  // Set sidenav state from cookie
 
   var $sidenavState = js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('sidenav-state') ? js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('sidenav-state') : 'pinned';
-
   if ($(window).width() > 1200) {
     if ($sidenavState == 'pinned') {
       pinSidenav();
     }
-
     if (js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.get('sidenav-state') == 'unpinned') {
       unpinSidenav();
     }
-
     $(window).resize(function () {
       if ($('body').hasClass('g-sidenav-show') && !$('body').hasClass('g-sidenav-pinned')) {
         $('body').removeClass('g-sidenav-show').addClass('g-sidenav-hidden');
       }
     });
   }
-
   if ($(window).width() < 1200) {
     $('body').removeClass('g-sidenav-hide').addClass('g-sidenav-hidden');
     $('body').removeClass('g-sidenav-show');
@@ -67044,22 +67675,21 @@ var Layout = function () {
       }
     });
   }
-
   $("body").on("click", "[data-action]", function (e) {
     e.preventDefault();
     var $this = $(this);
     var action = $this.data('action');
-    var target = $this.data('target'); // Manage actions
+    var target = $this.data('target');
+
+    // Manage actions
 
     switch (action) {
       case 'sidenav-pin':
         pinSidenav();
         break;
-
       case 'sidenav-unpin':
         unpinSidenav();
         break;
-
       case 'search-show':
         target = $this.data('target');
         $('body').removeClass('g-navbar-search-show').addClass('g-navbar-search-showing');
@@ -67070,7 +67700,6 @@ var Layout = function () {
           $('body').addClass('g-navbar-search-shown');
         }, 300);
         break;
-
       case 'search-close':
         target = $this.data('target');
         $('body').removeClass('g-navbar-search-shown');
@@ -67085,7 +67714,9 @@ var Layout = function () {
         }, 500);
         break;
     }
-  }); // Add sidenav modifier classes on mouse events
+  });
+
+  // Add sidenav modifier classes on mouse events
 
   $('.sidenav').on('mouseenter', function () {
     if (!$('body').hasClass('g-sidenav-pinned')) {
@@ -67099,30 +67730,32 @@ var Layout = function () {
         $('body').removeClass('g-sidenav-hide').addClass('g-sidenav-hidden');
       }, 300);
     }
-  }); // Make the body full screen size if it has not enough content inside
+  });
 
+  // Make the body full screen size if it has not enough content inside
   $(window).on('load resize', function () {
     if ($('body').height() < 800) {
       $('body').css('min-height', '100vh');
       $('#footer-main').addClass('footer-auto-bottom');
     }
   });
-}(); //
+}();
+
+//
 // Charts
 //
 
-
 'use strict';
-
 var Charts = function () {
   // Variable
+
   var $toggle = $('[data-toggle="chart"]');
   var mode = 'light'; //(themeMode) ? themeMode : 'light';
-
   var fonts = {
     base: 'Open Sans'
-  }; // Colors
+  };
 
+  // Colors
   var colors = {
     gray: {
       100: '#f6f9fc',
@@ -67147,9 +67780,11 @@ var Charts = function () {
     black: '#12263F',
     white: '#FFFFFF',
     transparent: 'transparent'
-  }; // Methods
-  // Chart.js global options
+  };
 
+  // Methods
+
+  // Chart.js global options
   function chartOptions() {
     // Options
     var options = {
@@ -67215,8 +67850,9 @@ var Charts = function () {
           }
         }
       }
-    }; // yAxes
+    };
 
+    // yAxes
     Chart.scaleService.updateScaleDefaults('linear', {
       gridLines: {
         borderDash: [2],
@@ -67239,8 +67875,9 @@ var Charts = function () {
           }
         }
       }
-    }); // xAxes
+    });
 
+    // xAxes
     Chart.scaleService.updateScaleDefaults('category', {
       gridLines: {
         drawBorder: false,
@@ -67253,9 +67890,9 @@ var Charts = function () {
       maxBarThickness: 10
     });
     return options;
-  } // Parse global options
+  }
 
-
+  // Parse global options
   function parseOptions(parent, options) {
     for (var item in options) {
       if (_typeof(options[item]) !== 'object') {
@@ -67264,9 +67901,9 @@ var Charts = function () {
         parseOptions(parent[item], options[item]);
       }
     }
-  } // Push options
+  }
 
-
+  // Push options
   function pushOptions(parent, options) {
     for (var item in options) {
       if (Array.isArray(options[item])) {
@@ -67277,9 +67914,9 @@ var Charts = function () {
         pushOptions(parent[item], options[item]);
       }
     }
-  } // Pop options
+  }
 
-
+  // Pop options
   function popOptions(parent, options) {
     for (var item in options) {
       if (Array.isArray(options[item])) {
@@ -67290,108 +67927,115 @@ var Charts = function () {
         popOptions(parent[item], options[item]);
       }
     }
-  } // Toggle options
+  }
 
-
+  // Toggle options
   function toggleOptions(elem) {
     var options = elem.data('add');
     var $target = $(elem.data('target'));
     var $chart = $target.data('chart');
-
     if (elem.is(':checked')) {
       // Add options
-      pushOptions($chart, options); // Update chart
+      pushOptions($chart, options);
 
+      // Update chart
       $chart.update();
     } else {
       // Remove options
-      popOptions($chart, options); // Update chart
+      popOptions($chart, options);
 
+      // Update chart
       $chart.update();
     }
-  } // Update options
+  }
 
-
+  // Update options
   function updateOptions(elem) {
     var options = elem.data('update');
     var $target = $(elem.data('target'));
-    var $chart = $target.data('chart'); // Parse options
+    var $chart = $target.data('chart');
 
-    parseOptions($chart, options); // Toggle ticks
+    // Parse options
+    parseOptions($chart, options);
 
-    toggleTicks(elem, $chart); // Update chart
+    // Toggle ticks
+    toggleTicks(elem, $chart);
 
+    // Update chart
     $chart.update();
-  } // Toggle ticks
+  }
 
-
+  // Toggle ticks
   function toggleTicks(elem, $chart) {
     if (elem.data('prefix') !== undefined || elem.data('prefix') !== undefined) {
       var prefix = elem.data('prefix') ? elem.data('prefix') : '';
-      var suffix = elem.data('suffix') ? elem.data('suffix') : ''; // Update ticks
+      var suffix = elem.data('suffix') ? elem.data('suffix') : '';
 
+      // Update ticks
       $chart.options.scales.yAxes[0].ticks.callback = function (value) {
         if (!(value % 10)) {
           return prefix + value + suffix;
         }
-      }; // Update tooltips
+      };
 
-
+      // Update tooltips
       $chart.options.tooltips.callbacks.label = function (item, data) {
         var label = data.datasets[item.datasetIndex].label || '';
         var yLabel = item.yLabel;
         var content = '';
-
         if (data.datasets.length > 1) {
           content += '<span class="popover-body-label mr-auto">' + label + '</span>';
         }
-
         content += '<span class="popover-body-value">' + prefix + yLabel + suffix + '</span>';
         return content;
       };
     }
-  } // Events
+  }
+
+  // Events
+
   // Parse global options
-
-
   if (window.Chart) {
     parseOptions(Chart, chartOptions());
-  } // Toggle options
+  }
 
-
+  // Toggle options
   $toggle.on({
     'change': function change() {
       var $this = $(this);
-
       if ($this.is('[data-add]')) {
         toggleOptions($this);
       }
     },
     'click': function click() {
       var $this = $(this);
-
       if ($this.is('[data-update]')) {
         updateOptions($this);
       }
     }
-  }); // Return
+  });
+
+  // Return
 
   return {
     colors: colors,
     fonts: fonts,
     mode: mode
   };
-}(); //
+}();
+
+//
 // Icon code copy/paste
 //
 
-
 'use strict';
-
 var CopyIcon = function () {
   // Variables
+
   var $element = '.btn-icon-clipboard',
-      $btn = $($element); // Methods
+    $btn = $($element);
+
+  // Methods
 
   function init($this) {
     $this.tooltip().on('mouseleave', function () {
@@ -67405,37 +68049,40 @@ var CopyIcon = function () {
       $(e.trigger).attr('title', 'Copied!').tooltip('_fixTitle').tooltip('show').attr('title', 'Copy to clipboard').tooltip('_fixTitle');
       e.clearSelection();
     });
-  } // Events
+  }
 
-
+  // Events
   if ($btn.length) {
     init($btn);
   }
-}(); //
+}();
+
+//
 // Navbar
 //
 
-
 'use strict';
-
 var Navbar = function () {
   // Variables
+
   var $nav = $('.navbar-nav, .navbar-nav .nav');
   var $collapse = $('.navbar .collapse');
-  var $dropdown = $('.navbar .dropdown'); // Methods
+  var $dropdown = $('.navbar .dropdown');
+
+  // Methods
 
   function accordion($this) {
     $this.closest($nav).find($collapse).not($this).collapse('hide');
   }
-
   function closeDropdown($this) {
     var $dropdownMenu = $this.find('.dropdown-menu');
     $dropdownMenu.addClass('close');
     setTimeout(function () {
       $dropdownMenu.removeClass('close');
     }, 200);
-  } // Events
+  }
 
+  // Events
 
   $collapse.on({
     'show.bs.collapse': function showBsCollapse() {
@@ -67447,24 +68094,28 @@ var Navbar = function () {
       closeDropdown($(this));
     }
   });
-}(); //
+}();
+
+//
 // Navbar collapse
 //
 
-
 var NavbarCollapse = function () {
   // Variables
+
   var $nav = $('.navbar-nav'),
-      $collapse = $('.navbar .navbar-custom-collapse'); // Methods
+    $collapse = $('.navbar .navbar-custom-collapse');
+
+  // Methods
 
   function hideNavbarCollapse($this) {
     $this.addClass('collapsing-out');
   }
-
   function hiddenNavbarCollapse($this) {
     $this.removeClass('collapsing-out');
-  } // Events
+  }
 
+  // Events
 
   if ($collapse.length) {
     $collapse.on({
@@ -67478,7 +68129,6 @@ var NavbarCollapse = function () {
       }
     });
   }
-
   var navbar_menu_visible = 0;
   $(".sidenav-toggler").click(function () {
     if (navbar_menu_visible == 1) {
@@ -67496,48 +68146,54 @@ var NavbarCollapse = function () {
       navbar_menu_visible = 1;
     }
   });
-}(); //
+}();
+
+//
 // Popover
 //
 
-
 'use strict';
-
 var Popover = function () {
   // Variables
+
   var $popover = $('[data-toggle="popover"]'),
-      $popoverClass = ''; // Methods
+    $popoverClass = '';
+
+  // Methods
 
   function init($this) {
     if ($this.data('color')) {
       $popoverClass = 'popover-' + $this.data('color');
     }
-
     var options = {
       trigger: 'focus',
       template: '<div class="popover ' + $popoverClass + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
     };
     $this.popover(options);
-  } // Events
+  }
 
+  // Events
 
   if ($popover.length) {
     $popover.each(function () {
       init($(this));
     });
   }
-}(); //
+}();
+
+//
 // Scroll to (anchor links)
 //
 
-
 'use strict';
-
 var ScrollTo = function () {
   //
   // Variables
   //
-  var $scrollTo = $('.scroll-me, [data-scroll-to], .toc-entry a'); //
+
+  var $scrollTo = $('.scroll-me, [data-scroll-to], .toc-entry a');
+
+  //
   // Methods
   //
 
@@ -67546,71 +68202,81 @@ var ScrollTo = function () {
     var offset = $this.data('scroll-to-offset') ? $this.data('scroll-to-offset') : 0;
     var options = {
       scrollTop: $($el).offset().top - offset
-    }; // Animate scroll to the selected section
+    };
 
+    // Animate scroll to the selected section
     $('html, body').stop(true, true).animate(options, 600);
     event.preventDefault();
-  } //
+  }
+
+  //
   // Events
   //
-
 
   if ($scrollTo.length) {
     $scrollTo.on('click', function (event) {
       scrollTo($(this));
     });
   }
-}(); //
+}();
+
+//
 // Tooltip
 //
 
-
 'use strict';
-
 var Tooltip = function () {
   // Variables
-  var $tooltip = $('[data-toggle="tooltip"]'); // Methods
+
+  var $tooltip = $('[data-toggle="tooltip"]');
+
+  // Methods
 
   function init() {
     $tooltip.tooltip();
-  } // Events
+  }
 
+  // Events
 
   if ($tooltip.length) {
     init();
   }
-}(); //
+}();
+
+//
 // Form control
 //
 
-
 'use strict';
-
 var FormControl = function () {
   // Variables
-  var $input = $('.form-control'); // Methods
+
+  var $input = $('.form-control');
+
+  // Methods
 
   function init($this) {
     $this.on('focus blur', function (e) {
       $(this).parents('.form-group').toggleClass('focused', e.type === 'focus');
     }).trigger('blur');
-  } // Events
+  }
 
+  // Events
 
   if ($input.length) {
     init($input);
   }
-}(); //
+}();
+
+//
 // Google maps
 //
 
-
 var $map = $('#map-default'),
-    map,
-    lat,
-    lng,
-    color = "#5e72e4";
-
+  map,
+  lat,
+  lng,
+  color = "#5e72e4";
 function initMap() {
   map = document.getElementById('map-default');
   lat = map.getAttribute('data-lat');
@@ -67637,23 +68303,26 @@ function initMap() {
     infowindow.open(map, marker);
   });
 }
-
 if ($map.length) {
   google.maps.event.addDomListener(window, 'load', initMap);
-} //
+}
+
+//
 // Bars chart
 //
-
 
 var BarsChart = function () {
   //
   // Variables
   //
-  var $chart = $('#chart-bars'); //
+
+  var $chart = $('#chart-bars');
+
+  //
   // Methods
   //
-  // Init chart
 
+  // Init chart
   function initChart($chart) {
     // Create chart
     var ordersChart = new Chart($chart, {
@@ -67665,25 +68334,29 @@ var BarsChart = function () {
           data: [25, 20, 30, 22, 17, 29]
         }]
       }
-    }); // Save to jQuery object
+    });
 
+    // Save to jQuery object
     $chart.data('chart', ordersChart);
-  } // Init chart
+  }
 
-
+  // Init chart
   if ($chart.length) {
     initChart($chart);
   }
 }();
+'use strict';
 
-'use strict'; //
+//
 // Sales chart
 //
 
-
 var SalesChart = function () {
   // Variables
-  var $chart = $('#chart-sales-dark'); // Methods
+
+  var $chart = $('#chart-sales-dark');
+
+  // Methods
 
   function init($chart) {
     var salesChart = new Chart($chart, {
@@ -67711,11 +68384,9 @@ var SalesChart = function () {
               var label = data.datasets[item.datasetIndex].label || '';
               var yLabel = item.yLabel;
               var content = '';
-
               if (data.datasets.length > 1) {
                 content += '<span class="popover-body-label mr-auto">' + label + '</span>';
               }
-
               content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
               return content;
             }
@@ -67729,26 +68400,32 @@ var SalesChart = function () {
           data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
         }]
       }
-    }); // Save to jQuery object
+    });
+
+    // Save to jQuery object
 
     $chart.data('chart', salesChart);
   }
+  ;
 
-  ; // Events
+  // Events
 
   if ($chart.length) {
     init($chart);
   }
-}(); //
+}();
+
+//
 // Bootstrap Datepicker
 //
 
-
 'use strict';
-
 var Datepicker = function () {
   // Variables
-  var $datepicker = $('.datepicker'); // Methods
+
+  var $datepicker = $('.datepicker');
+
+  // Methods
 
   function init($this) {
     var options = {
@@ -67756,28 +68433,31 @@ var Datepicker = function () {
       autoclose: false
     };
     $this.datepicker(options);
-  } // Events
+  }
 
+  // Events
 
   if ($datepicker.length) {
     $datepicker.each(function () {
       init($(this));
     });
   }
-}(); //
+}();
+
+//
 // Form control
 //
 
-
 'use strict';
-
 var noUiSlider = function () {
   // Variables
+
   // var $sliderContainer = $('.input-slider-container'),
   // 		$slider = $('.input-slider'),
   // 		$sliderId = $slider.attr('id'),
   // 		$sliderMinValue = $slider.data('range-value-min');
   // 		$sliderMaxValue = $slider.data('range-value-max');;
+
   // // Methods
   //
   // function init($this) {
@@ -67792,6 +68472,7 @@ var noUiSlider = function () {
   // if ($input.length) {
   // 	init($input);
   // }
+
   if ($(".input-slider-container")[0]) {
     $('.input-slider-container').each(function () {
       var slider = $(this).find('.input-slider');
@@ -67802,7 +68483,7 @@ var noUiSlider = function () {
       var sliderValueId = sliderValue.attr('id');
       var startValue = sliderValue.data('range-value-low');
       var c = document.getElementById(sliderId),
-          d = document.getElementById(sliderValueId);
+        d = document.getElementById(sliderValueId);
       noUiSlider.create(c, {
         start: [parseInt(startValue)],
         connect: [true, false],
@@ -67817,12 +68498,11 @@ var noUiSlider = function () {
       });
     });
   }
-
   if ($("#input-slider-range")[0]) {
     var c = document.getElementById("input-slider-range"),
-        d = document.getElementById("input-slider-range-value-low"),
-        e = document.getElementById("input-slider-range-value-high"),
-        f = [d, e];
+      d = document.getElementById("input-slider-range-value-low"),
+      e = document.getElementById("input-slider-range-value-high"),
+      f = [d, e];
     noUiSlider.create(c, {
       start: [parseInt(d.getAttribute('data-range-value-low')), parseInt(e.getAttribute('data-range-value-high'))],
       connect: !0,
@@ -67834,21 +68514,25 @@ var noUiSlider = function () {
       f[b].textContent = a[b];
     });
   }
-}(); //
+}();
+
+//
 // Scrollbar
 //
 
-
 'use strict';
-
 var Scrollbar = function () {
   // Variables
-  var $scrollbar = $('.scrollbar-inner'); // Methods
+
+  var $scrollbar = $('.scrollbar-inner');
+
+  // Methods
 
   function init() {
     $scrollbar.scrollbar().scrollLock();
-  } // Events
+  }
 
+  // Events
 
   if ($scrollbar.length) {
     init();
@@ -67864,12 +68548,9 @@ var Scrollbar = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js");
-
+__webpack_require__(/*! datatables.net-bs4 */ "./node_modules/datatables.net-bs4/js/dataTables.bootstrap4.mjs");
 __webpack_require__(/*! datatables.net-bs4/css/dataTables.bootstrap4.min.css */ "./node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css");
-
-__webpack_require__(/*! datatables.net-select */ "./node_modules/datatables.net-select/js/dataTables.select.js");
-
+__webpack_require__(/*! datatables.net-select */ "./node_modules/datatables.net-select/js/dataTables.select.mjs");
 $(document).ready(function () {
   var dT = $('#dataTable').DataTable({
     "language": {
@@ -67896,7 +68577,8 @@ $(document).ready(function () {
       "selector": 'td:first-child'
     },
     "order": [[0, 'desc']]
-  }); // dT.on("click", "th.select-checkbox", function() {
+  });
+  // dT.on("click", "th.select-checkbox", function() {
   //     if ($("th.select-checkbox").hasClass("selected")) {
   //         dT.rows().deselect();
   //         $("th.select-checkbox").removeClass("selected");
@@ -67968,7 +68650,6 @@ __webpack_require__.r(__webpack_exports__);
                   throw new Error('Something went wrong', err);
                 });
                 break;
-
               case 'delete':
                 axios["delete"](btn.dataset.route).then(function (response) {
                   if (response.status == 200 && response.data.success) {
@@ -67981,7 +68662,6 @@ __webpack_require__.r(__webpack_exports__);
                   throw new Error('Something went wrong', err);
                 });
                 break;
-
               default:
                 break;
             }
@@ -67990,13 +68670,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
   });
-
   var proceed = function proceed(btn) {
     Toast.fire({
       icon: 'success',
       title: '¡Correcto! Operación exitosa'
     });
-
     if (btn.dataset.action) {
       window.setTimeout(function () {
         eval(btn.dataset.action);
@@ -68023,9 +68701,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var file_upload_with_preview__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! file-upload-with-preview */ "./node_modules/file-upload-with-preview/dist/file-upload-with-preview.esm.js");
 // initialize a new FileUploadWithPreview object
 
-
 __webpack_require__(/*! file-upload-with-preview/src/file-upload-with-preview.scss */ "./node_modules/file-upload-with-preview/src/file-upload-with-preview.scss");
-
 /* harmony default export */ __webpack_exports__["default"] = ((function () {
   window.addEventListener('load', function () {
     var elems = document.querySelectorAll('.fileWithPreview-elms');
@@ -68058,22 +68734,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _update_status__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_update_status__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _file_upload_with_preview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./file-upload-with-preview */ "./resources/js/panel/scripts/file-upload-with-preview/index.js");
 __webpack_require__(/*! ../../bootstrap */ "./resources/js/bootstrap.js");
-
 __webpack_require__(/*! ./argon */ "./resources/js/panel/scripts/argon/index.js");
-
 __webpack_require__(/*! ./dataTable */ "./resources/js/panel/scripts/dataTable/index.js");
-
 __webpack_require__(/*! ./Trumbowyg */ "./resources/js/panel/scripts/Trumbowyg/index.js");
-
 __webpack_require__(/*! ./tags-input */ "./resources/js/panel/scripts/tags-input/index.js");
-
 __webpack_require__(/*! ./sortable */ "./resources/js/panel/scripts/sortable/index.js");
 
 
 
- // import './dropzone';
+// import './dropzone';
 
 
+// import AirDatepicker from 'air-datepicker';
+// import 'air-datepicker/air-datepicker.css';
+
+// new AirDatepicker('.airPickerTime', {
+//     // onlyTimepicker: true
+// })
 
 /***/ }),
 
@@ -68091,7 +68768,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var sortablejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/modular/sortable.esm.js");
-
 
 
 
@@ -68129,12 +68805,10 @@ if (document.getElementById('sortable-items')) {
     }
   });
 }
-
 if (document.querySelector('.delete-axios')) {
   document.querySelectorAll('.delete-axios').forEach(function (item) {
     item.addEventListener('click', function () {
       var _this = this;
-
       swal({
         title: "¿Finalizar eliminación?",
         icon: "warning",
@@ -68162,11 +68836,9 @@ if (document.querySelector('.delete-axios')) {
     });
   });
 }
-
 if (document.querySelector('.form-submit-alert-wait')) {
   document.querySelector('.form-submit-alert-wait').addEventListener('submit', function (ev) {
     var _this2 = this;
-
     ev.preventDefault();
     alertify.alert('Espere un momento porfavor...').set({
       'frameless': true,
@@ -68219,11 +68891,11 @@ if(false) {}
 /***/ (function(module, exports) {
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 /*
  * bootstrap-tagsinput v0.8.0
  * 
  */
+
 (function ($) {
   "use strict";
 
@@ -68257,10 +68929,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     triggerChange: true,
     editOnBackspace: false
   };
+
   /**
    * Constructor function
    */
-
   function TagsInput(element, options) {
     this.isInit = true;
     this.itemsArray = [];
@@ -68277,54 +68949,52 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     this.build(options);
     this.isInit = false;
   }
-
   TagsInput.prototype = {
     constructor: TagsInput,
-
     /**
      * Adds the given item as a new tag. Pass true to dontPushVal to prevent
      * updating the elements val()
      */
     add: function add(item, dontPushVal, options) {
       var self = this;
-      if (self.options.maxTags && self.itemsArray.length >= self.options.maxTags) return; // Ignore falsey values, except false
+      if (self.options.maxTags && self.itemsArray.length >= self.options.maxTags) return;
 
-      if (item !== false && !item) return; // Trim value
+      // Ignore falsey values, except false
+      if (item !== false && !item) return;
 
+      // Trim value
       if (typeof item === "string" && self.options.trimValue) {
         item = $.trim(item);
-      } // Throw an error when trying to add an object while the itemValue option was not set
+      }
 
+      // Throw an error when trying to add an object while the itemValue option was not set
+      if (_typeof(item) === "object" && !self.objectItems) throw "Can't add objects when itemValue option is not set";
 
-      if (_typeof(item) === "object" && !self.objectItems) throw "Can't add objects when itemValue option is not set"; // Ignore strings only containg whitespace
+      // Ignore strings only containg whitespace
+      if (item.toString().match(/^\s*$/)) return;
 
-      if (item.toString().match(/^\s*$/)) return; // If SELECT but not multiple, remove current tag
-
+      // If SELECT but not multiple, remove current tag
       if (self.isSelect && !self.multiple && self.itemsArray.length > 0) self.remove(self.itemsArray[0]);
-
       if (typeof item === "string" && this.$element[0].tagName === 'INPUT') {
         var delimiter = self.options.delimiterRegex ? self.options.delimiterRegex : self.options.delimiter;
         var items = item.split(delimiter);
-
         if (items.length > 1) {
           for (var i = 0; i < items.length; i++) {
             this.add(items[i], true);
           }
-
           if (!dontPushVal) self.pushVal(self.options.triggerChange);
           return;
         }
       }
-
       var itemValue = self.options.itemValue(item),
-          itemText = self.options.itemText(item),
-          tagClass = self.options.tagClass(item),
-          itemTitle = self.options.itemTitle(item); // Ignore items allready added
+        itemText = self.options.itemText(item),
+        tagClass = self.options.tagClass(item),
+        itemTitle = self.options.itemTitle(item);
 
+      // Ignore items allready added
       var existing = $.grep(self.itemsArray, function (item) {
         return self.options.itemValue(item) === itemValue;
       })[0];
-
       if (existing && !self.options.allowDuplicates) {
         // Invoke onTagExists
         if (self.options.onTagExists) {
@@ -68333,44 +69003,49 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
           });
           self.options.onTagExists(item, $existingTag);
         }
-
         return;
-      } // if length greater than limit
+      }
 
+      // if length greater than limit
+      if (self.items().toString().length + item.length + 1 > self.options.maxInputLength) return;
 
-      if (self.items().toString().length + item.length + 1 > self.options.maxInputLength) return; // raise beforeItemAdd arg
-
+      // raise beforeItemAdd arg
       var beforeItemAddEvent = $.Event('beforeItemAdd', {
         item: item,
         cancel: false,
         options: options
       });
       self.$element.trigger(beforeItemAddEvent);
-      if (beforeItemAddEvent.cancel) return; // register item in internal array and map
+      if (beforeItemAddEvent.cancel) return;
 
-      self.itemsArray.push(item); // add a tag element
+      // register item in internal array and map
+      self.itemsArray.push(item);
+
+      // add a tag element
 
       var $tag = $('<span class="' + htmlEncode(tagClass) + (itemTitle !== null ? '" title="' + itemTitle : '') + '">' + htmlEncode(itemText) + '<span data-role="remove"></span></span>');
       $tag.data('item', item);
-      self.findInputWrapper().before($tag); // Check to see if the tag exists in its raw or uri-encoded form
+      self.findInputWrapper().before($tag);
 
-      var optionExists = $('option[value="' + encodeURIComponent(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length || $('option[value="' + htmlEncode(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length; // add <option /> if item represents a value not present in one of the <select />'s options
+      // Check to see if the tag exists in its raw or uri-encoded form
+      var optionExists = $('option[value="' + encodeURIComponent(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length || $('option[value="' + htmlEncode(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length;
 
+      // add <option /> if item represents a value not present in one of the <select />'s options
       if (self.isSelect && !optionExists) {
         var $option = $('<option selected>' + htmlEncode(itemText) + '</option>');
         $option.data('item', item);
         $option.attr('value', itemValue);
         self.$element.append($option);
       }
+      if (!dontPushVal) self.pushVal(self.options.triggerChange);
 
-      if (!dontPushVal) self.pushVal(self.options.triggerChange); // Add class when reached maxTags
+      // Add class when reached maxTags
+      if (self.options.maxTags === self.itemsArray.length || self.items().toString().length === self.options.maxInputLength) self.$container.addClass('bootstrap-tagsinput-max');
 
-      if (self.options.maxTags === self.itemsArray.length || self.items().toString().length === self.options.maxInputLength) self.$container.addClass('bootstrap-tagsinput-max'); // If using typeahead, once the tag has been added, clear the typeahead value so it does not stick around in the input.
-
+      // If using typeahead, once the tag has been added, clear the typeahead value so it does not stick around in the input.
       if ($('.typeahead, .twitter-typeahead', self.$container).length) {
         self.$input.typeahead('val', '');
       }
-
       if (this.isInit) {
         self.$element.trigger($.Event('itemAddedOnInit', {
           item: item,
@@ -68383,14 +69058,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }));
       }
     },
-
     /**
      * Removes the given item. Pass true to dontPushVal to prevent updating the
      * elements val()
      */
     remove: function remove(item, dontPushVal, options) {
       var self = this;
-
       if (self.objectItems) {
         if (_typeof(item) === "object") item = $.grep(self.itemsArray, function (other) {
           return self.options.itemValue(other) == self.options.itemValue(item);
@@ -68399,7 +69072,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         });
         item = item[item.length - 1];
       }
-
       if (item) {
         var beforeItemRemoveEvent = $.Event('beforeItemRemove', {
           item: item,
@@ -68416,16 +69088,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }).remove();
         if ($.inArray(item, self.itemsArray) !== -1) self.itemsArray.splice($.inArray(item, self.itemsArray), 1);
       }
+      if (!dontPushVal) self.pushVal(self.options.triggerChange);
 
-      if (!dontPushVal) self.pushVal(self.options.triggerChange); // Remove class when reached maxTags
-
+      // Remove class when reached maxTags
       if (self.options.maxTags > self.itemsArray.length) self.$container.removeClass('bootstrap-tagsinput-max');
       self.$element.trigger($.Event('itemRemoved', {
         item: item,
         options: options
       }));
     },
-
     /**
      * Removes all items
      */
@@ -68433,14 +69104,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var self = this;
       $('.badge', self.$container).remove();
       $('option', self.$element).remove();
-
-      while (self.itemsArray.length > 0) {
-        self.itemsArray.pop();
-      }
-
+      while (self.itemsArray.length > 0) self.itemsArray.pop();
       self.pushVal(self.options.triggerChange);
     },
-
     /**
      * Refreshes the tags so they match the text/value of their corresponding
      * item.
@@ -68449,17 +69115,17 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       var self = this;
       $('.badge', self.$container).each(function () {
         var $tag = $(this),
-            item = $tag.data('item'),
-            itemValue = self.options.itemValue(item),
-            itemText = self.options.itemText(item),
-            tagClass = self.options.tagClass(item); // Update tag's class and inner text
+          item = $tag.data('item'),
+          itemValue = self.options.itemValue(item),
+          itemText = self.options.itemText(item),
+          tagClass = self.options.tagClass(item);
 
+        // Update tag's class and inner text
         $tag.attr('class', null);
         $tag.addClass('badge ' + htmlEncode(tagClass));
         $tag.contents().filter(function () {
           return this.nodeType == 3;
         })[0].nodeValue = htmlEncode(itemText);
-
         if (self.isSelect) {
           var option = $('option', self.$element).filter(function () {
             return $(this).data('item') === item;
@@ -68468,39 +69134,37 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }
       });
     },
-
     /**
      * Returns the items added as tags
      */
     items: function items() {
       return this.itemsArray;
     },
-
     /**
      * Assembly value by retrieving the value of each item, and set it on the
      * element.
      */
     pushVal: function pushVal() {
       var self = this,
-          val = $.map(self.items(), function (item) {
-        return self.options.itemValue(item).toString();
-      });
+        val = $.map(self.items(), function (item) {
+          return self.options.itemValue(item).toString();
+        });
       self.$element.val(val.join(self.options.delimiter));
       if (self.options.triggerChange) self.$element.trigger('change');
     },
-
     /**
      * Initializes the tags input behaviour on the element
      */
     build: function build(options) {
       var self = this;
-      self.options = $.extend({}, defaultOptions, options); // When itemValue is set, freeInput should always be false
-
+      self.options = $.extend({}, defaultOptions, options);
+      // When itemValue is set, freeInput should always be false
       if (self.objectItems) self.options.freeInput = false;
       makeOptionItemFunction(self.options, 'itemValue');
       makeOptionItemFunction(self.options, 'itemText');
-      makeOptionFunction(self.options, 'tagClass'); // Typeahead Bootstrap version 2.3.2
+      makeOptionFunction(self.options, 'tagClass');
 
+      // Typeahead Bootstrap version 2.3.2
       if (self.options.typeahead) {
         var typeahead = self.options.typeahead || {};
         makeOptionFunction(typeahead, 'source');
@@ -68508,20 +69172,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
           source: function source(query, process) {
             function processItems(items) {
               var texts = [];
-
               for (var i = 0; i < items.length; i++) {
                 var text = self.options.itemText(items[i]);
                 map[text] = items[i];
                 texts.push(text);
               }
-
               process(texts);
             }
-
             this.map = {};
             var map = this.map,
-                data = typeahead.source(query);
-
+              data = typeahead.source(query);
             if ($.isFunction(data.success)) {
               // support for Angular callbacks
               data.success(processItems);
@@ -68548,17 +69208,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             return text.replace(regex, "<strong>$1</strong>");
           }
         }));
-      } // typeahead.js
+      }
 
-
+      // typeahead.js
       if (self.options.typeaheadjs) {
         // Determine if main configurations were passed or simply a dataset
         var typeaheadjs = self.options.typeaheadjs;
-
         if (!$.isArray(typeaheadjs)) {
           typeaheadjs = [null, typeaheadjs];
         }
-
         $.fn.typeahead.apply(self.$input, typeaheadjs).on('typeahead:selected', $.proxy(function (obj, datum, name) {
           var index = 0;
           typeaheadjs.some(function (dataset, _index) {
@@ -68566,28 +69224,24 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
               index = _index;
               return true;
             }
-
             return false;
-          }); // @TODO Dep: https://github.com/corejavascript/typeahead.js/issues/89
+          });
 
+          // @TODO Dep: https://github.com/corejavascript/typeahead.js/issues/89
           if (typeaheadjs[index].valueKey) {
             self.add(datum[typeaheadjs[index].valueKey]);
           } else {
             self.add(datum);
           }
-
           self.$input.typeahead('val', '');
         }, self));
       }
-
       self.$container.on('click', $.proxy(function (event) {
         if (!self.$element.attr('disabled')) {
           self.$input.removeAttr('disabled');
         }
-
         self.$input.focus();
       }, self));
-
       if (self.options.addOnBlur && self.options.freeInput) {
         self.$input.on('focusout', $.proxy(function (event) {
           // HACK: only process on focusout when no typeahead opened, to
@@ -68597,9 +69251,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
             self.$input.val('');
           }
         }, self));
-      } // Toggle the 'focus' css class on the container when it has focus
+      }
 
-
+      // Toggle the 'focus' css class on the container when it has focus
       self.$container.on({
         focusin: function focusin() {
           self.$container.addClass(self.options.focusClass);
@@ -68610,115 +69264,100 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       });
       self.$container.on('keydown', 'input', $.proxy(function (event) {
         var $input = $(event.target),
-            $inputWrapper = self.findInputWrapper();
-
+          $inputWrapper = self.findInputWrapper();
         if (self.$element.attr('disabled')) {
           self.$input.attr('disabled', 'disabled');
           return;
         }
-
         switch (event.which) {
           // BACKSPACE
           case 8:
             if (doGetCaretPosition($input[0]) === 0) {
               var prev = $inputWrapper.prev();
-
               if (prev.length) {
                 if (self.options.editOnBackspace === true) {
                   $input.val(prev.data('item'));
                 }
-
                 self.remove(prev.data('item'));
               }
             }
-
             break;
-          // DELETE
 
+          // DELETE
           case 46:
             if (doGetCaretPosition($input[0]) === 0) {
               var next = $inputWrapper.next();
-
               if (next.length) {
                 self.remove(next.data('item'));
               }
             }
-
             break;
-          // LEFT ARROW
 
+          // LEFT ARROW
           case 37:
             // Try to move the input before the previous tag
             var $prevTag = $inputWrapper.prev();
-
             if ($input.val().length === 0 && $prevTag[0]) {
               $prevTag.before($inputWrapper);
               $input.focus();
             }
-
             break;
           // RIGHT ARROW
-
           case 39:
             // Try to move the input after the next tag
             var $nextTag = $inputWrapper.next();
-
             if ($input.val().length === 0 && $nextTag[0]) {
               $nextTag.after($inputWrapper);
               $input.focus();
             }
-
             break;
+          default:
+          // ignore
+        }
 
-          default: // ignore
-
-        } // Reset internal input's size
-
-
+        // Reset internal input's size
         var textLength = $input.val().length,
-            wordSpace = Math.ceil(textLength / 5),
-            size = textLength + wordSpace + 1;
+          wordSpace = Math.ceil(textLength / 5),
+          size = textLength + wordSpace + 1;
         $input.attr('size', Math.max(this.inputSize, size));
       }, self));
       self.$container.on('keypress', 'input', $.proxy(function (event) {
         var $input = $(event.target);
-
         if (self.$element.attr('disabled')) {
           self.$input.attr('disabled', 'disabled');
           return;
         }
-
         var text = $input.val(),
-            maxLengthReached = self.options.maxChars && text.length >= self.options.maxChars;
-
+          maxLengthReached = self.options.maxChars && text.length >= self.options.maxChars;
         if (self.options.freeInput && (keyCombinationInList(event, self.options.confirmKeys) || maxLengthReached)) {
           // Only attempt to add a tag if there is data in the field
           if (text.length !== 0) {
             self.add(maxLengthReached ? text.substr(0, self.options.maxChars) : text);
             $input.val('');
-          } // If the field is empty, let the event triggered fire as usual
+          }
 
-
+          // If the field is empty, let the event triggered fire as usual
           if (self.options.cancelConfirmKeysOnEmpty === false) {
             event.preventDefault();
           }
-        } // Reset internal input's size
+        }
 
-
+        // Reset internal input's size
         var textLength = $input.val().length,
-            wordSpace = Math.ceil(textLength / 5),
-            size = textLength + wordSpace + 1;
+          wordSpace = Math.ceil(textLength / 5),
+          size = textLength + wordSpace + 1;
         $input.attr('size', Math.max(this.inputSize, size));
-      }, self)); // Remove icon clicked
+      }, self));
 
+      // Remove icon clicked
       self.$container.on('click', '[data-role=remove]', $.proxy(function (event) {
         if (self.$element.attr('disabled')) {
           return;
         }
-
         self.remove($(event.target).closest('.badge').data('item'));
-      }, self)); // Only add existing value as tags when using strings as tags
+      }, self));
 
+      // Only add existing value as tags when using strings as tags
       if (self.options.itemValue === defaultOptions.itemValue) {
         if (self.$element[0].tagName === 'INPUT') {
           self.add(self.$element.val());
@@ -68729,68 +69368,60 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         }
       }
     },
-
     /**
      * Removes all tagsinput behaviour and unregsiter all event handlers
      */
     destroy: function destroy() {
-      var self = this; // Unbind events
+      var self = this;
 
+      // Unbind events
       self.$container.off('keypress', 'input');
       self.$container.off('click', '[role=remove]');
       self.$container.remove();
       self.$element.removeData('tagsinput');
       self.$element.show();
     },
-
     /**
      * Sets focus on the tagsinput
      */
     focus: function focus() {
       this.$input.focus();
     },
-
     /**
      * Returns the internal input element
      */
     input: function input() {
       return this.$input;
     },
-
     /**
      * Returns the element which is wrapped around the internal input. This
      * is normally the $container, but typeahead.js moves the $input element.
      */
     findInputWrapper: function findInputWrapper() {
       var elt = this.$input[0],
-          container = this.$container[0];
-
-      while (elt && elt.parentNode !== container) {
-        elt = elt.parentNode;
-      }
-
+        container = this.$container[0];
+      while (elt && elt.parentNode !== container) elt = elt.parentNode;
       return $(elt);
     }
   };
+
   /**
    * Register JQuery plugin
    */
-
   $.fn.tagsinput = function (arg1, arg2, arg3) {
     var results = [];
     this.each(function () {
-      var tagsinput = $(this).data('tagsinput'); // Initialize a new tags input
-
+      var tagsinput = $(this).data('tagsinput');
+      // Initialize a new tags input
       if (!tagsinput) {
         tagsinput = new TagsInput(this, arg1);
         $(this).data('tagsinput', tagsinput);
         results.push(tagsinput);
-
         if (this.tagName === 'SELECT') {
           $('option', $(this)).attr('selected', 'selected');
-        } // Init tags from $(this).val()
+        }
 
-
+        // Init tags from $(this).val()
         $(this).val($(this).val());
       } else if (!arg1 && !arg2) {
         // tagsinput already exists
@@ -68803,11 +69434,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         } else {
           var retVal = tagsinput[arg1](arg2);
         }
-
         if (retVal !== undefined) results.push(retVal);
       }
     });
-
     if (typeof arg1 == 'string') {
       // Return the results from the invoked function calls
       return results.length > 1 ? results : results[0];
@@ -68815,28 +69444,24 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       return results;
     }
   };
-
   $.fn.tagsinput.Constructor = TagsInput;
+
   /**
    * Most options support both a string or number as well as a function as
    * option value. This function makes sure that the option with the given
    * key in the given options is wrapped in a function
    */
-
   function makeOptionItemFunction(options, key) {
     if (typeof options[key] !== 'function') {
       var propertyName = options[key];
-
       options[key] = function (item) {
         return item[propertyName];
       };
     }
   }
-
   function makeOptionFunction(options, key) {
     if (typeof options[key] !== 'function') {
       var value = options[key];
-
       options[key] = function () {
         return value;
       };
@@ -68845,10 +69470,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
   /**
    * HtmlEncodes the given value
    */
-
-
   var htmlEncodeContainer = $('<div />');
-
   function htmlEncode(value) {
     if (value) {
       return htmlEncodeContainer.text(value).html();
@@ -68856,15 +69478,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
       return '';
     }
   }
+
   /**
    * Returns the position of the caret in the given input field
    * http://flightschool.acylt.com/devnotes/caret-position-woes/
    */
-
-
   function doGetCaretPosition(oField) {
     var iCaretPos = 0;
-
     if (document.selection) {
       oField.focus();
       var oSel = document.selection.createRange();
@@ -68873,9 +69493,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     } else if (oField.selectionStart || oField.selectionStart == '0') {
       iCaretPos = oField.selectionStart;
     }
-
     return iCaretPos;
   }
+
   /**
     * Returns boolean indicates whether user has pressed an expected key combination.
     * @param object keyPressEvent: JavaScript event object, refer
@@ -68883,8 +69503,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     * @param object lookupList: expected key combinations, as in:
     *     [13, {which: 188, shiftKey: true}]
     */
-
-
   function keyCombinationInList(keyPressEvent, lookupList) {
     var found = false;
     $.each(lookupList, function (index, keyCombination) {
@@ -68892,12 +69510,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
         found = true;
         return false;
       }
-
       if (keyPressEvent.which === keyCombination.which) {
         var alt = !keyCombination.hasOwnProperty('altKey') || keyPressEvent.altKey === keyCombination.altKey,
-            shift = !keyCombination.hasOwnProperty('shiftKey') || keyPressEvent.shiftKey === keyCombination.shiftKey,
-            ctrl = !keyCombination.hasOwnProperty('ctrlKey') || keyPressEvent.ctrlKey === keyCombination.ctrlKey;
-
+          shift = !keyCombination.hasOwnProperty('shiftKey') || keyPressEvent.shiftKey === keyCombination.shiftKey,
+          ctrl = !keyCombination.hasOwnProperty('ctrlKey') || keyPressEvent.ctrlKey === keyCombination.ctrlKey;
         if (alt && shift && ctrl) {
           found = true;
           return false;
@@ -68906,12 +69522,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
     });
     return found;
   }
+
   /**
    * Initialize tagsinput behaviour on inputs and selects which have
    * data-role=tagsinput
    */
-
-
   $(function () {
     $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
   });
@@ -68927,7 +69542,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./dist/tagsinput */ "./resources/js/panel/scripts/tags-input/dist/tagsinput.js");
-
 __webpack_require__(/*! ./dist/tagsinput.css */ "./resources/js/panel/scripts/tags-input/dist/tagsinput.css");
 
 /***/ }),
@@ -68978,8 +69592,8 @@ __webpack_require__.r(__webpack_exports__);
 
   window.addEventListener('load', function () {
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation'); // Loop over them and prevent submission
-
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function (form) {
       form.addEventListener('submit', function (event) {
         if (form.checkValidity() === false) {
@@ -68987,7 +69601,6 @@ __webpack_require__.r(__webpack_exports__);
           event.stopPropagation();
           sweetalert2__WEBPACK_IMPORTED_MODULE_0___default.a.fire('¡Ups!', 'Parece que hace falta campos obligatorios por llenar...', 'error');
         }
-
         form.classList.add('was-validated');
       }, false);
     });
@@ -69003,7 +69616,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Proyectos D\Falcon\agrans\resources\js\panel\scripts\index.js */"./resources/js/panel/scripts/index.js");
+module.exports = __webpack_require__(/*! C:\Users\Equipo 1\Documents\proyectos\amate_reingenieria_5.8\resources\js\panel\scripts\index.js */"./resources/js/panel/scripts/index.js");
 
 
 /***/ })
