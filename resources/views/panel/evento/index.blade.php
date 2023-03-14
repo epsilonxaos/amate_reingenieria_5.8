@@ -44,6 +44,7 @@
                                     {{-- <th scope="col" class="sort" data-sort="categoria">Categoria</th> --}}
 									<th scope="col" class="sort text-center" width="200px" data-sort="fecha">Fecha publicación</th>
 									<th scope="col" class="no-sort text-center" width="200px">Visualizar</th>
+									<th scope="col" class="no-sort text-center" width="200px">Destacar</th>
 									<th scope="col" class="no-sort text-center" width="150px">Acciones</th>
 								</tr>
 							</thead>
@@ -67,6 +68,19 @@
                                                 <div class="wp">
                                                     <input class="tgl tgl-light chkbx-toggle" id="toggle_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> status == 1) ? 'checked="checked"' : ''}}"/>
                                                     <label class="tgl-btn toggle_{{$num}}" data-url="{{route('panel.evento.status')}}" for="toggle_{{$num}}" onclick="cambiar_status('toggle_{{$num}}', {{$row -> id}}, {{($row -> status == 1) ? 0 : 1}})"></label>
+                                                </div>
+                                                {{-- @can(PermissionKey::Noticias['permissions']['status']['name'])
+                                                @elsecan(PermissionKey::Noticias['permissions']['index']['name'])
+                                                    <div class="wp">
+                                                        <input class="tgl tgl-light chkbx-toggle" type="checkbox" disabled/>
+                                                        <label class="tgl-btn toggle_{{$num}}" for="toggle_{{$num}}"></label>
+                                                    </div>
+                                                @endcan --}}
+                                            </td>
+                                            <td>
+                                                <div class="wp">
+                                                    <input class="tgl tgl-light chkbx-toggle" id="toggle_destacar_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> destacar == 1) ? 'checked="checked"' : ''}}"/>
+                                                    <label class="tgl-btn toggle_destacar_{{$num}}" data-url="{{route('panel.evento.destacar')}}" for="toggle_destacar_{{$num}}" onclick="cambiar_status('toggle_destacar_{{$num}}', {{$row -> id}}, {{($row -> destacar == 1) ? 0 : 1}})"></label>
                                                 </div>
                                                 {{-- @can(PermissionKey::Noticias['permissions']['status']['name'])
                                                 @elsecan(PermissionKey::Noticias['permissions']['index']['name'])

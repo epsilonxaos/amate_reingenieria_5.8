@@ -30,6 +30,7 @@ class CreateEventoTable extends Migration
             $table->time('horario') -> nullable();
             $table->enum('tiempo_espera', [24, 48]) -> default(48);
             $table->tinyInteger('status') -> default(0);
+            $table->tinyInteger('destacar') -> default(0);
             $table->timestamps();
             
             $table->foreign('categorias_id')->references('id')->on('categorias');

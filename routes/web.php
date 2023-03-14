@@ -103,6 +103,7 @@ Route::prefix('/admin')->group(function(){
         Route::post('/edit/{id}/update', 'EventoController@update') -> name('panel.evento.update');
         Route::delete('/destroy/{id}', 'EventoController@destroy') -> name('panel.evento.destroy');
         Route::post('/change/status', 'EventoController@changeStatus') -> name('panel.evento.status');
+        Route::post('/change/desctacar', 'EventoController@changeDestacar') -> name('panel.evento.destacar');
 
         // Galeria
         Route::prefix('/galeria') -> middleware('auth:admin') -> group(function(){

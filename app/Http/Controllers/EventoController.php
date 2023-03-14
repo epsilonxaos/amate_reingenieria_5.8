@@ -400,4 +400,16 @@ class EventoController extends Controller
         Helpers::changeStatus('evento', $request -> id, $request -> status);
         return 'true';
     }
+
+    /**
+     * Change status to show - hidden
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeDestacar(Request $request)
+    {
+        Helpers::changeDestacar('evento', $request -> id, $request -> status);
+        return 'true';
+    }
 }

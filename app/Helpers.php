@@ -51,6 +51,18 @@ class Helpers {
     }
 
     /**
+     * Change destacar to show - hidden
+     *
+     * @param string Name table database $table
+     * @param string Id of row  $id
+     * @param string New status  $status
+     */
+    public static function changeDestacar($table, $id, $status)
+    {
+        DB::table($table) -> where('id', $id) -> update(['destacar' => $status]);
+    }
+
+    /**
      * Return fecha en español - 01 de Marzo del 2021
      * @param string Required date  $fecha
      * @return string New Date
