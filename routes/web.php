@@ -94,6 +94,14 @@ Route::prefix('/admin')->group(function(){
         Route::post('/change/status', 'CategoriasController@changeStatus') -> name('panel.categorias.status');
     });
 
+    //Orden
+    Route::prefix('/ventas') -> middleware('auth:admin') -> group(function(){
+        Route::get('/', 'OrdenController@index') -> name('panel.orden.index');
+        Route::get('/create', 'OrdenController@create') -> name('panel.orden.create');
+        Route::put('/create/store', 'OrdenController@store') -> name('panel.orden.store');
+        Route::get('/show/{id}', 'OrdenController@show') -> name('panel.orden.show');
+    });
+
     //Cupones
     Route::prefix('/cupones') -> middleware('auth:admin') -> group(function(){
         Route::get('/', 'CuponController@index') -> name('panel.cupon.index');

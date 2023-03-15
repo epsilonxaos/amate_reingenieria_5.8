@@ -42,6 +42,13 @@
 						<span class="nav-link-text">Cupones</span>
 					</a>
 				</li>
+
+				<li class="nav-item">
+					<a class="nav-link {{request() -> is('admin/ventas*') ? 'active' : ''}}" href="{{route('panel.orden.index')}}">
+						<i class="ni ni-bullet-list-67 text-default"></i>
+						<span class="nav-link-text">Ventas Experiencias</span>
+					</a>
+				</li>
 				{{-- <li class="nav-item d-none">
 					<a class="nav-link {{request() -> is('admin/noticias*') ? 'active' : ''}}" href="#navbar-noticias" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/noticias*') ? 'true' : 'false'}}" aria-controls="navbar-tables">
 						<i class="ni ni-books text-default"></i>
