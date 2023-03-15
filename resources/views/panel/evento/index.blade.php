@@ -79,7 +79,7 @@
                                             </td>
                                             <td>
                                                 <div class="wp">
-                                                    <input class="tgl tgl-light chkbx-toggle" id="toggle_destacar_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> destacar == 1) ? 'checked="checked"' : ''}}"/>
+                                                    <input class="tgl tgl-light chkbx-toggle" id="toggle_destacar_{{$num}}" type="checkbox" value="{{$row -> id}}" {{($row -> destacar == 1) ? 'checked="checked"' : ''}}/>
                                                     <label class="tgl-btn toggle_destacar_{{$num}}" data-url="{{route('panel.evento.destacar')}}" for="toggle_destacar_{{$num}}" onclick="cambiar_status('toggle_destacar_{{$num}}', {{$row -> id}}, {{($row -> destacar == 1) ? 0 : 1}})"></label>
                                                 </div>
                                                 {{-- @can(PermissionKey::Noticias['permissions']['status']['name'])

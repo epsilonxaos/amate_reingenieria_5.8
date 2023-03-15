@@ -12,12 +12,7 @@
 		<div class="collapse navbar-collapse" id="sidenav-collapse-main">
 			<!-- Nav items -->
 			<ul class="navbar-nav">
-				{{-- <li class="nav-item">
-					<a class="nav-link {{request() -> is('admin/evento*') ? 'active' : ''}}" href="{{route('panel.evento.index')}}">
-						<i class="ni ni-bullet-list-67 text-default"></i>
-						<span class="nav-link-text">Experiencias</span>
-					</a>
-				</li> --}}
+				
 				<li class="nav-item">
 					<a class="nav-link {{request() -> is('admin/evento*') ? 'active' : ''}}" href="#navbar-evento" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/evento*') ? 'true' : 'false'}}" aria-controls="navbar-tables">
 						<i class="ni ni-books text-default"></i>
@@ -39,6 +34,13 @@
 							</li>
 						</ul>
 					</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link {{request() -> is('admin/cupones*') ? 'active' : ''}}" href="{{route('panel.cupon.index')}}">
+						<i class="ni ni-bullet-list-67 text-default"></i>
+						<span class="nav-link-text">Cupones</span>
+					</a>
 				</li>
 				{{-- <li class="nav-item d-none">
 					<a class="nav-link {{request() -> is('admin/noticias*') ? 'active' : ''}}" href="#navbar-noticias" data-toggle="collapse" role="button" aria-expanded="{{request() -> is('admin/noticias*') ? 'true' : 'false'}}" aria-controls="navbar-tables">

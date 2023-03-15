@@ -68,7 +68,7 @@ class CuponController extends Controller
         $add -> fecha_inicio = $request -> fecha_inicio;
         $add -> fecha_finalizacion = $request -> fecha_finalizacion;
         $add -> limite_usos = $request -> limite_usos;
-        $add -> usos = $request -> usos;
+        $add -> usos = 0;
         $add -> save();
 
         return redirect() -> back() -> with('success', 'Registro creado correctamente!');
@@ -131,7 +131,6 @@ class CuponController extends Controller
         $upd -> fecha_inicio = $request -> fecha_inicio;
         $upd -> fecha_finalizacion = $request -> fecha_finalizacion;
         $upd -> limite_usos = $request -> limite_usos;
-        $upd -> usos = $request -> usos;
         $upd -> save();
 
         return redirect() -> back() -> with('success', 'Registro actualizado correctamente!');
@@ -145,7 +144,7 @@ class CuponController extends Controller
      */
     public function destroy(Int $id)
     {
-        Cupon::find('id', $id) -> delete();
+        Cupon::find($id) -> delete();
 
         return redirect() -> back() -> with('success', 'Registro eliminado correctamente!');
     }

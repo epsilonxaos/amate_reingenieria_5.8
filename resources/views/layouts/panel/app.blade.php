@@ -165,8 +165,21 @@
     <script src="{{asset('panel/alertify/alertify.min.js')}}"></script>
     <script src="{{asset('panel/sweetalert/sweetalert.min.js')}}"></script>
     @stack('js')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/es.js"></script>
+    <style>
+        .fechasPicker {background-color: white !important}
+    </style>
     <script>
-
+        // commonjs
+        // const flatpickr = require("flatpickr");
+        // creates multiple instances
+        $(".fechasPicker").flatpickr( {
+            locale: 'es',
+            altInput: true,
+            dateFormat: "Y-m-d",
+        });
         alertify.set('notifier','position', 'top-right');
 
         $('.dropify').dropify();
