@@ -234,7 +234,7 @@ class AdminController extends Controller
     public function login(Request $request){
         //Attempt to log in the seller
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
-            return redirect()->route('panel.reg.index');
+            return redirect()->route('panel.evento.index');
         }else{
             return redirect()->back()->withInput()->withErrors(['message' => 'Correo o contraseña invalida']);
         }
