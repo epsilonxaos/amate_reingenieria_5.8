@@ -94,6 +94,17 @@ Route::prefix('/admin')->group(function(){
         Route::post('/change/status', 'CategoriasController@changeStatus') -> name('panel.categorias.status');
     });
 
+    //Cupones
+    Route::prefix('/cupones') -> middleware('auth:admin') -> group(function(){
+        Route::get('/', 'CuponController@index') -> name('panel.cupon.index');
+        Route::get('/create', 'CuponController@create') -> name('panel.cupon.create');
+        Route::put('/create/store', 'CuponController@store') -> name('panel.cupon.store');
+        Route::get('/edit/{id}', 'CuponController@edit') -> name('panel.cupon.edit');
+        Route::post('/edit/{id}/update', 'CuponController@update') -> name('panel.cupon.update');
+        Route::delete('/destroy/{id}', 'CuponController@destroy') -> name('panel.cupon.destroy');
+        Route::post('/change/status', 'CuponController@changeStatus') -> name('panel.cupon.status');
+    });
+
     //Experiencias o Eventos
     Route::prefix('/evento') -> middleware('auth:admin') -> group(function(){
         Route::get('/', 'EventoController@index') -> name('panel.evento.index');
