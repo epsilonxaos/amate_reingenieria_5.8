@@ -45,7 +45,7 @@
                                     <th scope="col" class="sort" data-sort="usos">Usos realizados</th>
 									<th scope="col" class="sort text-center" data-sort="fecha_inicio">Inicia</th>
 									<th scope="col" class="sort text-center" data-sort="fecha_finalizacion">Finaliza</th>
-									<th scope="col" class="sort text-center" data-sort="fecha">Fecha creación</th>
+									<th scope="col" class="sort text-center" data-sort="fecha">Estado</th>
 									<th scope="col" class="no-sort text-center" width="200px">Activo</th>
 									<th scope="col" class="no-sort text-center" width="150px">Acciones</th>
 								</tr>
@@ -70,7 +70,7 @@
                                                 {{ \App\Helpers::dateSpanishComplete($row -> fecha_finalizacion) }}
                                             </td>
                                             <td class="text-center">
-                                                {{ \App\Helpers::dateSpanishComplete($row -> created_at) }}
+                                                {!! (\App\Helpers::inTime($row -> fecha_finalizacion)) ? '<span class="badge badge-danger">Finalizado</span>' : '<span class="badge badge-success">Valido</span>' !!}
                                             </td>
                                             <td>
                                                 <div class="wp">

@@ -87,4 +87,18 @@ class Helpers {
         $mes = $meses[($fecha->format('n')) - 1];
         return $fecha->format('d') . '/' . $mes . '/' . $fecha->format('Y') ;
     }
+
+    /**
+     * Return si la fecha es mayor o igual al dia de hoy
+     * @param string Required date  $date
+     * @return string Bool
+     */
+    public static function inTime($date) {
+        $now =Carbon::now() -> format('Y-m-d');
+        $date1 = Carbon::createFromFormat('Y-m-d', $now);
+        $date2 = Carbon::createFromFormat('Y-m-d', $date);
+
+        $result = $date1->gte($date2);
+        return $result;
+    }
 }

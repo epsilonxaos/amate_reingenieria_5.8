@@ -129,6 +129,10 @@
         .options-flotting .item.delete {
             background-color: crimson;
         }
+
+        .pointer-events-none { pointer-events: none; background-color: #f7f7f7;}
+
+        .fechasPicker, .fechasPicker24, .fechasPicker48 {background-color: white !important}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -168,9 +172,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/es.js"></script>
-    <style>
-        .fechasPicker {background-color: white !important}
-    </style>
     <script>
         // commonjs
         // const flatpickr = require("flatpickr");
@@ -180,6 +181,44 @@
             altInput: true,
             dateFormat: "Y-m-d",
         });
+
+        $(".fechasPicker24").flatpickr( {
+            locale: 'es',
+            altInput: true,
+            dateFormat: "Y-m-d",
+            minDate:  new Date().fp_incr(1)
+        });
+
+        $(".fechasPicker48").flatpickr( {
+            locale: 'es',
+            altInput: true,
+            dateFormat: "Y-m-d",
+            minDate:  new Date().fp_incr(2)
+        });
+
+        function reInitTimes() {
+            $(".fechasPicker").flatpickr( {
+                locale: 'es',
+                altInput: true,
+                dateFormat: "Y-m-d",
+            });
+
+            $(".fechasPicker24").flatpickr( {
+                locale: 'es',
+                altInput: true,
+                dateFormat: "Y-m-d",
+                minDate:  new Date().fp_incr(1)
+            });
+
+            $(".fechasPicker48").flatpickr( {
+                locale: 'es',
+                altInput: true,
+                dateFormat: "Y-m-d",
+                minDate:  new Date().fp_incr(2)
+            }); 
+        }
+
+
         alertify.set('notifier','position', 'top-right');
 
         $('.dropify').dropify();

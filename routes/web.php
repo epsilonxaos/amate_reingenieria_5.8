@@ -99,6 +99,7 @@ Route::prefix('/admin')->group(function(){
         Route::get('/', 'OrdenController@index') -> name('panel.orden.index');
         Route::get('/create', 'OrdenController@create') -> name('panel.orden.create');
         Route::put('/create/store', 'OrdenController@store') -> name('panel.orden.store');
+        Route::get('/{id}/precios', 'OrdenController@getListPrecios') -> name('panel.orden.precios');
         Route::get('/show/{id}', 'OrdenController@show') -> name('panel.orden.show');
     });
 

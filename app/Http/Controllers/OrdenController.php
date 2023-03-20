@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cupon;
 use App\Evento;
+use App\EventoPrecio;
 use App\Orden;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -66,9 +67,10 @@ class OrdenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getListPrecios()
+    public function getListPrecios(Int $id)
     {
-        return true;
+        $precios = EventoPrecio::where('evento_id', $id) -> get();
+        return response($precios, 200);
     }
 
     /**
@@ -81,10 +83,8 @@ class OrdenController extends Controller
     {
         $add = new Orden();
 
-        $add -> id = $request -> id;
         $add -> evento_id = $request -> evento_id;
         $add -> cupon_id = $request -> cupon_id;
-        $add -> folio = $request -> folio;
         $add -> nombre_completo = $request -> nombre_completo;
         $add -> correo = $request -> correo;
         $add -> telefono = $request -> telefono;
@@ -96,7 +96,9 @@ class OrdenController extends Controller
         $add -> pago_referencia = $request -> pago_referencia;
         $add -> status = $request -> status;
         $add -> save();
-
+        
+        $add -> folio = $request -> folio;
+        $add -> save();
         return redirect() -> back() -> with('success', 'Registro creado correctamente!');
     }
 
